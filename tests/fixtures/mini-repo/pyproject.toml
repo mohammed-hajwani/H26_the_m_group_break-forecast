@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tinyfmt"
+version = "0.2.0"
+description = "Tiny formatting helpers (break-forecast generality fixture)"
+requires-python = ">=3.8"
+dependencies = [
+    "pytz==2021.1",
+    "docopt==0.6.2",
+    "six==1.15.0",
+    "colorama==0.4.4",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+tinyfmt = "tinyfmt.cli:main"
+
+[tool.setuptools]
+packages = ["tinyfmt"]

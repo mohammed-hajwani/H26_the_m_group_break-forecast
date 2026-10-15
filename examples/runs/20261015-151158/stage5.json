@@ -1,0 +1,2401 @@
+[
+  {
+    "cell": "replace:appdirs",
+    "type": "replace",
+    "dependency": "appdirs",
+    "python": "3.12",
+    "target_version": "platformdirs",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-appdirs-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-replace-appdirs-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\replace-appdirs-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 1.75,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-appdirs-3.12-install.log"
+    },
+    "installed": {
+      "appdirs": null,
+      "platformdirs": "4.13.0"
+    },
+    "installed_target": {},
+    "result": "import-fail",
+    "normal": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'appdirs'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-appdirs-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'appdirs'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-appdirs-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [
+        "tests/test_cache.py::test_cache_round_trip",
+        "tests/test_checker.py::test_closed_port_is_down",
+        "tests/test_checker.py::test_latin1_title",
+        "tests/test_checker.py::test_missing_is_down",
+        "tests/test_checker.py::test_ok_is_up",
+        "tests/test_checker.py::test_redirect_is_up",
+        "tests/test_checker.py::test_slow_is_up",
+        "tests/test_checker.py::test_user_agent",
+        "tests/test_config.py::test_sites_file_loads",
+        "tests/test_report.py::test_report_renders_all_sites"
+      ],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "replace:appdirs",
+    "type": "replace",
+    "dependency": "appdirs",
+    "python": "3.13",
+    "target_version": "platformdirs",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-appdirs-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-replace-appdirs-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\replace-appdirs-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 1.75,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-appdirs-3.13-install.log"
+    },
+    "installed": {
+      "appdirs": null,
+      "platformdirs": "4.13.0"
+    },
+    "installed_target": {},
+    "result": "import-fail",
+    "normal": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'appdirs'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-appdirs-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'appdirs'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-appdirs-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [
+        "tests/test_cache.py::test_cache_round_trip",
+        "tests/test_checker.py::test_closed_port_is_down",
+        "tests/test_checker.py::test_latin1_title",
+        "tests/test_checker.py::test_missing_is_down",
+        "tests/test_checker.py::test_ok_is_up",
+        "tests/test_checker.py::test_redirect_is_up",
+        "tests/test_checker.py::test_slow_is_up",
+        "tests/test_checker.py::test_user_agent",
+        "tests/test_config.py::test_sites_file_loads",
+        "tests/test_report.py::test_report_renders_all_sites"
+      ],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:chardet@7.6.0",
+    "type": "upgrade",
+    "dependency": "chardet",
+    "python": "3.12",
+    "target_version": "7.6.0",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-chardet-7.6.0-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-chardet-7.6.0-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-chardet-7.6.0-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 1.75,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-chardet-7.6.0-3.12-install.log"
+    },
+    "installed": {
+      "chardet": "7.6.0"
+    },
+    "installed_target": {
+      "chardet": "7.6.0"
+    },
+    "probes": {
+      "probes_run": [
+        "generic",
+        "chardet"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        },
+        {
+          "probe": "chardet",
+          "ran": true,
+          "divergences": [
+            {
+              "case": "detect_encoding_auto_latin1",
+              "reference": "ISO-8859-1",
+              "candidate": "Windows-1250"
+            },
+            {
+              "case": "detect_encoding_auto_utf8",
+              "reference": "Windows-1252",
+              "candidate": "utf-8"
+            }
+          ]
+        }
+      ],
+      "divergences": 2
+    },
+    "result": "warn",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "RequestsDependencyWarning",
+          "message": "urllib3 (2.0.2) or chardet (7.6.0)/charset_normalizer (3.1.0) doesn't match a supported version!",
+          "head": "urllib3 (2.0.2) or chardet (7.6.0)/charset_normalizer (3.1.0) doesn't match a supported version!",
+          "location": "__init__.py:109"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-chardet-7.6.0-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-chardet-7.6.0-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [
+      {
+        "category": "RequestsDependencyWarning",
+        "message": "urllib3 (2.0.2) or chardet (7.6.0)/charset_normalizer (3.1.0) doesn't match a supported version!"
+      }
+    ],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:chardet@7.6.0",
+    "type": "upgrade",
+    "dependency": "chardet",
+    "python": "3.13",
+    "target_version": "7.6.0",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-chardet-7.6.0-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-chardet-7.6.0-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-chardet-7.6.0-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 1.06,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-chardet-7.6.0-3.13-install.log"
+    },
+    "installed": {
+      "chardet": "7.6.0"
+    },
+    "installed_target": {
+      "chardet": "7.6.0"
+    },
+    "probes": {
+      "probes_run": [
+        "generic",
+        "chardet"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        },
+        {
+          "probe": "chardet",
+          "ran": true,
+          "divergences": [
+            {
+              "case": "detect_encoding_auto_latin1",
+              "reference": "ISO-8859-1",
+              "candidate": "Windows-1250"
+            },
+            {
+              "case": "detect_encoding_auto_utf8",
+              "reference": "Windows-1252",
+              "candidate": "utf-8"
+            }
+          ]
+        }
+      ],
+      "divergences": 2
+    },
+    "result": "warn",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "RequestsDependencyWarning",
+          "message": "urllib3 (2.0.2) or chardet (7.6.0)/charset_normalizer (3.1.0) doesn't match a supported version!",
+          "head": "urllib3 (2.0.2) or chardet (7.6.0)/charset_normalizer (3.1.0) doesn't match a supported version!",
+          "location": "__init__.py:109"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "location": "typing.py:400"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-chardet-7.6.0-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-chardet-7.6.0-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [
+      {
+        "category": "RequestsDependencyWarning",
+        "message": "urllib3 (2.0.2) or chardet (7.6.0)/charset_normalizer (3.1.0) doesn't match a supported version!"
+      }
+    ],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "remove:idna",
+    "type": "remove",
+    "dependency": "idna",
+    "python": "3.12",
+    "target_version": null,
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-idna-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-remove-idna-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\remove-idna-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 1.09,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-idna-3.12-install.log"
+    },
+    "installed": {
+      "idna": "3.20"
+    },
+    "installed_target": {},
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-idna-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-idna-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "remove:idna",
+    "type": "remove",
+    "dependency": "idna",
+    "python": "3.13",
+    "target_version": null,
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-idna-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-remove-idna-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\remove-idna-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.94,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-idna-3.13-install.log"
+    },
+    "installed": {
+      "idna": "3.20"
+    },
+    "installed_target": {},
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "location": "typing.py:400"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-idna-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-idna-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:jinja2@3.1.6",
+    "type": "upgrade",
+    "dependency": "jinja2",
+    "python": "3.12",
+    "target_version": "3.1.6",
+    "co_upgrades": {
+      "markupsafe": [
+        "1.1.1",
+        "3.0.4"
+      ]
+    },
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-jinja2-3.1.6-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.94,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-jinja2-3.1.6-3.12-install.log"
+    },
+    "installed": {
+      "jinja2": "3.1.6"
+    },
+    "installed_target": {
+      "jinja2": "3.1.6"
+    },
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-jinja2-3.1.6-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-jinja2-3.1.6-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:jinja2@3.1.6",
+    "type": "upgrade",
+    "dependency": "jinja2",
+    "python": "3.13",
+    "target_version": "3.1.6",
+    "co_upgrades": {
+      "markupsafe": [
+        "1.1.1",
+        "3.0.4"
+      ]
+    },
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-jinja2-3.1.6-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.97,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-jinja2-3.1.6-3.13-install.log"
+    },
+    "installed": {
+      "jinja2": "3.1.6"
+    },
+    "installed_target": {
+      "jinja2": "3.1.6"
+    },
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "location": "typing.py:400"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-jinja2-3.1.6-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-jinja2-3.1.6-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "replace:nose",
+    "type": "replace",
+    "dependency": "nose",
+    "python": "3.12",
+    "target_version": "pytest",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-nose-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-replace-nose-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\replace-nose-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.75,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-nose-3.12-install.log"
+    },
+    "installed": {
+      "nose": null
+    },
+    "installed_target": {},
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-nose-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-nose-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "replace:nose",
+    "type": "replace",
+    "dependency": "nose",
+    "python": "3.13",
+    "target_version": "pytest",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-nose-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-replace-nose-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\replace-nose-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.92,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-nose-3.13-install.log"
+    },
+    "installed": {
+      "nose": null
+    },
+    "installed_target": {},
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "location": "typing.py:400"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-nose-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-nose-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:pydantic@2.14.1",
+    "type": "upgrade",
+    "dependency": "pydantic",
+    "python": "3.12",
+    "target_version": "2.14.1",
+    "co_upgrades": {
+      "annotated-types": [
+        null,
+        "0.8.0"
+      ],
+      "pydantic-core": [
+        null,
+        "2.50.1"
+      ],
+      "typing-extensions": [
+        "4.8.0",
+        "4.16.0"
+      ],
+      "typing-inspection": [
+        null,
+        "0.4.4"
+      ]
+    },
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-pydantic-2.14.1-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.97,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-pydantic-2.14.1-3.12-install.log"
+    },
+    "installed": {
+      "pydantic": "2.14.1"
+    },
+    "installed_target": {
+      "pydantic": "2.14.1"
+    },
+    "probes": {
+      "probes_run": [
+        "generic",
+        "pydantic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        },
+        {
+          "probe": "pydantic",
+          "ran": true,
+          "divergences": [
+            {
+              "case": "settings_extra_forbidden",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Settings\nextra_field\n  extra fields not permitted (type=value_error.extra)"
+              },
+              "candidate": {
+                "error": "ValidationError: 1 validation error for Settings\nextra_field\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+              }
+            },
+            {
+              "case": "settings_invalid_site_in_list",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)"
+              },
+              "candidate": {
+                "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+              }
+            },
+            {
+              "case": "site_name_empty",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+              },
+              "candidate": {
+                "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+              }
+            },
+            {
+              "case": "site_name_whitespace_only",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+              },
+              "candidate": {
+                "name": "   ",
+                "url": "https://example.com"
+              }
+            },
+            {
+              "case": "site_url_invalid_scheme",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Site\nurl\n  url must start with http:// or https:// (type=value_error)"
+              },
+              "candidate": {
+                "error": "ValidationError: 1 validation error for Site\nurl\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://example.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+              }
+            }
+          ]
+        }
+      ],
+      "divergences": 5
+    },
+    "result": "warn",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "Valid config keys have changed in V2: * 'anystr_strip_whitespace' has been renamed to 'str_strip_whitespace'",
+          "head": "Valid config keys have changed in V2:",
+          "location": "_config.py:408"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-pydantic-2.14.1-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-pydantic-2.14.1-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [
+      {
+        "category": "UserWarning",
+        "message": "Valid config keys have changed in V2: * 'anystr_strip_whitespace' has been renamed to 'str_strip_whitespace'"
+      }
+    ],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:pydantic@2.14.1",
+    "type": "upgrade",
+    "dependency": "pydantic",
+    "python": "3.13",
+    "target_version": "2.14.1",
+    "co_upgrades": {
+      "annotated-types": [
+        null,
+        "0.8.0"
+      ],
+      "pydantic-core": [
+        null,
+        "2.50.1"
+      ],
+      "typing-extensions": [
+        "4.8.0",
+        "4.16.0"
+      ],
+      "typing-inspection": [
+        null,
+        "0.4.4"
+      ]
+    },
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-pydantic-2.14.1-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.84,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-pydantic-2.14.1-3.13-install.log"
+    },
+    "installed": {
+      "pydantic": "2.14.1"
+    },
+    "installed_target": {
+      "pydantic": "2.14.1"
+    },
+    "probes": {
+      "probes_run": [
+        "generic",
+        "pydantic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        },
+        {
+          "probe": "pydantic",
+          "ran": true,
+          "divergences": [
+            {
+              "case": "settings_extra_forbidden",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Settings\nextra_field\n  extra fields not permitted (type=value_error.extra)"
+              },
+              "candidate": {
+                "error": "ValidationError: 1 validation error for Settings\nextra_field\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+              }
+            },
+            {
+              "case": "settings_invalid_site_in_list",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)"
+              },
+              "candidate": {
+                "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+              }
+            },
+            {
+              "case": "site_name_empty",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+              },
+              "candidate": {
+                "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+              }
+            },
+            {
+              "case": "site_name_whitespace_only",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+              },
+              "candidate": {
+                "name": "   ",
+                "url": "https://example.com"
+              }
+            },
+            {
+              "case": "site_url_invalid_scheme",
+              "reference": {
+                "error": "ValidationError: 1 validation error for Site\nurl\n  url must start with http:// or https:// (type=value_error)"
+              },
+              "candidate": {
+                "error": "ValidationError: 1 validation error for Site\nurl\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://example.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+              }
+            }
+          ]
+        }
+      ],
+      "divergences": 5
+    },
+    "result": "warn",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "UserWarning",
+          "message": "Valid config keys have changed in V2: * 'anystr_strip_whitespace' has been renamed to 'str_strip_whitespace'",
+          "head": "Valid config keys have changed in V2:",
+          "location": "_config.py:408"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-pydantic-2.14.1-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-pydantic-2.14.1-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [
+      {
+        "category": "UserWarning",
+        "message": "Valid config keys have changed in V2: * 'anystr_strip_whitespace' has been renamed to 'str_strip_whitespace'"
+      }
+    ],
+    "resolved_warnings": [
+      {
+        "category": "DeprecationWarning",
+        "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15."
+      }
+    ],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:requests@2.34.2",
+    "type": "upgrade",
+    "dependency": "requests",
+    "python": "3.12",
+    "target_version": "2.34.2",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-requests-2.34.2-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-requests-2.34.2-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-requests-2.34.2-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.83,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-requests-2.34.2-3.12-install.log"
+    },
+    "installed": {
+      "requests": "2.34.2"
+    },
+    "installed_target": {
+      "requests": "2.34.2"
+    },
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-requests-2.34.2-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-requests-2.34.2-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:requests@2.34.2",
+    "type": "upgrade",
+    "dependency": "requests",
+    "python": "3.13",
+    "target_version": "2.34.2",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-requests-2.34.2-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-requests-2.34.2-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-requests-2.34.2-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.88,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-requests-2.34.2-3.13-install.log"
+    },
+    "installed": {
+      "requests": "2.34.2"
+    },
+    "installed_target": {
+      "requests": "2.34.2"
+    },
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "location": "typing.py:400"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-requests-2.34.2-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-requests-2.34.2-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:setuptools@84.0.0",
+    "type": "upgrade",
+    "dependency": "setuptools",
+    "python": "3.12",
+    "target_version": "84.0.0",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-setuptools-84.0.0-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-setuptools-84.0.0-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-setuptools-84.0.0-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.75,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-setuptools-84.0.0-3.12-install.log"
+    },
+    "installed": {
+      "setuptools": "84.0.0"
+    },
+    "installed_target": {
+      "setuptools": "84.0.0"
+    },
+    "result": "import-fail",
+    "normal": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'pkg_resources'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-setuptools-84.0.0-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'pkg_resources'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-setuptools-84.0.0-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [
+        "tests/test_cache.py::test_cache_round_trip",
+        "tests/test_checker.py::test_closed_port_is_down",
+        "tests/test_checker.py::test_latin1_title",
+        "tests/test_checker.py::test_missing_is_down",
+        "tests/test_checker.py::test_ok_is_up",
+        "tests/test_checker.py::test_redirect_is_up",
+        "tests/test_checker.py::test_slow_is_up",
+        "tests/test_checker.py::test_user_agent",
+        "tests/test_config.py::test_sites_file_loads",
+        "tests/test_report.py::test_report_renders_all_sites"
+      ],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "upgrade:setuptools@84.0.0",
+    "type": "upgrade",
+    "dependency": "setuptools",
+    "python": "3.13",
+    "target_version": "84.0.0",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-setuptools-84.0.0-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-upgrade-setuptools-84.0.0-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-setuptools-84.0.0-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 1.2,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-setuptools-84.0.0-3.13-install.log"
+    },
+    "installed": {
+      "setuptools": "84.0.0"
+    },
+    "installed_target": {
+      "setuptools": "84.0.0"
+    },
+    "result": "import-fail",
+    "normal": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'pkg_resources'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-setuptools-84.0.0-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\upgrade-setuptools-84.0.0-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [
+        "tests/test_cache.py::test_cache_round_trip",
+        "tests/test_checker.py::test_closed_port_is_down",
+        "tests/test_checker.py::test_latin1_title",
+        "tests/test_checker.py::test_missing_is_down",
+        "tests/test_checker.py::test_ok_is_up",
+        "tests/test_checker.py::test_redirect_is_up",
+        "tests/test_checker.py::test_slow_is_up",
+        "tests/test_checker.py::test_user_agent",
+        "tests/test_config.py::test_sites_file_loads",
+        "tests/test_report.py::test_report_renders_all_sites"
+      ],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "remove:six",
+    "type": "remove",
+    "dependency": "six",
+    "python": "3.12",
+    "target_version": null,
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-six-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-remove-six-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\remove-six-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 1.05,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-six-3.12-install.log"
+    },
+    "installed": {
+      "six": "1.17.0"
+    },
+    "installed_target": {},
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-six-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-six-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "remove:six",
+    "type": "remove",
+    "dependency": "six",
+    "python": "3.13",
+    "target_version": null,
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-six-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-remove-six-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\remove-six-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 1.0,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-six-3.13-install.log"
+    },
+    "installed": {
+      "six": "1.17.0"
+    },
+    "installed_target": {},
+    "probes": {
+      "probes_run": [
+        "generic"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "location": "typing.py:400"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-six-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\remove-six-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "replace:toml",
+    "type": "replace",
+    "dependency": "toml",
+    "python": "3.12",
+    "target_version": "tomllib",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-toml-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-replace-toml-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\replace-toml-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.75,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-toml-3.12-install.log"
+    },
+    "installed": {
+      "toml": null
+    },
+    "installed_target": {},
+    "result": "import-fail",
+    "normal": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'toml'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-toml-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'toml'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-toml-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [
+        "tests/test_cache.py::test_cache_round_trip",
+        "tests/test_checker.py::test_closed_port_is_down",
+        "tests/test_checker.py::test_latin1_title",
+        "tests/test_checker.py::test_missing_is_down",
+        "tests/test_checker.py::test_ok_is_up",
+        "tests/test_checker.py::test_redirect_is_up",
+        "tests/test_checker.py::test_slow_is_up",
+        "tests/test_checker.py::test_user_agent",
+        "tests/test_config.py::test_sites_file_loads",
+        "tests/test_report.py::test_report_renders_all_sites"
+      ],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "replace:toml",
+    "type": "replace",
+    "dependency": "toml",
+    "python": "3.13",
+    "target_version": "tomllib",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-toml-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-replace-toml-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\replace-toml-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.84,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-toml-3.13-install.log"
+    },
+    "installed": {
+      "toml": null
+    },
+    "installed_target": {},
+    "result": "import-fail",
+    "normal": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'toml'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-toml-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'toml'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\replace-toml-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [
+        "tests/test_cache.py::test_cache_round_trip",
+        "tests/test_checker.py::test_closed_port_is_down",
+        "tests/test_checker.py::test_latin1_title",
+        "tests/test_checker.py::test_missing_is_down",
+        "tests/test_checker.py::test_ok_is_up",
+        "tests/test_checker.py::test_redirect_is_up",
+        "tests/test_checker.py::test_slow_is_up",
+        "tests/test_checker.py::test_user_agent",
+        "tests/test_config.py::test_sites_file_loads",
+        "tests/test_report.py::test_report_renders_all_sites"
+      ],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "declare:certifi",
+    "type": "declare",
+    "dependency": "certifi",
+    "python": "3.12",
+    "target_version": "2023.5.7",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\declare-certifi-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-declare-certifi-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\declare-certifi-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.84,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\declare-certifi-3.12-install.log"
+    },
+    "installed": {
+      "certifi": "2023.5.7"
+    },
+    "installed_target": {
+      "certifi": "2023.5.7"
+    },
+    "probes": {
+      "probes_run": [
+        "generic",
+        "certifi"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        },
+        {
+          "probe": "certifi",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\declare-certifi-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\declare-certifi-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "declare:certifi",
+    "type": "declare",
+    "dependency": "certifi",
+    "python": "3.13",
+    "target_version": "2023.5.7",
+    "co_upgrades": {},
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\declare-certifi-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-declare-certifi-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\declare-certifi-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.94,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\declare-certifi-3.13-install.log"
+    },
+    "installed": {
+      "certifi": "2023.5.7"
+    },
+    "installed_target": {
+      "certifi": "2023.5.7"
+    },
+    "probes": {
+      "probes_run": [
+        "generic",
+        "certifi"
+      ],
+      "results": [
+        {
+          "probe": "generic",
+          "ran": true,
+          "divergences": []
+        },
+        {
+          "probe": "certifi",
+          "ran": true,
+          "divergences": []
+        }
+      ],
+      "divergences": 0
+    },
+    "result": "pass",
+    "normal": {
+      "outcome": "pass",
+      "counts": {
+        "passed": 10,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": null,
+      "warnings": [
+        {
+          "category": "DeprecationWarning",
+          "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+          "location": "typing.py:400"
+        },
+        {
+          "category": "DeprecationWarning",
+          "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+          "location": "resources.py:1"
+        }
+      ],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\declare-certifi-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\declare-certifi-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "all-latest",
+    "type": "all-latest",
+    "dependency": "*",
+    "python": "3.12",
+    "target_version": null,
+    "co_upgrades": {
+      "annotated-types": [
+        null,
+        "0.8.0"
+      ],
+      "certifi": [
+        "2023.5.7",
+        "2026.7.22"
+      ],
+      "charset-normalizer": [
+        "3.1.0",
+        "3.5.2"
+      ],
+      "idna": [
+        "2.7",
+        "3.20"
+      ],
+      "markupsafe": [
+        "1.1.1",
+        "3.0.4"
+      ],
+      "pydantic-core": [
+        null,
+        "2.50.1"
+      ],
+      "typing-extensions": [
+        "4.8.0",
+        "4.16.0"
+      ],
+      "typing-inspection": [
+        null,
+        "0.4.4"
+      ],
+      "urllib3": [
+        "2.0.2",
+        "2.8.0"
+      ]
+    },
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.12.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-all-latest-3.12\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.12.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.78,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\all-latest-3.12-install.log"
+    },
+    "installed": {
+      "chardet": "7.6.0",
+      "jinja2": "3.1.6",
+      "pydantic": "2.14.1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0"
+    },
+    "installed_target": {
+      "chardet": "7.6.0",
+      "jinja2": "3.1.6",
+      "pydantic": "2.14.1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0"
+    },
+    "result": "import-fail",
+    "normal": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'pkg_resources'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\all-latest-3.12-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\all-latest-3.12-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [
+        "tests/test_cache.py::test_cache_round_trip",
+        "tests/test_checker.py::test_closed_port_is_down",
+        "tests/test_checker.py::test_latin1_title",
+        "tests/test_checker.py::test_missing_is_down",
+        "tests/test_checker.py::test_ok_is_up",
+        "tests/test_checker.py::test_redirect_is_up",
+        "tests/test_checker.py::test_slow_is_up",
+        "tests/test_checker.py::test_user_agent",
+        "tests/test_config.py::test_sites_file_loads",
+        "tests/test_report.py::test_report_renders_all_sites"
+      ],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  },
+  {
+    "cell": "all-latest",
+    "type": "all-latest",
+    "dependency": "*",
+    "python": "3.13",
+    "target_version": null,
+    "co_upgrades": {
+      "annotated-types": [
+        null,
+        "0.8.0"
+      ],
+      "certifi": [
+        "2023.5.7",
+        "2026.7.22"
+      ],
+      "charset-normalizer": [
+        "3.1.0",
+        "3.5.2"
+      ],
+      "idna": [
+        "2.7",
+        "3.20"
+      ],
+      "markupsafe": [
+        "1.1.1",
+        "3.0.4"
+      ],
+      "pydantic-core": [
+        null,
+        "2.50.1"
+      ],
+      "typing-extensions": [
+        "4.8.0",
+        "4.16.0"
+      ],
+      "typing-inspection": [
+        null,
+        "0.4.4"
+      ],
+      "urllib3": [
+        "2.0.2",
+        "2.8.0"
+      ]
+    },
+    "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.13.lock.txt",
+    "install": {
+      "cmd": [
+        "C:\\istehack\\.venv\\Scripts\\uv.exe",
+        "pip",
+        "install",
+        "--python",
+        "C:\\istehack\\runs\\20261015-151158\\envs\\cell-all-latest-3.13\\Scripts\\python.exe",
+        "-r",
+        "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.13.lock.txt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "duration_s": 0.75,
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\all-latest-3.13-install.log"
+    },
+    "installed": {
+      "chardet": "7.6.0",
+      "jinja2": "3.1.6",
+      "pydantic": "2.14.1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0"
+    },
+    "installed_target": {
+      "chardet": "7.6.0",
+      "jinja2": "3.1.6",
+      "pydantic": "2.14.1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0"
+    },
+    "result": "import-fail",
+    "normal": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | ModuleNotFoundError: No module named 'pkg_resources'",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\all-latest-3.13-normal.log"
+    },
+    "strict": {
+      "outcome": "import-fail",
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "error": 0,
+        "skipped": 0
+      },
+      "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+      "warnings": [],
+      "log": "C:\\istehack\\runs\\20261015-151158\\logs\\matrix\\all-latest-3.13-strict.log"
+    },
+    "diff_vs_reference": {
+      "newly_failing": [],
+      "newly_passing": [],
+      "missing": [
+        "tests/test_cache.py::test_cache_round_trip",
+        "tests/test_checker.py::test_closed_port_is_down",
+        "tests/test_checker.py::test_latin1_title",
+        "tests/test_checker.py::test_missing_is_down",
+        "tests/test_checker.py::test_ok_is_up",
+        "tests/test_checker.py::test_redirect_is_up",
+        "tests/test_checker.py::test_slow_is_up",
+        "tests/test_checker.py::test_user_agent",
+        "tests/test_config.py::test_sites_file_loads",
+        "tests/test_report.py::test_report_renders_all_sites"
+      ],
+      "added": []
+    },
+    "confirmed_failing": [],
+    "flaky": [],
+    "failures": {},
+    "new_warnings": [],
+    "resolved_warnings": [],
+    "strict_regressed": false,
+    "strict_improved": false
+  }
+]

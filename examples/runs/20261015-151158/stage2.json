@@ -1,0 +1,888 @@
+{
+  "install_sources": [
+    "requirements.txt",
+    "requirements-dev.txt"
+  ],
+  "install_args": [
+    "-r",
+    "requirements.txt",
+    "-r",
+    "requirements-dev.txt"
+  ],
+  "test_command": "python -m pytest",
+  "pins_reproducible": false,
+  "pythons": {
+    "3.12": {
+      "attempts": [
+        {
+          "name": "as_written",
+          "python": "3.12",
+          "env": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-as_written",
+          "python_path": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-as_written\\Scripts\\python.exe",
+          "install": {
+            "cmd": [
+              "C:\\istehack\\.venv\\Scripts\\uv.exe",
+              "pip",
+              "install",
+              "--python",
+              "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-as_written\\Scripts\\python.exe",
+              "-r",
+              "requirements.txt",
+              "-r",
+              "requirements-dev.txt"
+            ],
+            "returncode": 0,
+            "timed_out": false,
+            "duration_s": 0.83,
+            "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-as_written-install.log",
+            "ok": true,
+            "error_tail": null
+          },
+          "method": "install pins exactly as written",
+          "tests": {
+            "mode": "normal",
+            "outcome": "fail",
+            "tests": {
+              "tests/test_cache.py::test_cache_round_trip": "passed",
+              "tests/test_checker.py::test_ok_is_up": "passed",
+              "tests/test_checker.py::test_missing_is_down": "passed",
+              "tests/test_checker.py::test_redirect_is_up": "passed",
+              "tests/test_checker.py::test_slow_is_up": "passed",
+              "tests/test_checker.py::test_closed_port_is_down": "passed",
+              "tests/test_checker.py::test_latin1_title": "passed",
+              "tests/test_checker.py::test_user_agent": "passed",
+              "tests/test_config.py::test_sites_file_loads": "passed",
+              "tests/test_report.py::test_report_renders_all_sites": "failed"
+            },
+            "counts": {
+              "passed": 9,
+              "failed": 1,
+              "error": 0,
+              "skipped": 0
+            },
+            "failures": {
+              "tests/test_report.py::test_report_renders_all_sites": "ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-as_written\\Lib\\site-packages\\markupsafe\\__init__.py)"
+            },
+            "warnings": [
+              {
+                "category": "DeprecationWarning",
+                "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "location": "resources.py:1"
+              }
+            ],
+            "command": {
+              "cmd": [
+                "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-as_written\\Scripts\\python.exe",
+                "-m",
+                "pytest",
+                "-p",
+                "no:cacheprovider",
+                "-q",
+                "-rfE",
+                "--junitxml=C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-as_written-normal.junit.xml",
+                "-o",
+                "junit_family=xunit1"
+              ],
+              "returncode": 1,
+              "timed_out": false,
+              "duration_s": 10.49,
+              "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-as_written-normal.log"
+            },
+            "error_excerpt": null
+          },
+          "outcome": "fail"
+        },
+        {
+          "name": "reconstructed",
+          "python": "3.12",
+          "env": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-reconstructed",
+          "python_path": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-reconstructed\\Scripts\\python.exe",
+          "install": {
+            "cmd": [
+              "C:\\istehack\\.venv\\Scripts\\uv.exe",
+              "pip",
+              "install",
+              "--python",
+              "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-reconstructed\\Scripts\\python.exe",
+              "--exclude-newer-package",
+              "certifi=2023-05-23",
+              "--exclude-newer-package",
+              "charset-normalizer=2023-05-23",
+              "--exclude-newer-package",
+              "markupsafe=2021-02-01",
+              "--exclude-newer-package",
+              "typing-extensions=2023-09-28",
+              "--exclude-newer-package",
+              "urllib3=2023-05-23",
+              "-r",
+              "requirements.txt",
+              "-r",
+              "requirements-dev.txt"
+            ],
+            "returncode": 0,
+            "timed_out": false,
+            "duration_s": 0.81,
+            "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-reconstructed-install.log",
+            "ok": true,
+            "error_tail": null
+          },
+          "method": "transitive dependencies limited to the release date of the pinned package that requires them (uv --exclude-newer-package)",
+          "cutoffs": {
+            "certifi": "2023-05-23",
+            "charset-normalizer": "2023-05-23",
+            "markupsafe": "2021-02-01",
+            "typing-extensions": "2023-09-28",
+            "urllib3": "2023-05-23"
+          },
+          "pin_release_dates": {
+            "appdirs": "2020-05-12",
+            "chardet": "2023-08-02",
+            "idna": "2018-06-12",
+            "jinja2": "2021-02-01",
+            "nose": "2015-06-03",
+            "pydantic": "2023-09-28",
+            "requests": "2023-05-23",
+            "setuptools": "2025-01-09",
+            "toml": "2020-11-02"
+          },
+          "unconstrained_transitives": [
+            "colorama",
+            "iniconfig",
+            "markdown-it-py",
+            "mdurl",
+            "packaging",
+            "pluggy",
+            "pygments"
+          ],
+          "tests": {
+            "mode": "normal",
+            "outcome": "pass",
+            "tests": {
+              "tests/test_cache.py::test_cache_round_trip": "passed",
+              "tests/test_checker.py::test_ok_is_up": "passed",
+              "tests/test_checker.py::test_missing_is_down": "passed",
+              "tests/test_checker.py::test_redirect_is_up": "passed",
+              "tests/test_checker.py::test_slow_is_up": "passed",
+              "tests/test_checker.py::test_closed_port_is_down": "passed",
+              "tests/test_checker.py::test_latin1_title": "passed",
+              "tests/test_checker.py::test_user_agent": "passed",
+              "tests/test_config.py::test_sites_file_loads": "passed",
+              "tests/test_report.py::test_report_renders_all_sites": "passed"
+            },
+            "counts": {
+              "passed": 10,
+              "failed": 0,
+              "error": 0,
+              "skipped": 0
+            },
+            "failures": {},
+            "warnings": [
+              {
+                "category": "DeprecationWarning",
+                "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "location": "resources.py:1"
+              }
+            ],
+            "command": {
+              "cmd": [
+                "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-reconstructed\\Scripts\\python.exe",
+                "-m",
+                "pytest",
+                "-p",
+                "no:cacheprovider",
+                "-q",
+                "-rfE",
+                "--junitxml=C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-reconstructed-normal.junit.xml",
+                "-o",
+                "junit_family=xunit1"
+              ],
+              "returncode": 0,
+              "timed_out": false,
+              "duration_s": 10.31,
+              "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-reconstructed-normal.log"
+            },
+            "error_excerpt": null
+          },
+          "outcome": "pass"
+        }
+      ],
+      "pins_reproducible": false,
+      "reference": "reconstructed",
+      "reference_tests": {
+        "mode": "normal",
+        "outcome": "pass",
+        "tests": {
+          "tests/test_cache.py::test_cache_round_trip": "passed",
+          "tests/test_checker.py::test_ok_is_up": "passed",
+          "tests/test_checker.py::test_missing_is_down": "passed",
+          "tests/test_checker.py::test_redirect_is_up": "passed",
+          "tests/test_checker.py::test_slow_is_up": "passed",
+          "tests/test_checker.py::test_closed_port_is_down": "passed",
+          "tests/test_checker.py::test_latin1_title": "passed",
+          "tests/test_checker.py::test_user_agent": "passed",
+          "tests/test_config.py::test_sites_file_loads": "passed",
+          "tests/test_report.py::test_report_renders_all_sites": "passed"
+        },
+        "counts": {
+          "passed": 10,
+          "failed": 0,
+          "error": 0,
+          "skipped": 0
+        },
+        "failures": {},
+        "warnings": [
+          {
+            "category": "DeprecationWarning",
+            "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+            "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+            "location": "resources.py:1"
+          }
+        ],
+        "command": {
+          "cmd": [
+            "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-reconstructed\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-q",
+            "-rfE",
+            "--junitxml=C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-reconstructed-normal.junit.xml",
+            "-o",
+            "junit_family=xunit1"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "duration_s": 10.31,
+          "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-reconstructed-normal.log"
+        },
+        "error_excerpt": null
+      },
+      "flaky_tests": [],
+      "strict": {
+        "mode": "strict",
+        "outcome": "import-fail",
+        "tests": {},
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "error": 0,
+          "skipped": 0
+        },
+        "failures": {},
+        "warnings": [],
+        "command": {
+          "cmd": [
+            "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-reconstructed\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-q",
+            "-rfE",
+            "--junitxml=C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-reconstructed-strict.junit.xml",
+            "-o",
+            "junit_family=xunit1",
+            "-W",
+            "error::DeprecationWarning"
+          ],
+          "returncode": 4,
+          "timed_out": false,
+          "duration_s": 1.62,
+          "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.12-reconstructed-strict.log"
+        },
+        "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html"
+      },
+      "strict_vs_normal": {
+        "newly_failing": [],
+        "newly_passing": [],
+        "missing": [
+          "tests/test_cache.py::test_cache_round_trip",
+          "tests/test_checker.py::test_closed_port_is_down",
+          "tests/test_checker.py::test_latin1_title",
+          "tests/test_checker.py::test_missing_is_down",
+          "tests/test_checker.py::test_ok_is_up",
+          "tests/test_checker.py::test_redirect_is_up",
+          "tests/test_checker.py::test_slow_is_up",
+          "tests/test_checker.py::test_user_agent",
+          "tests/test_config.py::test_sites_file_loads",
+          "tests/test_report.py::test_report_renders_all_sites"
+        ],
+        "added": []
+      },
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pip": "26.2.1",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\baseline-3.12.lock.txt",
+      "reference_env": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.12-reconstructed",
+      "import_map": {
+        "appdirs": [
+          "appdirs"
+        ],
+        "certifi": [
+          "certifi"
+        ],
+        "chardet": [
+          "chardet"
+        ],
+        "charset_normalizer": [
+          "charset-normalizer"
+        ],
+        "click": [
+          "click"
+        ],
+        "colorama": [
+          "colorama"
+        ],
+        "idna": [
+          "idna"
+        ],
+        "iniconfig": [
+          "iniconfig"
+        ],
+        "jinja2": [
+          "jinja2"
+        ],
+        "markdown_it": [
+          "markdown-it-py"
+        ],
+        "markupsafe": [
+          "markupsafe"
+        ],
+        "mdurl": [
+          "mdurl"
+        ],
+        "nose": [
+          "nose"
+        ],
+        "packaging": [
+          "packaging"
+        ],
+        "pip": [
+          "pip"
+        ],
+        "pluggy": [
+          "pluggy"
+        ],
+        "pydantic": [
+          "pydantic"
+        ],
+        "pygments": [
+          "pygments"
+        ],
+        "_pytest": [
+          "pytest"
+        ],
+        "py": [
+          "pytest"
+        ],
+        "pytest": [
+          "pytest"
+        ],
+        "dateutil": [
+          "python-dateutil"
+        ],
+        "requests": [
+          "requests"
+        ],
+        "rich": [
+          "rich"
+        ],
+        "_distutils_hack": [
+          "setuptools"
+        ],
+        "pkg_resources": [
+          "setuptools"
+        ],
+        "setuptools": [
+          "setuptools"
+        ],
+        "six": [
+          "six"
+        ],
+        "toml": [
+          "toml"
+        ],
+        "typing_extensions": [
+          "typing_extensions"
+        ],
+        "urllib3": [
+          "urllib3"
+        ]
+      }
+    },
+    "3.13": {
+      "attempts": [
+        {
+          "name": "as_written",
+          "python": "3.13",
+          "env": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-as_written",
+          "python_path": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-as_written\\Scripts\\python.exe",
+          "install": {
+            "cmd": [
+              "C:\\istehack\\.venv\\Scripts\\uv.exe",
+              "pip",
+              "install",
+              "--python",
+              "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-as_written\\Scripts\\python.exe",
+              "-r",
+              "requirements.txt",
+              "-r",
+              "requirements-dev.txt"
+            ],
+            "returncode": 0,
+            "timed_out": false,
+            "duration_s": 0.84,
+            "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-as_written-install.log",
+            "ok": true,
+            "error_tail": null
+          },
+          "method": "install pins exactly as written",
+          "tests": {
+            "mode": "normal",
+            "outcome": "fail",
+            "tests": {
+              "tests/test_cache.py::test_cache_round_trip": "passed",
+              "tests/test_checker.py::test_ok_is_up": "passed",
+              "tests/test_checker.py::test_missing_is_down": "passed",
+              "tests/test_checker.py::test_redirect_is_up": "passed",
+              "tests/test_checker.py::test_slow_is_up": "passed",
+              "tests/test_checker.py::test_closed_port_is_down": "passed",
+              "tests/test_checker.py::test_latin1_title": "passed",
+              "tests/test_checker.py::test_user_agent": "passed",
+              "tests/test_config.py::test_sites_file_loads": "passed",
+              "tests/test_report.py::test_report_renders_all_sites": "failed"
+            },
+            "counts": {
+              "passed": 9,
+              "failed": 1,
+              "error": 0,
+              "skipped": 0
+            },
+            "failures": {
+              "tests/test_report.py::test_report_renders_all_sites": "ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-as_written\\Lib\\site-packages\\markupsafe\\__init__.py)"
+            },
+            "warnings": [
+              {
+                "category": "DeprecationWarning",
+                "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "location": "typing.py:400"
+              },
+              {
+                "category": "DeprecationWarning",
+                "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "location": "resources.py:1"
+              }
+            ],
+            "command": {
+              "cmd": [
+                "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-as_written\\Scripts\\python.exe",
+                "-m",
+                "pytest",
+                "-p",
+                "no:cacheprovider",
+                "-q",
+                "-rfE",
+                "--junitxml=C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-as_written-normal.junit.xml",
+                "-o",
+                "junit_family=xunit1"
+              ],
+              "returncode": 1,
+              "timed_out": false,
+              "duration_s": 10.44,
+              "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-as_written-normal.log"
+            },
+            "error_excerpt": null
+          },
+          "outcome": "fail"
+        },
+        {
+          "name": "reconstructed",
+          "python": "3.13",
+          "env": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-reconstructed",
+          "python_path": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-reconstructed\\Scripts\\python.exe",
+          "install": {
+            "cmd": [
+              "C:\\istehack\\.venv\\Scripts\\uv.exe",
+              "pip",
+              "install",
+              "--python",
+              "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-reconstructed\\Scripts\\python.exe",
+              "--exclude-newer-package",
+              "certifi=2023-05-23",
+              "--exclude-newer-package",
+              "charset-normalizer=2023-05-23",
+              "--exclude-newer-package",
+              "markupsafe=2021-02-01",
+              "--exclude-newer-package",
+              "typing-extensions=2023-09-28",
+              "--exclude-newer-package",
+              "urllib3=2023-05-23",
+              "-r",
+              "requirements.txt",
+              "-r",
+              "requirements-dev.txt"
+            ],
+            "returncode": 0,
+            "timed_out": false,
+            "duration_s": 0.86,
+            "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-reconstructed-install.log",
+            "ok": true,
+            "error_tail": null
+          },
+          "method": "transitive dependencies limited to the release date of the pinned package that requires them (uv --exclude-newer-package)",
+          "cutoffs": {
+            "certifi": "2023-05-23",
+            "charset-normalizer": "2023-05-23",
+            "markupsafe": "2021-02-01",
+            "typing-extensions": "2023-09-28",
+            "urllib3": "2023-05-23"
+          },
+          "pin_release_dates": {
+            "appdirs": "2020-05-12",
+            "chardet": "2023-08-02",
+            "idna": "2018-06-12",
+            "jinja2": "2021-02-01",
+            "nose": "2015-06-03",
+            "pydantic": "2023-09-28",
+            "requests": "2023-05-23",
+            "setuptools": "2025-01-09",
+            "toml": "2020-11-02"
+          },
+          "unconstrained_transitives": [
+            "colorama",
+            "iniconfig",
+            "markdown-it-py",
+            "mdurl",
+            "packaging",
+            "pluggy",
+            "pygments"
+          ],
+          "tests": {
+            "mode": "normal",
+            "outcome": "pass",
+            "tests": {
+              "tests/test_cache.py::test_cache_round_trip": "passed",
+              "tests/test_checker.py::test_ok_is_up": "passed",
+              "tests/test_checker.py::test_missing_is_down": "passed",
+              "tests/test_checker.py::test_redirect_is_up": "passed",
+              "tests/test_checker.py::test_slow_is_up": "passed",
+              "tests/test_checker.py::test_closed_port_is_down": "passed",
+              "tests/test_checker.py::test_latin1_title": "passed",
+              "tests/test_checker.py::test_user_agent": "passed",
+              "tests/test_config.py::test_sites_file_loads": "passed",
+              "tests/test_report.py::test_report_renders_all_sites": "passed"
+            },
+            "counts": {
+              "passed": 10,
+              "failed": 0,
+              "error": 0,
+              "skipped": 0
+            },
+            "failures": {},
+            "warnings": [
+              {
+                "category": "DeprecationWarning",
+                "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "location": "typing.py:400"
+              },
+              {
+                "category": "DeprecationWarning",
+                "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "location": "resources.py:1"
+              }
+            ],
+            "command": {
+              "cmd": [
+                "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-reconstructed\\Scripts\\python.exe",
+                "-m",
+                "pytest",
+                "-p",
+                "no:cacheprovider",
+                "-q",
+                "-rfE",
+                "--junitxml=C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-reconstructed-normal.junit.xml",
+                "-o",
+                "junit_family=xunit1"
+              ],
+              "returncode": 0,
+              "timed_out": false,
+              "duration_s": 10.3,
+              "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-reconstructed-normal.log"
+            },
+            "error_excerpt": null
+          },
+          "outcome": "pass"
+        }
+      ],
+      "pins_reproducible": false,
+      "reference": "reconstructed",
+      "reference_tests": {
+        "mode": "normal",
+        "outcome": "pass",
+        "tests": {
+          "tests/test_cache.py::test_cache_round_trip": "passed",
+          "tests/test_checker.py::test_ok_is_up": "passed",
+          "tests/test_checker.py::test_missing_is_down": "passed",
+          "tests/test_checker.py::test_redirect_is_up": "passed",
+          "tests/test_checker.py::test_slow_is_up": "passed",
+          "tests/test_checker.py::test_closed_port_is_down": "passed",
+          "tests/test_checker.py::test_latin1_title": "passed",
+          "tests/test_checker.py::test_user_agent": "passed",
+          "tests/test_config.py::test_sites_file_loads": "passed",
+          "tests/test_report.py::test_report_renders_all_sites": "passed"
+        },
+        "counts": {
+          "passed": 10,
+          "failed": 0,
+          "error": 0,
+          "skipped": 0
+        },
+        "failures": {},
+        "warnings": [
+          {
+            "category": "DeprecationWarning",
+            "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+            "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+            "location": "typing.py:400"
+          },
+          {
+            "category": "DeprecationWarning",
+            "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+            "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+            "location": "resources.py:1"
+          }
+        ],
+        "command": {
+          "cmd": [
+            "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-reconstructed\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-q",
+            "-rfE",
+            "--junitxml=C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-reconstructed-normal.junit.xml",
+            "-o",
+            "junit_family=xunit1"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "duration_s": 10.3,
+          "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-reconstructed-normal.log"
+        },
+        "error_excerpt": null
+      },
+      "flaky_tests": [],
+      "strict": {
+        "mode": "strict",
+        "outcome": "import-fail",
+        "tests": {},
+        "counts": {
+          "passed": 0,
+          "failed": 0,
+          "error": 0,
+          "skipped": 0
+        },
+        "failures": {},
+        "warnings": [],
+        "command": {
+          "cmd": [
+            "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-reconstructed\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-q",
+            "-rfE",
+            "--junitxml=C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-reconstructed-strict.junit.xml",
+            "-o",
+            "junit_family=xunit1",
+            "-W",
+            "error::DeprecationWarning"
+          ],
+          "returncode": 4,
+          "timed_out": false,
+          "duration_s": 1.67,
+          "log": "C:\\istehack\\runs\\20261015-151158\\logs\\baseline\\3.13-reconstructed-strict.log"
+        },
+        "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15."
+      },
+      "strict_vs_normal": {
+        "newly_failing": [],
+        "newly_passing": [],
+        "missing": [
+          "tests/test_cache.py::test_cache_round_trip",
+          "tests/test_checker.py::test_closed_port_is_down",
+          "tests/test_checker.py::test_latin1_title",
+          "tests/test_checker.py::test_missing_is_down",
+          "tests/test_checker.py::test_ok_is_up",
+          "tests/test_checker.py::test_redirect_is_up",
+          "tests/test_checker.py::test_slow_is_up",
+          "tests/test_checker.py::test_user_agent",
+          "tests/test_config.py::test_sites_file_loads",
+          "tests/test_report.py::test_report_renders_all_sites"
+        ],
+        "added": []
+      },
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pip": "26.2.1",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\baseline-3.13.lock.txt",
+      "reference_env": "C:\\istehack\\runs\\20261015-151158\\envs\\baseline-3.13-reconstructed",
+      "import_map": {
+        "appdirs": [
+          "appdirs"
+        ],
+        "certifi": [
+          "certifi"
+        ],
+        "chardet": [
+          "chardet"
+        ],
+        "charset_normalizer": [
+          "charset-normalizer"
+        ],
+        "click": [
+          "click"
+        ],
+        "colorama": [
+          "colorama"
+        ],
+        "idna": [
+          "idna"
+        ],
+        "iniconfig": [
+          "iniconfig"
+        ],
+        "jinja2": [
+          "jinja2"
+        ],
+        "markdown_it": [
+          "markdown-it-py"
+        ],
+        "markupsafe": [
+          "markupsafe"
+        ],
+        "mdurl": [
+          "mdurl"
+        ],
+        "nose": [
+          "nose"
+        ],
+        "packaging": [
+          "packaging"
+        ],
+        "pip": [
+          "pip"
+        ],
+        "pluggy": [
+          "pluggy"
+        ],
+        "pydantic": [
+          "pydantic"
+        ],
+        "pygments": [
+          "pygments"
+        ],
+        "_pytest": [
+          "pytest"
+        ],
+        "py": [
+          "pytest"
+        ],
+        "pytest": [
+          "pytest"
+        ],
+        "dateutil": [
+          "python-dateutil"
+        ],
+        "requests": [
+          "requests"
+        ],
+        "rich": [
+          "rich"
+        ],
+        "_distutils_hack": [
+          "setuptools"
+        ],
+        "pkg_resources": [
+          "setuptools"
+        ],
+        "setuptools": [
+          "setuptools"
+        ],
+        "six": [
+          "six"
+        ],
+        "toml": [
+          "toml"
+        ],
+        "typing_extensions": [
+          "typing_extensions"
+        ],
+        "urllib3": [
+          "urllib3"
+        ]
+      }
+    }
+  }
+}

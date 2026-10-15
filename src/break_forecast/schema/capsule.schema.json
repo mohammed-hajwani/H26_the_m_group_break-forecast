@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/break-forecast/capsule.schema.json",
+  "title": "Dependency Exit Capsule",
+  "type": "object",
+  "required": ["schema_version", "meta", "problem", "dependencies", "risk_indicators", "usage_locations", "limitations", "reproducibility"],
+  "$defs": {
+    "provenance": {"enum": ["observed", "executed", "ai_generated"]},
+    "record": {
+      "type": "object",
+      "required": ["provenance"],
+      "properties": {"provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "records": {"type": "array", "items": {"$ref": "#/$defs/record"}}
+  },
+  "properties": {
+    "schema_version": {"const": "1"},
+    "meta": {
+      "allOf": [{"$ref": "#/$defs/record"}],
+      "required": ["tool", "tool_version", "created_at", "target", "target_pythons", "stages_run"]
+    },
+    "problem": {"$ref": "#/$defs/record"},
+    "manifests": {"$ref": "#/$defs/record"},
+    "dependencies": {
+      "type": "array",
+      "items": {"allOf": [{"$ref": "#/$defs/record"}], "required": ["name", "classification"]}
+    },
+    "manifest_drift": {"$ref": "#/$defs/records"},
+    "import_map": {"$ref": "#/$defs/records"},
+    "risk_indicators": {
+      "type": "array",
+      "items": {"allOf": [{"$ref": "#/$defs/record"}], "required": ["dependency", "indicator", "detail"]}
+    },
+    "usage_locations": {
+      "type": "array",
+      "items": {"allOf": [{"$ref": "#/$defs/record"}], "required": ["file", "line", "api"]}
+    },
+    "baseline": {"$ref": "#/$defs/record"},
+    "release_notes": {"$ref": "#/$defs/records"},
+    "forecast": {"$ref": "#/$defs/records"},
+    "cells": {"$ref": "#/$defs/records"},
+    "upgrade_matrix": {"$ref": "#/$defs/records"},
+    "diagnoses": {"$ref": "#/$defs/records"},
+    "patches": {"$ref": "#/$defs/records"},
+    "behavioral_diffs": {"$ref": "#/$defs/records"},
+    "upgrade_plan": {"$ref": "#/$defs/records"},
+    "replacement_suggestions": {"$ref": "#/$defs/records"},
+    "suggested_tests": {"$ref": "#/$defs/records"},
+    "reproducibility": {"$ref": "#/$defs/record"},
+    "limitations": {"$ref": "#/$defs/records"}
+  }
+}

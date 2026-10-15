@@ -1,0 +1,111 @@
+{
+  "scored_cells": 12,
+  "correct": 8,
+  "accuracy": 0.667,
+  "break_precision": 0.6,
+  "break_recall": 0.75,
+  "confusion_matrix": {
+    "pass": {
+      "pass": 5,
+      "warn": 1,
+      "break": 1
+    },
+    "warn": {
+      "pass": 0,
+      "warn": 0,
+      "break": 0
+    },
+    "break": {
+      "pass": 1,
+      "warn": 1,
+      "break": 3
+    }
+  },
+  "rows": [
+    {
+      "cell": "replace:appdirs",
+      "predicted": "break",
+      "actual": "break",
+      "correct": true,
+      "confidence": 1.0
+    },
+    {
+      "cell": "upgrade:chardet@7.6.0",
+      "predicted": "pass",
+      "actual": "warn",
+      "correct": false,
+      "confidence": 0.9
+    },
+    {
+      "cell": "remove:idna",
+      "predicted": "pass",
+      "actual": "pass",
+      "correct": true,
+      "confidence": 1.0
+    },
+    {
+      "cell": "upgrade:jinja2@3.1.6",
+      "predicted": "pass",
+      "actual": "pass",
+      "correct": true,
+      "confidence": 0.9
+    },
+    {
+      "cell": "replace:nose",
+      "predicted": "break",
+      "actual": "pass",
+      "correct": false,
+      "confidence": 1.0
+    },
+    {
+      "cell": "upgrade:pydantic@2.14.1",
+      "predicted": "break",
+      "actual": "warn",
+      "correct": false,
+      "confidence": 1.0
+    },
+    {
+      "cell": "upgrade:requests@2.34.2",
+      "predicted": "pass",
+      "actual": "pass",
+      "correct": true,
+      "confidence": 0.9
+    },
+    {
+      "cell": "upgrade:setuptools@84.0.0",
+      "predicted": "pass",
+      "actual": "break",
+      "correct": false,
+      "confidence": 0.9
+    },
+    {
+      "cell": "remove:six",
+      "predicted": "pass",
+      "actual": "pass",
+      "correct": true,
+      "confidence": 1.0
+    },
+    {
+      "cell": "replace:toml",
+      "predicted": "break",
+      "actual": "break",
+      "correct": true,
+      "confidence": 1.0
+    },
+    {
+      "cell": "declare:certifi",
+      "predicted": "pass",
+      "actual": "pass",
+      "correct": true,
+      "confidence": 1.0
+    },
+    {
+      "cell": "all-latest",
+      "predicted": "break",
+      "actual": "break",
+      "correct": true,
+      "confidence": 1.0
+    }
+  ],
+  "note": "small sample (12 cells); read the confusion matrix, not just accuracy"
+}

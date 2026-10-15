@@ -1,0 +1,82 @@
+{
+  "target": {
+    "kind": "git",
+    "url": "https://github.com/rishrek/LinkWatch",
+    "commit": "f52f3930c8e7c33d934ccf614955a38e26984bd5"
+  },
+  "checks": [
+    {
+      "item": "reference baseline",
+      "python": "3.12",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "reference baseline",
+      "python": "3.13",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch replace:appdirs",
+      "python": "3.12",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch replace:appdirs",
+      "python": "3.13",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch upgrade:pydantic@2.14.1",
+      "python": "3.12",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch upgrade:pydantic@2.14.1",
+      "python": "3.13",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch upgrade:setuptools@84.0.0",
+      "python": "3.12",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch upgrade:setuptools@84.0.0",
+      "python": "3.13",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch replace:toml",
+      "python": "3.12",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch replace:toml",
+      "python": "3.13",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch exit-plan",
+      "python": "3.12",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    },
+    {
+      "item": "patch exit-plan",
+      "python": "3.13",
+      "reproduced": true,
+      "detail": "recorded pass 10 passed; now pass 10 passed"
+    }
+  ],
+  "all_reproduced": true
+}

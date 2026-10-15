@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dependency Exit Capsule</title>
+<style>
+  :root {
+    --bg: #f7f7f5; --panel: #ffffff; --ink: #1c1d1f; --muted: #62656b; --line: #e3e3df; --soft: #f0f0ec;
+    --obs: #2457c5; --obs-bg: #e8eefb; --exe: #0d7a52; --exe-bg: #e3f4ec; --ai: #8a3fc0; --ai-bg: #f3eafa;
+    --pass: #0d7a52; --pass-bg: #dff3e9; --warn: #9a6200; --warn-bg: #fdf1d8; --fail: #b42318; --fail-bg: #fde6e3;
+    --skip: #62656b; --skip-bg: #ececea; --code-bg: #f3f3f0;
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141517; --panel: #1c1d20; --ink: #ececea; --muted: #a0a3a8; --line: #2e3034; --soft: #232428;
+      --obs: #8fb0ff; --obs-bg: #1d2840; --exe: #5fd4a3; --exe-bg: #15322a; --ai: #d3a6f5; --ai-bg: #2e2140;
+      --pass: #5fd4a3; --pass-bg: #15322a; --warn: #f2c063; --warn-bg: #3a2e14; --fail: #ff9a8f; --fail-bg: #3d1d1a;
+      --skip: #a0a3a8; --skip-bg: #2a2b2f; --code-bg: #232428;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141517; --panel: #1c1d20; --ink: #ececea; --muted: #a0a3a8; --line: #2e3034; --soft: #232428;
+    --obs: #8fb0ff; --obs-bg: #1d2840; --exe: #5fd4a3; --exe-bg: #15322a; --ai: #d3a6f5; --ai-bg: #2e2140;
+    --pass: #5fd4a3; --pass-bg: #15322a; --warn: #f2c063; --warn-bg: #3a2e14; --fail: #ff9a8f; --fail-bg: #3d1d1a;
+    --skip: #a0a3a8; --skip-bg: #2a2b2f; --code-bg: #232428;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 var(--sans); }
+  header.top { background: var(--panel); border-bottom: 1px solid var(--line); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+  .top .wrap { padding-top: 20px; padding-bottom: 16px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .02em; color: var(--muted); margin: 0; }
+  h1 { font-size: 22px; margin: 4px 0 6px; font-weight: 650; word-break: break-all; }
+  h2 { font-size: 16px; margin: 0; font-weight: 650; }
+  .meta { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+  .meta code { font-size: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center; font-size: 13px; color: var(--muted); }
+  nav.toc { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent);
+            backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav.toc .wrap { display: flex; gap: 4px; overflow-x: auto; padding-top: 6px; padding-bottom: 6px; }
+  nav.toc a { color: var(--muted); text-decoration: none; padding: 4px 10px; border-radius: 6px; white-space: nowrap; font-size: 13px; }
+  nav.toc a:hover { background: var(--soft); color: var(--ink); }
+  main { padding: 20px 0 60px; }
+  section.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 18px; }
+  .card > .hd { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .card > .hd .sub { color: var(--muted); font-size: 13px; }
+  .card > .bd { padding: 14px 16px; }
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 600; color: var(--muted); font-size: 12px; white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  code, .mono { font-family: var(--mono); font-size: 12px; }
+  code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+  .tag { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 2px 7px;
+         border-radius: 999px; white-space: nowrap; letter-spacing: .01em; }
+  .tag.observed { color: var(--obs); background: var(--obs-bg); }
+  .tag.executed { color: var(--exe); background: var(--exe-bg); }
+  .tag.ai_generated { color: var(--ai); background: var(--ai-bg); }
+  .chip { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 4px; background: var(--soft);
+          color: var(--muted); margin: 1px 2px 1px 0; white-space: nowrap; }
+  .chip.frozen, .chip.undeclared { color: var(--fail); background: var(--fail-bg); }
+  .chip.unused { color: var(--warn); background: var(--warn-bg); }
+  .chip.upgradable { color: var(--obs); background: var(--obs-bg); }
+  .res { display: inline-block; font-weight: 600; font-size: 12px; padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+  .res.pass { color: var(--pass); background: var(--pass-bg); }
+  .res.warn, .res.flaky { color: var(--warn); background: var(--warn-bg); }
+  .res.fail, .res.import-fail, .res.install-fail, .res.error, .res.timeout { color: var(--fail); background: var(--fail-bg); }
+  .res.skipped, .res.no-tests, .res.none { color: var(--skip); background: var(--skip-bg); }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px; }
+  .tile { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--panel); }
+  .tile .n { font-size: 22px; font-weight: 650; }
+  .tile .l { color: var(--muted); font-size: 12px; }
+  .problem { font-size: 15px; margin: 0 0 12px; }
+  /* matrix */
+  table.matrix th.py { text-align: center; border-left: 1px solid var(--line); }
+  table.matrix td.c { text-align: left; border-left: 1px solid var(--line); cursor: pointer; }
+  table.matrix td.c:hover, table.matrix td.c.sel { background: var(--soft); }
+  table.matrix td.c .counts { color: var(--muted); font-size: 11px; margin-left: 4px; }
+  table.matrix td.c .strict { display: block; margin-top: 3px; font-size: 11px; color: var(--muted); }
+  table.matrix tr.ref td { background: var(--soft); }
+  table.matrix .cellname { font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+  table.matrix .ctype { font-size: 11px; color: var(--muted); }
+  .detail { margin-top: 14px; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: var(--bg); display: none; }
+  .detail.open { display: block; }
+  .detail h3 { margin: 0 0 8px; font-size: 14px; }
+  .kv { display: grid; grid-template-columns: 170px 1fr; gap: 4px 12px; font-size: 13px; }
+  .kv > div:nth-child(odd) { color: var(--muted); }
+  .note { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+  .diffpair { margin: 3px 0 0 14px; word-break: break-word; }
+  .diffpair code { white-space: pre-wrap; }
+  pre.err { white-space: pre-wrap; word-break: break-word; background: var(--code-bg); padding: 8px 10px; border-radius: 6px;
+            font: 12px/1.45 var(--mono); margin: 4px 0 0; max-height: 240px; overflow: auto; }
+  .ai-box { border: 1px dashed var(--ai); border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+  .ai-box h3 { margin: 0 0 6px; font-size: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .ai-box ol { margin: 6px 0 0 18px; padding: 0; }
+  .verify { margin-top: 8px; padding: 6px 10px; border-left: 3px solid var(--obs); background: var(--obs-bg); border-radius: 0 6px 6px 0; font-size: 13px; }
+  details > summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+  .filter { margin-bottom: 10px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel);
+            color: var(--ink); font: inherit; width: 100%; max-width: 320px; }
+  button.theme { margin-left: auto; border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+                 border-radius: 6px; padding: 4px 10px; font: inherit; font-size: 12px; cursor: pointer; }
+  .muted { color: var(--muted); }
+  .empty { color: var(--muted); font-style: italic; }
+  @media (max-width: 640px) {
+    h1 { font-size: 18px; }
+    .kv { grid-template-columns: 1fr; }
+    .kv > div:nth-child(odd) { margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div style="display:flex;align-items:center;gap:8px"><p class="eyebrow">Dependency Exit Capsule · break-forecast</p>
+    <button class="theme" id="theme" type="button">Theme</button></div>
+  <h1 id="title"></h1>
+  <div class="meta" id="meta"></div>
+  <div class="legend">Every record is tagged:
+    <span class="tag observed">🔍 observed</span>
+    <span class="tag executed">▶ executed</span>
+    <span class="tag ai_generated">🤖 AI-generated</span>
+    <span>AI output is a proposal until an executed check confirms it.</span></div>
+</div></header>
+<nav class="toc"><div class="wrap" id="toc"></div></nav>
+<main><div class="wrap" id="app"></div></main>
+
+<script type="application/json" id="capsule-data">/*__CAPSULE_JSON__*/</script>
+<script>
+(function () {
+  "use strict";
+  var C = JSON.parse(document.getElementById("capsule-data").textContent);
+  var app = document.getElementById("app");
+  var LABEL = { observed: "🔍 observed", executed: "▶ executed", ai_generated: "🤖 AI-generated" };
+
+  function esc(v) {
+    return String(v == null ? "" : v).replace(/[&<>"']/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+    });
+  }
+  function tag(p) { return p ? '<span class="tag ' + esc(p) + '">' + esc(LABEL[p] || p) + "</span>" : ""; }
+  function res(r) { return '<span class="res ' + esc(r || "none") + '">' + esc(r || "–") + "</span>"; }
+  function statusRes(s) {
+    var cls = s === "verified" || s === "verified_tests" ? "pass" : s === "rejected" ? "fail" : "skipped";
+    return '<span class="res ' + cls + '">' + esc(s || "–") + "</span>";
+  }
+  function code(v) { return v == null || v === "" ? '<span class="muted">–</span>' : "<code>" + esc(v) + "</code>"; }
+  function short(path) { return String(path || "").replace(/^.*[\\/](runs[\\/])/, "$1"); }
+  function card(id, title, prov, sub, body) {
+    return '<section class="card" id="' + id + '"><div class="hd"><h2>' + esc(title) + "</h2>" +
+      (prov || "") + (sub ? '<span class="sub">' + sub + "</span>" : "") + '</div><div class="bd">' + body + "</div></section>";
+  }
+  var sections = [];
+  function add(id, label, html) { if (html) { sections.push([id, label]); app.insertAdjacentHTML("beforeend", html); } }
+
+  // ---------- header ----------
+  var m = C.meta || {}, t = m.target || {};
+  document.getElementById("title").textContent = t.url || t.path || "target";
+  document.title = "Capsule · " + (t.url || t.path || "").replace(/^.*\//, "");
+  var models = {};
+  (C.replacement_suggestions || []).concat(C.diagnoses || [], C.patches || [], C.forecast || []).forEach(function (r) {
+    var s = r.source || {}; if (s.model_used) models[s.model_used] = true;
+  });
+  document.getElementById("meta").innerHTML = [
+    t.commit ? "commit " + code(String(t.commit).slice(0, 10)) : "",
+    "generated " + esc(m.created_at || ""),
+    "break-forecast " + esc(m.tool_version || ""),
+    "Python " + esc((m.target_pythons || []).join(" + ")),
+    "stages: " + esc((m.stages_run || []).join(" → ")),
+    Object.keys(models).length ? "models: " + Object.keys(models).map(code).join(" ") : ""
+  ].filter(Boolean).map(function (x) { return "<span>" + x + "</span>"; }).join("");
+
+  // ---------- overview ----------
+  var deps = C.dependencies || [], mx = C.upgrade_matrix || [];
+  var counts = (C.problem || {}).classification_counts || {};
+  var byResult = {};
+  mx.forEach(function (r) { byResult[r.result] = (byResult[r.result] || 0) + 1; });
+  var tiles = [
+    [deps.length, "dependencies inspected"], [counts.frozen || 0, "frozen"], [counts.unused || 0, "unused"],
+    [counts.undeclared || 0, "undeclared"], [(C.manifest_drift || []).length, "manifest drift findings"]
+  ];
+  if (mx.length) {
+    tiles.push([byResult.pass || 0, "matrix runs pass"]);
+    tiles.push([byResult.warn || 0, "pass with new warnings"]);
+    tiles.push([(byResult.fail || 0) + (byResult["import-fail"] || 0) + (byResult["install-fail"] || 0), "matrix runs break"]);
+  }
+  add("overview", "Overview", card("overview", "Problem identified", tag((C.problem || {}).provenance),
+    "derived from the observed data below",
+    '<p class="problem">' + esc((C.problem || {}).summary) + '</p><div class="tiles">' +
+    tiles.map(function (x) { return '<div class="tile"><div class="n">' + esc(x[0]) + '</div><div class="l">' + esc(x[1]) + "</div></div>"; }).join("") +
+    "</div>"));
+
+  // ---------- matrix ----------
+  if (mx.length) {
+    var pys = (m.target_pythons || []).filter(function (p) { return mx.some(function (r) { return r.python === p; }); });
+    var rows = {}, order = [];
+    mx.forEach(function (r) { if (!rows[r.cell]) { rows[r.cell] = {}; order.push(r.cell); } rows[r.cell][r.python] = r; });
+    var cellMeta = {}; (C.cells || []).forEach(function (c) { cellMeta[c.id] = c; });
+    var b = C.baseline || {}, bp = b.pythons || {};
+    var head = "<tr><th>Change</th>" + pys.map(function (p) { return '<th class="py">Python ' + esc(p) + "</th>"; }).join("") + "</tr>";
+    var refRow = '<tr class="ref"><td><span class="cellname">reference baseline</span><div class="ctype">' +
+      esc(b.pins_reproducible ? "pins as written" : "reconstructed (pins as written not reproducible)") + "</div></td>" +
+      pys.map(function (p) {
+        var e = bp[p] || {}, rt = e.reference_tests || {}, s = e.strict || {}, c = rt.counts || {};
+        return '<td class="c" data-ref="' + esc(p) + '">' + res(rt.outcome) + '<span class="counts">' + esc((c.passed || 0) + "/" +
+          ((c.passed || 0) + (c.failed || 0) + (c.error || 0))) + '</span><span class="strict">strict: ' + esc(s.outcome || "–") + "</span></td>";
+      }).join("") + "</tr>";
+    var body = order.map(function (id) {
+      var cm = cellMeta[id] || {};
+      return "<tr><td><span class=\"cellname\">" + esc(id) + '</span><div class="ctype">' + esc(cm.reason || "") +
+        (cm.expects_code_change ? " · needs code change" : "") + "</div></td>" +
+        pys.map(function (p) {
+          var r = rows[id][p];
+          if (!r) return '<td class="c"><span class="muted">–</span></td>';
+          var c = (r.normal || {}).counts || {}, total = (c.passed || 0) + (c.failed || 0) + (c.error || 0);
+          return '<td class="c" data-cell="' + esc(id) + '" data-py="' + esc(p) + '">' + res(r.result) +
+            (r.normal ? '<span class="counts">' + esc((c.passed || 0) + "/" + total) + "</span>" : "") +
+            '<span class="strict">strict: ' + esc((r.strict || {}).outcome || "–") + "</span></td>";
+        }).join("") + "</tr>";
+    }).join("");
+    add("matrix", "Matrix", card("matrix", "Upgrade matrix", tag("executed"),
+      "each change on its own, normal run + strict run (<code>-W error::DeprecationWarning</code>); click a cell for evidence",
+      '<div class="scroll"><table class="matrix"><thead>' + head + "</thead><tbody>" + refRow + body +
+      '</tbody></table></div><div class="detail" id="detail"></div>' +
+      '<p class="note">Counts are passed/total tests in the normal run. <b>warn</b> = tests pass but new warnings appeared; ' +
+      "<b>import-fail</b> = the suite could not load.</p>"));
+
+    var detail = document.getElementById("detail");
+    document.querySelector("table.matrix").addEventListener("click", function (ev) {
+      var td = ev.target.closest("td.c"); if (!td) return;
+      document.querySelectorAll("td.c.sel").forEach(function (x) { x.classList.remove("sel"); });
+      td.classList.add("sel");
+      if (td.dataset.ref) { detail.innerHTML = refDetail(td.dataset.ref); }
+      else if (td.dataset.cell) { detail.innerHTML = cellDetail(rows[td.dataset.cell][td.dataset.py], cellMeta[td.dataset.cell] || {}); }
+      detail.classList.add("open");
+    });
+  }
+
+  function countText(c) {
+    c = c || {};
+    var parts = [(c.passed || 0) + " passed", (c.failed || 0) + " failed"];
+    if (c.error) parts.push(c.error + " errors");
+    if (c.skipped) parts.push(c.skipped + " skipped");
+    return parts.join(", ");
+  }
+  function list(items, fmt) {
+    if (!items || !items.length) return '<span class="muted">none</span>';
+    return items.map(fmt || function (x) { return code(x); }).join(" ");
+  }
+  function refDetail(p) {
+    var e = (C.baseline || {}).pythons[p] || {};
+    var w = (e.reference_tests || {}).warnings || [];
+    return "<h3>Reference baseline · Python " + esc(p) + " " + tag("executed") + "</h3><div class=\"kv\">" +
+      "<div>Reference attempt</div><div>" + esc(e.reference) + "</div>" +
+      "<div>Flaky tests</div><div>" + list(e.flaky_tests) + "</div>" +
+      "<div>Strict run</div><div>" + res((e.strict || {}).outcome) + (e.strict && e.strict.error_excerpt ? '<pre class="err">' + esc(e.strict.error_excerpt) + "</pre>" : "") + "</div>" +
+      "<div>Warnings</div><div>" + (w.length ? w.map(function (x) { return "<div><code>" + esc(x.category) + "</code> " + esc(x.message) + "</div>"; }).join("") : '<span class="muted">none</span>') + "</div>" +
+      "<div>Lock file</div><div>" + code(short(e.lock_file)) + "</div></div>";
+  }
+  function cellDetail(r, cm) {
+    var moved = r.co_upgrades || {}, mk = Object.keys(moved);
+    var res2 = (cm.resolution || {})[r.python] || {};
+    var html = "<h3>" + esc(r.cell) + " · Python " + esc(r.python) + " " + tag("executed") + "</h3><div class=\"kv\">" +
+      "<div>Result</div><div>" + res(r.result) + (r.reason ? " " + esc(r.reason).slice(0, 400) : "") + "</div>" +
+      "<div>Change</div><div>" + esc(cm.reason || "") + "</div>" +
+      "<div>Resolver</div><div>" + esc((res2.levels_tried || []).join(" → ") || "–") + "</div>" +
+      "<div>Co-upgrades</div><div>" + (mk.length ? mk.map(function (k) { return code(k + " " + (moved[k][0] || "∅") + " → " + (moved[k][1] || "∅")); }).join(" ") : '<span class="muted">none</span>') + "</div>";
+    if (r.normal) {
+      html += "<div>Normal run</div><div>" + res(r.normal.outcome) + " " + esc(countText(r.normal.counts)) +
+        (r.normal.error_excerpt ? '<pre class="err">' + esc(r.normal.error_excerpt) + "</pre>" : "") + "</div>" +
+        "<div>Strict run</div><div>" + res((r.strict || {}).outcome) + ((r.strict || {}).error_excerpt && r.strict.error_excerpt !== r.normal.error_excerpt ? '<pre class="err">' + esc(r.strict.error_excerpt) + "</pre>" : "") + "</div>" +
+        "<div>Newly failing</div><div>" + list(r.confirmed_failing) + "</div>" +
+        "<div>Newly passing</div><div>" + list((r.diff_vs_reference || {}).newly_passing) + "</div>" +
+        "<div>Flaky on re-run</div><div>" + list(r.flaky) + "</div>" +
+        "<div>New warnings</div><div>" + ((r.new_warnings || []).length ? r.new_warnings.map(function (w) { return "<div><code>" + esc(w.category) + "</code> " + esc(w.message) + "</div>"; }).join("") : '<span class="muted">none</span>') + "</div>" +
+        "<div>Warnings gone</div><div>" + ((r.resolved_warnings || []).length ? r.resolved_warnings.map(function (w) { return "<div>" + esc(w.message) + "</div>"; }).join("") : '<span class="muted">none</span>') + "</div>";
+      if (r.probes) {
+        html += "<div>Probes " + tag("observed") + "</div><div>" + esc(r.probes.probes_run.join(", ")) + " · " +
+          (r.probes.divergences ? '<span class="res warn">' + esc(r.probes.divergences) + " difference(s)</span>" +
+            (r.probes.results || []).map(function (x) { return x.divergences.map(function (v) {
+              return "<div>" + code(x.probe + " :: " + v.case) + " before " + code(JSON.stringify(v.reference)) + " after " + code(JSON.stringify(v.candidate)) + "</div>"; }).join(""); }).join("")
+            : '<span class="res pass">same behaviour</span>') + "</div>";
+      }
+      var f = r.failures || {}, fk = Object.keys(f);
+      if (fk.length) html += "<div>Failures</div><div>" + fk.map(function (k) { return "<div>" + code(k) + '<pre class="err">' + esc(f[k]) + "</pre></div>"; }).join("") + "</div>";
+    }
+    html += "<div>Evidence</div><div>" + code(short((r.normal || {}).log || (r.install || {}).log || "")) + " " + code(short(r.lock_file || "")) + "</div></div>";
+    return html;
+  }
+
+  // ---------- forecast (AI, scored against executed results) ----------
+  var fc = C.forecast || [];
+  if (fc.length) {
+    var preds = fc.filter(function (f) { return f.provenance === "ai_generated"; });
+    var sc = fc.filter(function (f) { return f.kind === "forecast_score"; })[0];
+    var fsrc = (preds[0] || {}).source || {};
+    var actualOf = {}; ((sc || {}).rows || []).forEach(function (r) { actualOf[r.cell] = r; });
+    var OUT = ["pass", "warn", "break"];
+    var conf = sc ? '<div class="scroll" style="margin-top:12px"><table style="width:auto"><tr><th>predicted ↓ / actual →</th>' +
+      OUT.map(function (o) { return "<th>" + esc(o) + "</th>"; }).join("") + "</tr>" +
+      OUT.map(function (p) { return "<tr><td><b>" + esc(p) + "</b></td>" + OUT.map(function (a) {
+        var n = sc.confusion_matrix[p][a]; return '<td style="text-align:center' + (p === a && n ? ";font-weight:700;color:var(--pass)" : "") + '">' + esc(n) + "</td>"; }).join("") + "</tr>"; }).join("") +
+      '</table></div><div class="verify">' + tag("observed") + " " + esc(sc.correct + "/" + sc.scored_cells) + " correct · break precision " +
+      esc(sc.break_precision) + " · break recall " + esc(sc.break_recall) + " · " + esc(sc.note) + "</div>" : "";
+    add("forecast", "Forecast", card("forecast", "Blind forecast", tag("ai_generated") + tag("observed"),
+      "predicted before any test ran; locked " + esc(fsrc.locked_at || "") + " · prompt sha256 " + code(String(fsrc.prompt_sha256 || "").slice(0, 12)),
+      '<div class="scroll"><table><tr><th>Cell</th><th>Predicted ' + tag("ai_generated") + "</th><th>Actual " + tag("executed") +
+      "</th><th>Reasoning</th></tr>" + preds.map(function (f) {
+        var a = actualOf[f.cell];
+        var cls = { pass: "pass", warn: "warn", "break": "fail" };
+        return "<tr><td>" + code(f.cell) + '</td><td><span class="res ' + cls[f.predicted_outcome] + '">' + esc(f.predicted_outcome) + "</span> " +
+          '<span class="muted">' + esc(f.confidence != null ? f.confidence : "") + "</span></td><td>" +
+          (a ? '<span class="res ' + cls[a.actual] + '">' + esc(a.actual) + "</span> " + (a.correct ? "✔" : "✘") : '<span class="muted">not run</span>') +
+          '</td><td style="font-size:12px">' + esc(f.reasoning || "") + "</td></tr>";
+      }).join("") + "</table></div>" + conf));
+  }
+
+  // ---------- behaviour probes ----------
+  var bd = C.behavioral_diffs || [];
+  if (bd.length) {
+    var probeDefs = bd.filter(function (r) { return r.kind === "probe"; });
+    var diffs = bd.filter(function (r) { return r.kind !== "probe" && r.divergences; });
+    add("probes", "Probes", card("probes", "Behaviour probes", tag("ai_generated") + tag("observed"),
+      "scripts call the repo's own code before and after each change; differences are observed facts",
+      '<div class="scroll"><table><tr><th>Probe</th><th>Author</th><th>Checks</th><th>Status</th></tr>' +
+      probeDefs.map(function (p) {
+        return "<tr><td>" + code(p.probe) + "</td><td>" + tag(p.provenance) + "</td><td>" + esc(p.what_it_checks || "") +
+          (p.code ? '<details><summary>code</summary><pre class="err">' + esc(p.code) + "</pre></details>" : "") +
+          "</td><td>" + (p.usable ? '<span class="res pass">ready</span>' : '<span class="res fail">unusable</span> ' + esc(p.reason || "")) + "</td></tr>";
+      }).join("") + "</table></div>" +
+      (diffs.length ? '<h3 style="font-size:14px;margin:14px 0 6px">Behaviour differences ' + tag("observed") + "</h3>" +
+        diffs.map(function (d) {
+          return '<div class="ai-box" style="border-style:solid;border-color:var(--warn)"><b>' + esc(d.kind === "patch_probe_diff" ? "patched " : "") +
+            code(d.cell) + " · Python " + esc(d.python) + (d.attempt ? " · attempt " + esc(d.attempt) : "") + "</b> — " + esc(d.divergences) + " case(s) differ" +
+            (d.details || []).map(function (x) { return x.divergences.map(function (v) {
+              return '<div style="margin-top:8px">' + code(x.probe + " :: " + v.case) +
+                '<div class="diffpair"><span class="muted">before</span> ' + code(JSON.stringify(v.reference)) +
+                '</div><div class="diffpair"><span class="muted">after</span> ' + code(JSON.stringify(v.candidate)) + "</div></div>"; }).join(""); }).join("") + "</div>";
+        }).join("") : '<p class="note">No behaviour differences found by the probes.</p>')));
+  }
+
+  // ---------- AI replacement suggestions ----------
+  var reps = C.replacement_suggestions || [];
+  if (reps.length) {
+    add("replacements", "Replacements", card("replacements", "Replacement proposals", tag("ai_generated"),
+      "proposed by the model for frozen dependencies; existence verified separately",
+      reps.map(function (r) {
+        var v = r.verification || {}, s = r.source || {};
+        return '<div class="ai-box"><h3>' + esc(r.dependency) + " → " + code(r.replacement || "none") + " " + tag(r.provenance) +
+          '<span class="chip">' + esc(r.kind || "") + "</span>" +
+          (r.confidence != null ? '<span class="chip">confidence ' + esc(r.confidence) + "</span>" : "") +
+          (s.model_used ? '<span class="chip">' + esc(s.model_used) + (s.cached ? " · cached" : "") + "</span>" : "") + "</h3>" +
+          "<div>" + esc(r.rationale || "") + "</div>" +
+          ((r.migration_outline || []).length ? "<ol>" + r.migration_outline.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ol>" : "") +
+          ((r.api_mapping || []).length ? '<div class="scroll" style="margin-top:8px"><table><tr><th>Old API</th><th>New API</th><th>Note</th></tr>' +
+            r.api_mapping.map(function (x) { return "<tr><td>" + code(x.old) + "</td><td>" + code(x.new) + "</td><td>" + esc(x.note || "") + "</td></tr>"; }).join("") + "</table></div>" : "") +
+          '<div class="verify">' + tag(v.provenance || "observed") + " " + (r.verified ? "✔ " : "✘ ") + esc(v.detail || v || "") + "</div></div>";
+      }).join("")));
+  }
+
+  // ---------- diagnoses (AI) ----------
+  var diags = C.diagnoses || [];
+  if (diags.length) {
+    add("diagnoses", "Diagnoses", card("diagnoses", "Diagnoses", tag("ai_generated"),
+      "the model's explanation of each failing or degraded cell, from the executed evidence",
+      diags.map(function (d) {
+        var s = d.source || {}, obs = d.observed_results || {};
+        return '<div class="ai-box"><h3>' + code(d.cell) + " " + tag(d.provenance) + '<span class="chip">' + esc(d.root_cause) + "</span>" +
+          '<span class="chip ' + (d.code_fixable ? "upgradable" : "unused") + '">' + (d.code_fixable ? "fixable in code" : "not fixable in code") + "</span>" +
+          (d.confidence != null ? '<span class="chip">confidence ' + esc(d.confidence) + "</span>" : "") +
+          (s.model_used ? '<span class="chip">' + esc(s.model_used) + (s.cached ? " · cached" : "") + "</span>" : "") + "</h3>" +
+          "<div>" + esc(d.explanation) + "</div>" +
+          (d.fix_strategy ? '<div style="margin-top:6px"><b>Fix strategy:</b> ' + esc(d.fix_strategy) + "</div>" : "") +
+          ((d.co_upgrade_needed || []).length ? '<div style="margin-top:6px"><b>Co-upgrade needed:</b> ' + d.co_upgrade_needed.map(code).join(" ") + "</div>" : "") +
+          ((d.evidence || []).length ? '<details style="margin-top:6px"><summary>Evidence the model cited</summary><ul>' +
+            d.evidence.map(function (e) { return "<li>" + esc(e) + "</li>"; }).join("") + "</ul></details>" : "") +
+          '<div class="verify">' + tag("executed") + " observed results: " +
+          Object.keys(obs).map(function (p) { return esc(p) + " " + res(obs[p]); }).join(" ") + "</div></div>";
+      }).join("")));
+  }
+
+  // ---------- patches (AI diff + executed gate) ----------
+  var patches = C.patches || [];
+  if (patches.length) {
+    var RULES = ["allowlisted_paths", "applies_cleanly", "syntax_ok", "no_tamper_patterns", "no_broad_except_added",
+                 "test_tree_unchanged", "no_regressions", "target_fixed", "strict_not_worse", "target_installed",
+                 "behaviour_preserved"];
+    add("patches", "Patches", card("patches", "Patches & gate verdicts", tag("ai_generated") + tag("executed"),
+      "diffs are written by the model; the verdict comes only from the gate's checks and test runs",
+      patches.map(function (p) {
+        var g = p.gate || {}, st = g.static || {}, ex = g.executed || {}, pys = Object.keys(ex);
+        var rows = RULES.map(function (name) {
+          var cells = "";
+          if (st[name]) cells = '<td colspan="' + Math.max(1, pys.length) + '">' + (st[name].ok ? "✔" : "✘ " + esc(st[name].detail)) + "</td>";
+          else if (pys.length) cells = pys.map(function (py) { var r = (ex[py].rules || {})[name]; return "<td>" + (r ? (r.ok ? "✔" : "✘ " + esc((r.detail || "").slice(0, 300))) : '<span class="muted">–</span>') + "</td>"; }).join("");
+          else cells = '<td class="muted">not run (static checks failed)</td>';
+          return "<tr><td><code>" + esc(name) + "</code></td>" + cells + "</tr>";
+        }).join("");
+        var s = p.source || {};
+        return '<div class="ai-box" style="border-style:solid;border-color:var(--line)"><h3>' + code(p.cell) + " attempt " + esc(p.attempt) + " " +
+          statusRes(p.status) +
+          (s.model_used ? '<span class="chip">' + esc(s.model_used) + "</span>" : "") + "</h3>" +
+          "<div>" + tag("ai_generated") + " " + esc(p.summary || "") + "</div>" +
+          (p.diff ? '<details style="margin-top:6px"><summary>Diff (' + esc(p.diff.split("\n").length) + ' lines)</summary><pre class="err">' + esc(p.diff) + "</pre></details>" : "") +
+          '<div class="scroll" style="margin-top:8px"><table><tr><th>Gate rule ' + tag("executed") + "</th>" +
+          (pys.length ? pys.map(function (py) { return "<th>Python " + esc(py) + " " + res((ex[py] || {}).result) + "</th>"; }).join("") : "<th>Result</th>") +
+          "</tr>" + rows + "</table></div></div>";
+      }).join("")));
+  }
+
+  // ---------- baseline ----------
+  if (C.baseline) {
+    var bb = C.baseline;
+    var rowsB = Object.keys(bb.pythons || {}).map(function (p) {
+      var e = bb.pythons[p];
+      return (e.attempts || []).map(function (a) {
+        var c = (a.tests || {}).counts || {};
+        var cut = a.cutoffs ? Object.keys(a.cutoffs).map(function (k) { return code(k + " < " + a.cutoffs[k]); }).join(" ") : "";
+        return "<tr><td>" + esc(p) + "</td><td>" + esc(a.name) + (a.name === e.reference ? ' <span class="chip">reference</span>' : "") +
+          "</td><td>" + res(a.outcome) + "</td><td>" + esc(c.passed != null ? c.passed + " passed, " + (c.failed || 0) + " failed" : "–") +
+          '</td><td><div class="muted" style="font-size:12px">' + esc(a.method || "") + "</div>" + cut + "</td></tr>";
+      }).join("");
+    }).join("");
+    add("baseline", "Baseline", card("baseline", "Baseline + reconstruction", tag(bb.provenance),
+      "install: " + code("uv pip install " + (bb.install_args || []).join(" ")) + " · pins reproducible as written: <b>" + esc(bb.pins_reproducible) + "</b>",
+      '<div class="scroll"><table><tr><th>Python</th><th>Attempt</th><th>Outcome</th><th>Tests</th><th>How</th></tr>' + rowsB + "</table></div>"));
+  }
+
+  // ---------- dependencies ----------
+  if (deps.length) {
+    add("dependencies", "Dependencies", card("dependencies", "Dependencies", tag("observed"),
+      "from manifests, PyPI and GitHub",
+      '<div class="scroll"><table><tr><th>Dependency</th><th>Spec</th><th>Latest</th><th>Last release</th><th>Used in</th><th>Classification</th></tr>' +
+      deps.map(function (d) {
+        var u = d.usage_sites || {};
+        return "<tr><td><b>" + esc(d.name) + "</b></td><td>" + code(d.effective_spec) + "</td><td>" + code(d.latest) + "</td><td>" +
+          esc((d.last_release_date || "–").slice(0, 10)) + (d.years_since_last_release != null ? ' <span class="muted">(' + esc(d.years_since_last_release) + " y)</span>" : "") +
+          "</td><td>" + esc((u.source || 0) + " src, " + (u.tests || 0) + " test sites") + "</td><td>" +
+          (d.classification || []).map(function (c) { return '<span class="chip ' + esc(c) + '">' + esc(c) + "</span>"; }).join("") + "</td></tr>";
+      }).join("") + "</table></div>"));
+  }
+
+  // ---------- risk indicators ----------
+  var risks = C.risk_indicators || [];
+  if (risks.length) {
+    add("risks", "Risks", card("risks", "Risk indicators", tag("observed"), risks.length + " indicators, each linked to its source",
+      '<input class="filter" id="riskfilter" placeholder="Filter by dependency or indicator…" aria-label="Filter risk indicators">' +
+      '<div class="scroll"><table id="risktable"><tr><th>Dependency</th><th>Indicator</th><th>Detail</th><th>Source</th></tr>' +
+      risks.map(function (r) {
+        var s = r.source || {}, src = Array.isArray(s) ? s.map(function (x) { return x.path + ":" + x.line; }).join(", ") :
+          (s.url ? s.url : s.path ? s.path + (s.line ? ":" + s.line : "") : s.kind || "");
+        return '<tr data-q="' + esc((r.dependency + " " + r.indicator).toLowerCase()) + '"><td><b>' + esc(r.dependency) + "</b></td><td>" +
+          '<span class="chip">' + esc(r.indicator) + "</span></td><td>" + esc(r.detail) + '</td><td class="mono" style="font-size:11px;word-break:break-all">' + esc(src) + "</td></tr>";
+      }).join("") + "</table></div>"));
+    document.getElementById("riskfilter").addEventListener("input", function (ev) {
+      var q = ev.target.value.toLowerCase();
+      document.querySelectorAll("#risktable tr[data-q]").forEach(function (tr) { tr.style.display = tr.dataset.q.indexOf(q) >= 0 ? "" : "none"; });
+    });
+  }
+
+  // ---------- drift ----------
+  var drift = C.manifest_drift || [];
+  if (drift.length) {
+    add("drift", "Drift", card("drift", "Manifest drift", tag("observed"), "disagreements between dependency files",
+      '<div class="scroll"><table><tr><th>Kind</th><th>Dependency</th><th>Detail</th></tr>' + drift.map(function (d) {
+        var det = d.declarations ? d.declarations.map(function (x) { return code(x.file + ": " + x.spec); }).join(" ") :
+          d.raw ? code(d.raw) : d.spec ? code((d.file || "") + " " + d.spec) : esc(d.declared_in ? d.declared_in + " vs " + d.missing_from : "");
+        return "<tr><td><span class=\"chip\">" + esc(d.kind) + "</span>" + (d.conflicting ? ' <span class="chip frozen">conflict</span>' : "") +
+          "</td><td>" + esc(d.dependency || "(project)") + "</td><td>" + det + "</td></tr>";
+      }).join("") + "</table></div>"));
+  }
+
+  // ---------- usage ----------
+  var usage = (C.usage_locations || []).filter(function (u) { return !u.in_tests; });
+  if (usage.length) {
+    add("usage", "Usage", card("usage", "Usage locations", tag("observed"), usage.length + " sites in source code (test files omitted)",
+      "<details><summary>Show all usage sites</summary><div class=\"scroll\" style=\"margin-top:8px\"><table><tr><th>Location</th><th>API</th><th>Kind</th><th>Dependency</th></tr>" +
+      usage.map(function (u) {
+        return "<tr><td class=\"mono\">" + esc(u.file + ":" + u.line) + "</td><td>" + code(u.api) + (u.private ? ' <span class="chip frozen">private</span>' : "") +
+          "</td><td>" + esc(u.kind) + "</td><td>" + esc(u.dependency || "") + "</td></tr>";
+      }).join("") + "</table></div></details>"));
+  }
+
+  // ---------- limitations + reproducibility ----------
+  var lim = C.limitations || [];
+  add("limitations", "Limitations", card("limitations", "Limitations & open concerns", tag("observed"), "reported, not hidden",
+    lim.length ? "<ul>" + lim.map(function (l) { return "<li><b>" + esc(l.item || "") + ":</b> " + esc(l.reason || "") + "</li>"; }).join("") + "</ul>" :
+      '<p class="empty">No limitations recorded.</p>'));
+  var rep = C.reproducibility || {};
+  add("repro", "Reproduce", card("repro", "Reproducibility", tag(rep.provenance), "",
+    "<div class=\"kv\"><div>Commands</div><div>" + (rep.commands || []).map(code).join("<br>") + "</div><div>uv</div><div>" +
+    code(rep.uv_version) + "</div><div>Host</div><div>" + esc(((m.host || {}).os || "") + " · tool Python " + ((m.host || {}).tool_python || "")) + "</div></div>"));
+
+  document.getElementById("toc").innerHTML = sections.map(function (s) { return '<a href="#' + s[0] + '">' + esc(s[1]) + "</a>"; }).join("");
+
+  // ---------- theme toggle ----------
+  var root = document.documentElement, btn = document.getElementById("theme");
+  try { var saved = localStorage.getItem("bf-theme"); if (saved) root.dataset.theme = saved; } catch (e) {}
+  btn.addEventListener("click", function () {
+    var dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("bf-theme", root.dataset.theme); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

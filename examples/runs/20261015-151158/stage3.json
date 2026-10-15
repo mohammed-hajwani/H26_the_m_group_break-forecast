@@ -1,0 +1,234 @@
+{
+  "locked_at": "2026-10-15T10:06:37+00:00",
+  "answered_at": "2026-10-15T10:07:43+00:00",
+  "prompt_sha256": "8e0a9cf86f3118dc95c0d8150acdf87d68f58c19df931c81995f19a52400ce34",
+  "response_sha256": "af67544e31e313caee3482f11796b9ea0a330f742a995bf511411af734daef47",
+  "model_used": "gemma4:12b-it-qat",
+  "cached": false,
+  "error": null,
+  "forecasts": {
+    "replace:appdirs": {
+      "cell": "replace:appdirs",
+      "predicted_outcome": "break",
+      "confidence": 1.0,
+      "reasoning": "The repository uses `appdirs.user_cache_dir` in `linkwatch/cache.py`, but the change replaces `appdirs` with `platformdirs` without a code change."
+    },
+    "upgrade:chardet@7.6.0": {
+      "cell": "upgrade:chardet@7.6.0",
+      "predicted_outcome": "pass",
+      "confidence": 0.9,
+      "reasoning": "The upgrade includes bug fixes and performance improvements for CPython 3.14, and the repository uses `chardet.detect` which is well-supported."
+    },
+    "remove:idna": {
+      "cell": "remove:idna",
+      "predicted_outcome": "pass",
+      "confidence": 1.0,
+      "reasoning": "The resolver confirms `idna` is declared but never imported, so removing it will not affect the runtime."
+    },
+    "upgrade:jinja2@3.1.6": {
+      "cell": "upgrade:jinja2@3.1.6",
+      "predicted_outcome": "pass",
+      "confidence": 0.9,
+      "reasoning": "Jinja2 3.1.6 is a security release that does not change behavior or introduce breaking changes for the `Environment` and `FileSystemLoader` classes used."
+    },
+    "replace:nose": {
+      "cell": "replace:nose",
+      "predicted_outcome": "break",
+      "confidence": 1.0,
+      "reasoning": "The change notes explicitly state that a code change has NOT been made yet to support the removal of `nose`."
+    },
+    "upgrade:pydantic@2.14.1": {
+      "cell": "upgrade:pydantic@2.14.1",
+      "predicted_outcome": "break",
+      "confidence": 1.0,
+      "reasoning": "The repository uses `pydantic.validator`, which is a Pydantic v1 API; Pydantic v2 (2.14.1) has moved to `field_validator` and `validator` is deprecated/removed."
+    },
+    "upgrade:requests@2.34.2": {
+      "cell": "upgrade:requests@2.34.2",
+      "predicted_outcome": "pass",
+      "confidence": 0.9,
+      "reasoning": "The upgrade includes support for Python 3.14 and 3.15 and maintains compatibility with the `Session` and `exceptions` used in the code."
+    },
+    "upgrade:setuptools@84.0.0": {
+      "cell": "upgrade:setuptools@84.0.0",
+      "predicted_outcome": "pass",
+      "confidence": 0.9,
+      "reasoning": "The repository uses `pkg_resources` from `setuptools`, which is still present in `setuptools` 84.0.0, though it may trigger a deprecation warning."
+    },
+    "remove:six": {
+      "cell": "remove:six",
+      "predicted_outcome": "pass",
+      "confidence": 1.0,
+      "reasoning": "The resolver confirms `six` is declared but never imported, so removing it is safe."
+    },
+    "replace:toml": {
+      "cell": "replace:toml",
+      "predicted_outcome": "break",
+      "confidence": 1.0,
+      "reasoning": "The repository uses `toml.load` in `linkwatch/config.py`, but the change notes state a code change has NOT been made yet to replace it."
+    },
+    "declare:certifi": {
+      "cell": "declare:certifi",
+      "predicted_outcome": "pass",
+      "confidence": 1.0,
+      "reasoning": "This simply declares a dependency that is already being imported, which is a safe operation."
+    },
+    "all-latest": {
+      "cell": "all-latest",
+      "predicted_outcome": "break",
+      "confidence": 1.0,
+      "reasoning": "This includes the breaking changes from `pydantic` (v1 to v2) and the missing code changes for `appdirs` and `toml` replacements."
+    }
+  },
+  "release_notes": [
+    {
+      "dependency": "chardet",
+      "from_version": "5.2.0",
+      "to_version": "7.6.0",
+      "excerpt": "## 7.6.0\nBig release: a Cython scoring kernel joins mypyc in compiled wheels, every model retrained on a deduplicated corpus, UTF-7 fixed in both directions, and a guarantee that `detect()` never returns an encoding that can't decode your complete input.\n\n## Performance\n\n- Compiled wheels now score bigram profiles through a small Cython kernel alongside mypyc, and the pair is 4.7x faster than the pure wheel on CPython 3.14. `_kernel.py` stays plain Python (PyPy and pure wheels run it interpreted, unchanged), and detection output is bit-identical. The kernel declares itself safe without the GIL, so free-threaded CPython scales instead of silently re-enabling the GIL on import: 3.14t runs the whole suite in ~340ms across 8 threads, the fastest configuration measured. Compiled builds now need both hooks: `HATCH_BUILD_HOOK_ENABLE_MYPYC=true HATCH_BUILD_HOOK_ENABLE_CUSTOM=true`.\n- Added support for CPython 3.15, including the free-threaded build. No code changes were needed.\n\n## Bug Fixes\n\n- `detect()` no longer returns an encoding that cannot decode the input it was given (#380, thanks [@yarikoptic](https://github.com/yarikoptic)). When the whole input has been examined and the winner's only multi-byte evidence is an incomplete trailing sequence, the best candidate that decodes the input completely wins instead. Genuinely truncated data keeps its answer.\n- Fixed delimited ASCII data like `|NAME,+LAY|` misdetecting as UTF-7 (#371 follow-up, thanks [@agreenburg](https://github.com/agreenburg)). The whole buffer must now actually decode as UTF-7, and a lone shifted character must land in a plausible script range.\n- Signed UTF-7 no longer reads as ASCII: the BOM stage recognizes the four UTF-7 signature prefixes when the rest of the buffer decodes as UTF-7.\n- Fixed short apostrophe-heavy English being labeled Scottish Gaelic or Breton: a rare-language label on an input under 128 bytes now needs a 0.03 lead over the best mainstream language (ADR-0005).\n- Fixed Hungarian text losing to a Czech reading in confusion rescoring; tied pairs are compared only under language models both encodings have.\n- Fixed space-padded text matching a degenerate Serbian model at high confidence; statistical scoring now skips repeated-whitespace bigrams. This also fixes windows-1251 logs misdetecting as windows-1250 (#379).\n- Fixed EBCDIC text being invisible to the early pipeline stages, and the last two EBCDIC sibling misdetections.\n- Fixed training normalization gaps that starved ISO\n[... truncated ...]",
+      "releases": [
+        "6.0.0",
+        "6.0.0.post1",
+        "7.0.0",
+        "7.0.1",
+        "7.1.0",
+        "7.2.0",
+        "7.3.0",
+        "7.4.0",
+        "7.4.1",
+        "7.4.2",
+        "7.4.3",
+        "7.5.0",
+        "7.5.1",
+        "7.6.0"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://api.github.com/repos/chardet/chardet/releases?per_page=100",
+        "fetched_at": "2026-10-15T10:06:36+00:00"
+      }
+    },
+    {
+      "dependency": "jinja2",
+      "from_version": "2.11.3",
+      "to_version": "3.1.6",
+      "excerpt": "## 3.1.6\nThis is the Jinja 3.1.6 security release, which fixes security issues but does not otherwise change behavior and should not result in breaking changes compared to the latest feature release.\r\n\r\nPyPI: https://pypi.org/project/Jinja2/3.1.6/\r\nChanges: https://jinja.palletsprojects.com/en/stable/changes/#version-3-1-6\r\n\r\n- The `|attr` filter does not bypass the environment's attribute lookup, allowing the sandbox to apply its checks. https://github.com/pallets/jinja/security/advisories/GHSA-cpwx-vrp4-4pq7\n\n## 3.1.5\nThis is the Jinja 3.1.5 security fix release, which fixes security issues and bugs but does not otherwise change behavior and should not result in breaking changes compared to the latest feature release.\r\n\r\nPyPI: https://pypi.org/project/Jinja2/3.1.5/\r\nChanges: https://jinja.palletsprojects.com/changes/#version-3-1-5\r\nMilestone: https://github.com/pallets/jinja/milestone/16?closed=1\r\n\r\n- The sandboxed environment handles indirect calls to `str.format`, such as by passing a stored reference to a filter that calls its argument. [GHSA-q2x7-8rv6-6q7h](https://github.com/pallets/jinja/security/advisories/GHSA-q2x7-8rv6-6q7h)\r\n- Escape template name before formatting it into error messages, to avoid issues with names that contain f-string syntax. #1792, [GHSA-gmj6-6f8f-6699](https://github.com/pallets/jinja/security/advisories/GHSA-gmj6-6f8f-6699)\r\n- Sandbox does not allow `clear` and `pop` on known mutable sequence types. #2032\r\n- Calling sync `render` for an async template uses `asyncio.run`. #1952\r\n- Avoid unclosed `auto_aiter` warnings. #1960\r\n- Return an `aclose`-able `AsyncGenerator` from `Template.generate_async`. #1960\r\n- Avoid leaving `root_render_func()` unclosed in `Template.generate_async`. #1960\r\n- Avoid leaving async generators unclosed in blocks, includes and extends. #1960\r\n- The runtime uses the correct `concat` function for the current environment when calling block references. #1701\r\n- Make `|unique` async-aware, allowing it to be used after another async-aware filter. #1781\r\n- `|int` filter handles `OverflowError` from scientific notation. #1921\r\n- Make compiling deterministic for tuple unpacking in a `{% set ... %}` call. #2021\r\n- Fix dunder protocol (`copy`/`pickle`/etc) interaction with `Undefined` objects. #2025\r\n- Fix `copy`/`pickle` support for the internal `missing` object. #2027\r\n- `Environment.overlay(enable_async)` is applied correctly. #2061\r\n- The error message from `FileSystemLoader` includes the paths that were s\n[... truncated ...]",
+      "releases": [
+        "3.0.0rc1",
+        "3.0.0rc2",
+        "3.0.0",
+        "3.0.1",
+        "3.0.2",
+        "3.0.3",
+        "3.1.0",
+        "3.1.1",
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://api.github.com/repos/pallets/jinja/releases?per_page=100",
+        "fetched_at": "2026-10-15T10:06:37+00:00"
+      }
+    },
+    {
+      "dependency": "pydantic",
+      "from_version": "1.10.13",
+      "to_version": "2.14.1",
+      "excerpt": "Changelog | Pydantic Docs Skip to content Theme \n pydantic/pydantic Get Started Welcome to Pydantic \n Why use Pydantic \n Help with Pydantic \n Enterprise Support \n Installation \n Migration Guide \n Version Policy \n Contributing \n Changelog \n\n Concepts Models \n Fields \n JSON Schema \n JSON \n Types \n Unions \n Alias \n Configuration \n Serialization \n Validators \n Dataclasses \n Forward Annotations \n Strict Mode \n Type Adapter \n Validation Decorator \n Conversion Table \n Settings Management \n Performance \n Experimental \n\n API Documentation Pydantic BaseModel \n RootModel \n Pydantic Dataclasses \n TypeAdapter \n Validate Call \n Fields \n Aliases \n Configuration \n JSON Schema \n Errors \n Functional Validators \n Functional Serializers \n Standard Library Types \n Pydantic Types \n Network Types \n Version Information \n Annotated Handlers \n Experimental \n\n Pydantic Core Pydantic Core \n Pydantic Core.core Schema \n\n Pydantic Settings \n Pydantic Extra Types Color \n Country \n Payment \n Phone Numbers \n Routing Numbers \n Coordinate \n Mac Address \n ISBN \n Pendulum \n Currency \n Language \n Script Code \n Semantic Version \n Timezone Name \n ULID \n\n Internals Architecture \n Resolving Annotations \n\n Examples Validating File Data \n Web and API Requests \n Queues \n Databases \n Custom Validators \n Dynamic models \n Cyclic references \n Agent libraries \u2013 Pydantic AI \n\n Error Messages Error Handling \n Validation Errors \n Usage Errors \n Troubleshooting with Logfire \n\n Integrations Pydantic Logfire \n LLMs \n Dev Tools Mypy \n Pyrefly \n PyCharm \n Hypothesis \n Visual Studio Code \n Datamodel Code Generator \n Devtools \n Rich \n Linting \n Documentation \n\n AWS Lambda \n\n Blog \n Pydantic People \n\nVersion: Latest (stable) \nVersion: Dev \nVersion: v2.12 \nVersion: v2.11 \nVersion: v2.10 \nVersion: v2.9 \nVersion: v2.8 \nVersion: v2.7 \nVersion: v2.6 \nVersion: v2.5 \nVersion: v2.4 \nVersion: v2.3 \nVersion: v2.2 \nVersion: v2.1 \nVersion: v2.0 \nVersion: v1.10 \n\n Changelog\n\n v2.14.1 (2026-10-11)\n\n GitHub release \n\n What\u2019s Changed\n\n Performance\n\n Avoid Python tuple allocation during model fields validation by @Viicos in #13955 \n\n Avoid unnecessary extra dict allocation in model validation by @Viicos in #13956 \n\n Fixes\n\n Fix arguments-v3 schema with variadic keywords by @Viicos in #13954 \n\n Fix TypeError on ForwardRef on Python 3.10.0 by @Viicos in #13964 \n\n Support closed and extra_items via inheritance in TypedDict by @Viicos in #13967 \n\n Enforce the max_digits whole-digits limit in the Python Decimal validator by @Viicos in #13\n[... truncated ...]",
+      "releases": null,
+      "provenance": "observed",
+      "source": {
+        "url": "https://pydantic.dev/docs/validation/latest/get-started/changelog/",
+        "fetched_at": "2026-10-15T09:04:52+00:00"
+      }
+    },
+    {
+      "dependency": "requests",
+      "from_version": "2.31.0",
+      "to_version": "2.34.2",
+      "excerpt": "## v2.34.2\n2.34.2 (2026-05-14)\r\n-------------------\r\n- Moved `headers` input type back to `Mapping` to avoid invariance issues with `MutableMapping` and inferred dict types. Users calling `Request.headers.update()` may need to narrow typing in their code. (#7441)\r\n\r\n**Full Changelog**: https://github.com/psf/requests/blob/main/HISTORY.md#2342-2026-05-14\n\n## v2.34.1\n2.34.1 (2026-05-13)\r\n-------------------\r\n\r\n**Bugfixes**\r\n- Widened `json` input type from `dict` and `list` to `Mapping`\r\n  and `Sequence`. (#7436)\r\n- Changed `headers` input type to MutableMapping and removed `None` from\r\n  `Request.headers` typing to improve handling for users. (#7431)\r\n- `Response.reason` moved from `str | None` to `str` to improve handling\r\n  for users. (#7437)\r\n- Fixed a bug where some bodies with custom `__getattr__` implementations\r\n  weren't being properly detected as Iterables. (#7433)\r\n\r\n## New Contributors\r\n* @k223kim made their first contribution in https://github.com/psf/requests/pull/7433\r\n\r\n**Full Changelog**: https://github.com/psf/requests/blob/main/HISTORY.md#2341-2026-05-13\n\n## v2.34.0\n2.34.0 (2026-05-11)\r\n-------------------\r\n\r\n**Announcements**\r\n- Requests 2.34.0 introduces inline types, replacing those provided by\r\n  typeshed. Public API types should be fully compatible with mypy, pyright,\r\n  and ty. **We believe types are comprehensive but if you find issues, please\r\n  report them to the [pinned tracking issue](https://github.com/psf/requests/issues/7271).**\r\n\r\n  Special thanks to @bastimeyer, @cthoyt, @edgarrmondragon, and @srittau for\r\n  helping review and test the types ahead of the release. (#7272)\r\n\r\n**Improvements**\r\n- Digest Auth hashing algorithms have added `usedforsecurity=False` to clarify\r\n  security considerations. (#7310)\r\n- Requests added support for Python 3.15 based on beta1. Downstream projects\r\n  should be able to start testing prior to its release in October. (#7422)\r\n- Requests added support for Python 3.14t. (#7419)\r\n\r\n**Bugfixes**\r\n- ``Response.history`` no longer contains a reference to itself, preventing\r\n  accidental looping when traversing the history list. (#7328)\r\n- Requests no longer performs greedy matching on no_proxy domains. The\r\n  proxy_bypass implementation has been updated with CPython's fix from\r\n  bpo-39057. (#7427)\r\n- Requests no longer incorrectly strips duplicate leading slashes in\r\n  URI paths. This should address user issues with specific presigned\r\n  URLs. Note the full fix requires urllib3 2.7.0+. (#7315)\r\n\r\n#\n[... truncated ...]",
+      "releases": [
+        "v2.32.0",
+        "v2.32.1",
+        "v2.32.2",
+        "v2.32.3",
+        "v2.32.4",
+        "v2.32.5",
+        "v2.33.0",
+        "v2.33.1",
+        "v2.34.0",
+        "v2.34.1",
+        "v2.34.2"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://api.github.com/repos/psf/requests/releases?per_page=100",
+        "fetched_at": "2026-10-15T09:16:21+00:00"
+      }
+    },
+    {
+      "dependency": "setuptools",
+      "from_version": "75.8.0",
+      "to_version": "84.0.0",
+      "excerpt": "## v84.0.0\n\n\n## v83.0.0\n\n\n## v82.0.1\n\n\n## v82.0.0\n\n\n## v81.0.0\n\n\n## v80.10.2\n\n\n## v80.10.1\n\n\n## v80.9.0\n\n\n## v80.8.0\n\n\n## v80.7.1\n\n\n## v80.7.0\n\n\n## v80.6.0\n\n\n## v80.4.0\n\n\n## v80.3.1\n\n\n## v80.3.0\n\n\n## v80.2.0\n\n\n## v80.1.0\n\n\n## v80.0.1\n\n\n## v80.0.0\n\n\n## v79.0.1\n\n\n## v79.0.0\n\n\n## v78.1.1\n\n\n## v78.1.0\n\n\n## v78.0.2\n\n\n## v78.0.1\n\n\n## v77.0.3\n\n\n## v77.0.1\n\n\n## v76.1.0\n\n\n## v76.0.0\n\n\n## v75.9.1\n\n\n## v75.9.0\n\n\n## v75.8.2\n\n\n## v75.8.1",
+      "releases": [
+        "v75.8.1",
+        "v75.8.2",
+        "v75.9.0",
+        "v75.9.1",
+        "v76.0.0",
+        "v76.1.0",
+        "v77.0.1",
+        "v77.0.3",
+        "v78.0.1",
+        "v78.0.2",
+        "v78.1.0",
+        "v78.1.1",
+        "v79.0.0",
+        "v79.0.1",
+        "v80.0.0",
+        "v80.0.1",
+        "v80.1.0",
+        "v80.2.0",
+        "v80.3.0",
+        "v80.3.1",
+        "v80.4.0",
+        "v80.6.0",
+        "v80.7.0",
+        "v80.7.1",
+        "v80.8.0",
+        "v80.9.0",
+        "v80.10.1",
+        "v80.10.2",
+        "v81.0.0",
+        "v82.0.0",
+        "v82.0.1",
+        "v83.0.0",
+        "v84.0.0"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://api.github.com/repos/pypa/setuptools/releases?per_page=100",
+        "fetched_at": "2026-10-15T09:52:53+00:00"
+      }
+    }
+  ],
+  "cells_forecast": [
+    "replace:appdirs",
+    "upgrade:chardet@7.6.0",
+    "remove:idna",
+    "upgrade:jinja2@3.1.6",
+    "replace:nose",
+    "upgrade:pydantic@2.14.1",
+    "upgrade:requests@2.34.2",
+    "upgrade:setuptools@84.0.0",
+    "remove:six",
+    "replace:toml",
+    "declare:certifi",
+    "all-latest"
+  ]
+}

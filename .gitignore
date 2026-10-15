@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.bf-cache/
+/runs/
+.env
+*.env
+deck/.tools/
+deck/render/
+web/node_modules/

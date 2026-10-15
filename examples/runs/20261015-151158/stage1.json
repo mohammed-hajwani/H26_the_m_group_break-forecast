@@ -1,0 +1,2393 @@
+{
+  "manifests": {
+    "files_read": [
+      "Dockerfile",
+      "Makefile",
+      "pyproject.toml",
+      "requirements-dev.txt",
+      "requirements.txt"
+    ],
+    "effective_files": [
+      "requirements.txt",
+      "requirements-dev.txt"
+    ],
+    "lockfiles": [],
+    "requires_python": [
+      {
+        "file": "pyproject.toml",
+        "line": 11,
+        "spec": ">=3.10"
+      }
+    ],
+    "install_commands": [
+      {
+        "file": "Makefile",
+        "line": 8,
+        "text": ".venv/bin/pip install -r requirements.txt -r requirements-dev.txt",
+        "requirement_files": [
+          "requirements.txt",
+          "requirements-dev.txt"
+        ],
+        "installs_project": false,
+        "project_extras": []
+      },
+      {
+        "file": "Dockerfile",
+        "line": 6,
+        "text": "RUN pip install --no-cache-dir -r requirements.txt -r requirements-dev.txt",
+        "requirement_files": [
+          "requirements.txt",
+          "requirements-dev.txt"
+        ],
+        "installs_project": false,
+        "project_extras": []
+      }
+    ],
+    "test_commands": [
+      {
+        "file": "Makefile",
+        "line": 11,
+        "text": "python -m pytest"
+      },
+      {
+        "file": "Makefile",
+        "line": 14,
+        "text": "nosetests tests/"
+      },
+      {
+        "file": "Makefile",
+        "line": 20,
+        "text": "docker run --rm $(IMAGE) pytest"
+      },
+      {
+        "file": "Dockerfile",
+        "line": 12,
+        "text": "CMD [\"pytest\"]"
+      }
+    ],
+    "parse_errors": [],
+    "provenance": "observed",
+    "source": {
+      "kind": "repo",
+      "path": "C:\\istehack\\runs\\20261015-151158\\work\\target"
+    }
+  },
+  "dependencies": [
+    {
+      "name": "appdirs",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 2,
+          "spec": "==1.4.4",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 14,
+          "spec": "==1.4.4",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "==1.4.4",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": "1.4.4",
+      "import_names": [
+        "appdirs"
+      ],
+      "usage_sites": {
+        "source": 2,
+        "tests": 0,
+        "files": [
+          "linkwatch/cache.py"
+        ]
+      },
+      "latest": "1.4.4",
+      "latest_date": "2020-05-11T07:59:49.499913+00:00",
+      "last_release_date": "2020-05-11T07:59:49.499913+00:00",
+      "years_since_last_release": 6.43,
+      "requires_python_latest": "",
+      "summary": "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\".",
+      "github": {
+        "repo": "ActiveState/appdirs",
+        "archived": false,
+        "pushed_at": "2023-02-10T23:42:40Z"
+      },
+      "upgrade_available": false,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "frozen"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/appdirs/json",
+        "fetched_at": "2026-10-15T07:12:09+00:00"
+      }
+    },
+    {
+      "name": "chardet",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 8,
+          "spec": "==5.2.0",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 20,
+          "spec": "==5.2.0",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "==5.2.0",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": "5.2.0",
+      "import_names": [
+        "chardet"
+      ],
+      "usage_sites": {
+        "source": 2,
+        "tests": 0,
+        "files": [
+          "linkwatch/encoding.py"
+        ]
+      },
+      "latest": "7.6.0",
+      "latest_date": "2026-08-14T20:36:07.451224+00:00",
+      "last_release_date": "2026-08-14T20:36:07.451224+00:00",
+      "years_since_last_release": 0.17,
+      "requires_python_latest": ">=3.10",
+      "summary": "Universal character encoding detector",
+      "github": {
+        "repo": "chardet/chardet",
+        "archived": false,
+        "pushed_at": "2026-10-15T04:08:09Z"
+      },
+      "upgrade_available": true,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "upgradable"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/chardet/json",
+        "fetched_at": "2026-10-15T07:12:09+00:00"
+      }
+    },
+    {
+      "name": "click",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 6,
+          "spec": ">=7",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 18,
+          "spec": ">=7",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": ">=7",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": null,
+      "import_names": [
+        "click"
+      ],
+      "usage_sites": {
+        "source": 10,
+        "tests": 2,
+        "files": [
+          "linkwatch/cli.py",
+          "tests/test_report.py"
+        ]
+      },
+      "latest": "8.5.0",
+      "latest_date": "2026-08-26T13:33:12.928043+00:00",
+      "last_release_date": "2026-08-26T13:33:12.928043+00:00",
+      "years_since_last_release": 0.13,
+      "requires_python_latest": ">=3.10",
+      "summary": "Composable command line interface toolkit",
+      "upgrade_available": null,
+      "classification": [
+        "current_or_unknown"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/click/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "name": "idna",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 10,
+          "spec": "==2.7",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 22,
+          "spec": "==2.7",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "==2.7",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": "2.7",
+      "import_names": [],
+      "usage_sites": {
+        "source": 0,
+        "tests": 0,
+        "files": []
+      },
+      "latest": "3.20",
+      "latest_date": "2026-09-17T14:11:03.168153+00:00",
+      "last_release_date": "2026-09-17T14:11:03.168153+00:00",
+      "years_since_last_release": 0.07,
+      "requires_python_latest": ">=3.9",
+      "summary": "Internationalized Domain Names in Applications (IDNA)",
+      "upgrade_available": true,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "unused"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/idna/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "name": "jinja2",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 4,
+          "spec": "==2.11.3",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 16,
+          "spec": "==2.11.3",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "==2.11.3",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": "2.11.3",
+      "import_names": [
+        "jinja2"
+      ],
+      "usage_sites": {
+        "source": 6,
+        "tests": 0,
+        "files": [
+          "linkwatch/report.py"
+        ]
+      },
+      "latest": "3.1.6",
+      "latest_date": "2025-03-05T20:05:00.369721+00:00",
+      "last_release_date": "2025-03-05T20:05:00.369721+00:00",
+      "years_since_last_release": 1.61,
+      "requires_python_latest": ">=3.7",
+      "summary": "A very fast and expressive template engine.",
+      "upgrade_available": true,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "upgradable"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/jinja2/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "name": "nose",
+      "declarations": [
+        {
+          "file": "requirements-dev.txt",
+          "line": 2,
+          "spec": "==1.3.7",
+          "group": "dev",
+          "effective": true
+        }
+      ],
+      "effective_spec": "==1.3.7",
+      "effective_file": "requirements-dev.txt",
+      "group": "dev",
+      "pinned_version": "1.3.7",
+      "import_names": [],
+      "usage_sites": {
+        "source": 0,
+        "tests": 0,
+        "files": []
+      },
+      "latest": "1.3.7",
+      "latest_date": "2015-06-02T09:12:32.961855+00:00",
+      "last_release_date": "2015-06-02T09:12:32.961855+00:00",
+      "years_since_last_release": 11.37,
+      "requires_python_latest": null,
+      "summary": "nose extends unittest to make testing easier",
+      "upgrade_available": false,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "frozen"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/nose/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "name": "pydantic",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 5,
+          "spec": "==1.10.13",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 17,
+          "spec": ">=2",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "==1.10.13",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": "1.10.13",
+      "import_names": [
+        "pydantic"
+      ],
+      "usage_sites": {
+        "source": 4,
+        "tests": 0,
+        "files": [
+          "linkwatch/config.py"
+        ]
+      },
+      "latest": "2.14.1",
+      "latest_date": "2026-10-11T18:37:53.437059+00:00",
+      "last_release_date": "2026-10-11T18:37:53.437059+00:00",
+      "years_since_last_release": 0.01,
+      "requires_python_latest": ">=3.10",
+      "summary": "Data validation using Python type hints",
+      "upgrade_available": true,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "upgradable"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/pydantic/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "name": "pytest",
+      "declarations": [
+        {
+          "file": "requirements-dev.txt",
+          "line": 1,
+          "spec": "(any)",
+          "group": "dev",
+          "effective": true
+        }
+      ],
+      "effective_spec": "(any)",
+      "effective_file": "requirements-dev.txt",
+      "group": "dev",
+      "pinned_version": null,
+      "import_names": [
+        "pytest"
+      ],
+      "usage_sites": {
+        "source": 0,
+        "tests": 3,
+        "files": [
+          "tests/conftest.py"
+        ]
+      },
+      "latest": "9.1.1",
+      "latest_date": "2026-06-19T10:58:31.347074+00:00",
+      "last_release_date": "2026-06-19T10:58:31.347074+00:00",
+      "years_since_last_release": 0.32,
+      "requires_python_latest": ">=3.10",
+      "summary": "pytest: simple powerful testing with Python",
+      "upgrade_available": null,
+      "classification": [
+        "current_or_unknown"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/pytest/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "name": "python-dateutil",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 11,
+          "spec": "(any)",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 23,
+          "spec": "(any)",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "(any)",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": null,
+      "import_names": [
+        "dateutil"
+      ],
+      "usage_sites": {
+        "source": 2,
+        "tests": 0,
+        "files": [
+          "linkwatch/dates.py"
+        ]
+      },
+      "latest": "2.9.0.post0",
+      "latest_date": "2024-03-01T18:36:18.570437+00:00",
+      "last_release_date": "2024-03-01T18:36:18.570437+00:00",
+      "years_since_last_release": 2.62,
+      "requires_python_latest": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+      "summary": "Extensions to the standard Python datetime module",
+      "upgrade_available": null,
+      "classification": [
+        "current_or_unknown"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/python-dateutil/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "name": "requests",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 3,
+          "spec": "==2.31.0",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 15,
+          "spec": "==2.31.0",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "==2.31.0",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": "2.31.0",
+      "import_names": [
+        "requests"
+      ],
+      "usage_sites": {
+        "source": 10,
+        "tests": 0,
+        "files": [
+          "linkwatch/checker.py",
+          "linkwatch/encoding.py",
+          "linkwatch/http_patch.py"
+        ]
+      },
+      "latest": "2.34.2",
+      "latest_date": "2026-05-14T19:25:26.443000+00:00",
+      "last_release_date": "2026-05-14T19:25:26.443000+00:00",
+      "years_since_last_release": 0.42,
+      "requires_python_latest": ">=3.10",
+      "summary": "Python HTTP for Humans.",
+      "github": {
+        "repo": "psf/requests",
+        "archived": false,
+        "pushed_at": "2026-09-28T16:55:48Z"
+      },
+      "upgrade_available": true,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "upgradable"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/requests/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "name": "rich",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 12,
+          "spec": "(any)",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 24,
+          "spec": "(any)",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "(any)",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": null,
+      "import_names": [
+        "rich"
+      ],
+      "usage_sites": {
+        "source": 6,
+        "tests": 0,
+        "files": [
+          "linkwatch/cli.py"
+        ]
+      },
+      "latest": "15.0.0",
+      "latest_date": "2026-04-12T08:24:00.750018+00:00",
+      "last_release_date": "2026-04-12T08:24:00.750018+00:00",
+      "years_since_last_release": 0.51,
+      "requires_python_latest": ">=3.9.0",
+      "summary": "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal",
+      "github": {
+        "repo": "Textualize/rich",
+        "archived": false,
+        "pushed_at": "2026-06-23T03:10:19Z"
+      },
+      "upgrade_available": null,
+      "classification": [
+        "current_or_unknown"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/rich/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "name": "setuptools",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 9,
+          "spec": "==75.8.0",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 21,
+          "spec": "==75.8.0",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "==75.8.0",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": "75.8.0",
+      "import_names": [
+        "pkg_resources"
+      ],
+      "usage_sites": {
+        "source": 2,
+        "tests": 0,
+        "files": [
+          "linkwatch/resources.py"
+        ]
+      },
+      "latest": "84.0.0",
+      "latest_date": "2026-08-08T18:27:56.719708+00:00",
+      "last_release_date": "2026-08-08T18:27:56.719708+00:00",
+      "years_since_last_release": 0.18,
+      "requires_python_latest": ">=3.10",
+      "summary": "Most extensible Python build backend with support for C/C++ extension modules",
+      "upgrade_available": true,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "upgradable"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/setuptools/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "name": "six",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 7,
+          "spec": "(any)",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 19,
+          "spec": "(any)",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "(any)",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": null,
+      "import_names": [],
+      "usage_sites": {
+        "source": 0,
+        "tests": 0,
+        "files": []
+      },
+      "latest": "1.17.0",
+      "latest_date": "2024-12-04T17:35:26.475808+00:00",
+      "last_release_date": "2024-12-04T17:35:26.475808+00:00",
+      "years_since_last_release": 1.86,
+      "requires_python_latest": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+      "summary": "Python 2 and 3 compatibility utilities",
+      "upgrade_available": null,
+      "classification": [
+        "unused"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/six/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "name": "toml",
+      "declarations": [
+        {
+          "file": "requirements.txt",
+          "line": 1,
+          "spec": "==0.10.2",
+          "group": "runtime",
+          "effective": true
+        },
+        {
+          "file": "pyproject.toml",
+          "line": 13,
+          "spec": "==0.10.2",
+          "group": "runtime",
+          "effective": false
+        }
+      ],
+      "effective_spec": "==0.10.2",
+      "effective_file": "requirements.txt",
+      "group": "runtime",
+      "pinned_version": "0.10.2",
+      "import_names": [
+        "toml"
+      ],
+      "usage_sites": {
+        "source": 2,
+        "tests": 0,
+        "files": [
+          "linkwatch/config.py"
+        ]
+      },
+      "latest": "0.10.2",
+      "latest_date": "2020-11-01T01:40:20.672915+00:00",
+      "last_release_date": "2020-11-01T01:40:20.672915+00:00",
+      "years_since_last_release": 5.95,
+      "requires_python_latest": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+      "summary": "Python Library for Tom's Obvious, Minimal Language",
+      "upgrade_available": false,
+      "pinned_wheels": {
+        "3.12": "wheel",
+        "3.13": "wheel"
+      },
+      "classification": [
+        "frozen"
+      ],
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/toml/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "name": "certifi",
+      "declarations": [],
+      "effective_spec": null,
+      "pinned_version": null,
+      "import_names": [
+        "certifi"
+      ],
+      "classification": [
+        "undeclared"
+      ],
+      "usage_sites": {
+        "source": 2,
+        "tests": 0,
+        "files": [
+          "linkwatch/checker.py"
+        ]
+      },
+      "provenance": "observed",
+      "source": {
+        "mapping_method": "pypi_name_match"
+      }
+    }
+  ],
+  "manifest_drift": [
+    {
+      "kind": "spec_mismatch",
+      "dependency": "pydantic",
+      "conflicting": true,
+      "declarations": [
+        {
+          "file": "pyproject.toml",
+          "spec": ">=2"
+        },
+        {
+          "file": "requirements.txt",
+          "spec": "==1.10.13"
+        }
+      ],
+      "provenance": "observed",
+      "source": {
+        "kind": "manifests",
+        "files": [
+          "requirements-dev.txt",
+          "requirements.txt",
+          "pyproject.toml",
+          "Makefile",
+          "Dockerfile"
+        ]
+      }
+    },
+    {
+      "kind": "requires_python_wider_than_targets",
+      "file": "pyproject.toml",
+      "spec": ">=3.10",
+      "targets": [
+        "3.12",
+        "3.13"
+      ],
+      "note": "declares support for Python versions outside the tested targets",
+      "provenance": "observed",
+      "source": {
+        "kind": "manifests",
+        "files": [
+          "requirements-dev.txt",
+          "requirements.txt",
+          "pyproject.toml",
+          "Makefile",
+          "Dockerfile"
+        ]
+      }
+    },
+    {
+      "kind": "commented_out_requirement",
+      "dependency": "pyyaml",
+      "raw": "PyYAML==5.1",
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "requirements.txt",
+        "line": 13
+      }
+    }
+  ],
+  "import_map": [
+    {
+      "import_name": "appdirs",
+      "distributions": [
+        "appdirs"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "certifi",
+      "distributions": [
+        "certifi"
+      ],
+      "method": "pypi_name_match",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "chardet",
+      "distributions": [
+        "chardet"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "click",
+      "distributions": [
+        "click"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "dateutil",
+      "distributions": [
+        "python-dateutil"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "jinja2",
+      "distributions": [
+        "jinja2"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "pkg_resources",
+      "distributions": [
+        "setuptools"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "pydantic",
+      "distributions": [
+        "pydantic"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "pytest",
+      "distributions": [
+        "pytest"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "requests",
+      "distributions": [
+        "requests"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "rich",
+      "distributions": [
+        "rich"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    },
+    {
+      "import_name": "toml",
+      "distributions": [
+        "toml"
+      ],
+      "method": "packages_distributions",
+      "provenance": "observed",
+      "source": {
+        "method": "importlib.metadata.packages_distributions() in a --no-deps metadata env",
+        "python": "3.12",
+        "installed": {
+          "appdirs": "==1.4.4",
+          "chardet": "==5.2.0",
+          "click": "latest",
+          "idna": "==2.7",
+          "jinja2": "==2.11.3",
+          "nose": "==1.3.7",
+          "pydantic": "==1.10.13",
+          "pytest": "latest",
+          "python-dateutil": "latest",
+          "requests": "==2.31.0",
+          "rich": "latest",
+          "setuptools": "==75.8.0",
+          "six": "latest",
+          "toml": "==0.10.2"
+        },
+        "not_installable": []
+      }
+    }
+  ],
+  "usage_locations": [
+    {
+      "dependency": "appdirs",
+      "module": "appdirs",
+      "file": "linkwatch/cache.py",
+      "line": 4,
+      "api": "appdirs.user_cache_dir",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cache.py",
+        "line": 4
+      }
+    },
+    {
+      "dependency": "appdirs",
+      "module": "appdirs",
+      "file": "linkwatch/cache.py",
+      "line": 10,
+      "api": "appdirs.user_cache_dir",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cache.py",
+        "line": 10
+      }
+    },
+    {
+      "dependency": "certifi",
+      "module": "certifi",
+      "file": "linkwatch/checker.py",
+      "line": 4,
+      "api": "certifi",
+      "kind": "import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/checker.py",
+        "line": 4
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/checker.py",
+      "line": 5,
+      "api": "requests",
+      "kind": "import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/checker.py",
+        "line": 5
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/checker.py",
+      "line": 6,
+      "api": "requests.Session",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/checker.py",
+        "line": 6
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/checker.py",
+      "line": 13,
+      "api": "requests.Session",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/checker.py",
+        "line": 13
+      }
+    },
+    {
+      "dependency": "certifi",
+      "module": "certifi",
+      "file": "linkwatch/checker.py",
+      "line": 15,
+      "api": "certifi.where",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/checker.py",
+        "line": 15
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/checker.py",
+      "line": 35,
+      "api": "requests.exceptions.ConnectionError",
+      "kind": "attribute",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/checker.py",
+        "line": 35
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/checker.py",
+      "line": 38,
+      "api": "requests.exceptions.Timeout",
+      "kind": "attribute",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/checker.py",
+        "line": 38
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 1,
+      "api": "click",
+      "kind": "import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 1
+      }
+    },
+    {
+      "dependency": "rich",
+      "module": "rich",
+      "file": "linkwatch/cli.py",
+      "line": 2,
+      "api": "rich.console.Console",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 2
+      }
+    },
+    {
+      "dependency": "rich",
+      "module": "rich",
+      "file": "linkwatch/cli.py",
+      "line": 3,
+      "api": "rich.live.Live",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 3
+      }
+    },
+    {
+      "dependency": "rich",
+      "module": "rich",
+      "file": "linkwatch/cli.py",
+      "line": 4,
+      "api": "rich.table.Table",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 4
+      }
+    },
+    {
+      "dependency": "rich",
+      "module": "rich",
+      "file": "linkwatch/cli.py",
+      "line": 9,
+      "api": "rich.console.Console",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 9
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 27,
+      "api": "click.group",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 27
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 28,
+      "api": "click.version_option",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 28
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 34,
+      "api": "click.option",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 34
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 51,
+      "api": "click.option",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 51
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 53,
+      "api": "click.option",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 53
+      }
+    },
+    {
+      "dependency": "rich",
+      "module": "rich",
+      "file": "linkwatch/cli.py",
+      "line": 13,
+      "api": "rich.table.Table",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 13
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 62,
+      "api": "click.echo",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 62
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 68,
+      "api": "click.echo",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 68
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 69,
+      "api": "click.echo",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 69
+      }
+    },
+    {
+      "dependency": "rich",
+      "module": "rich",
+      "file": "linkwatch/cli.py",
+      "line": 40,
+      "api": "rich.live.Live",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 40
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "linkwatch/cli.py",
+      "line": 60,
+      "api": "click.ClickException",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/cli.py",
+        "line": 60
+      }
+    },
+    {
+      "dependency": "toml",
+      "module": "toml",
+      "file": "linkwatch/config.py",
+      "line": 3,
+      "api": "toml",
+      "kind": "import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/config.py",
+        "line": 3
+      }
+    },
+    {
+      "dependency": "pydantic",
+      "module": "pydantic",
+      "file": "linkwatch/config.py",
+      "line": 4,
+      "api": "pydantic.BaseModel",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/config.py",
+        "line": 4
+      }
+    },
+    {
+      "dependency": "pydantic",
+      "module": "pydantic",
+      "file": "linkwatch/config.py",
+      "line": 4,
+      "api": "pydantic.validator",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/config.py",
+        "line": 4
+      }
+    },
+    {
+      "dependency": "pydantic",
+      "module": "pydantic",
+      "file": "linkwatch/config.py",
+      "line": 14,
+      "api": "pydantic.validator",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/config.py",
+        "line": 14
+      }
+    },
+    {
+      "dependency": "pydantic",
+      "module": "pydantic",
+      "file": "linkwatch/config.py",
+      "line": 20,
+      "api": "pydantic.validator",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/config.py",
+        "line": 20
+      }
+    },
+    {
+      "dependency": "toml",
+      "module": "toml",
+      "file": "linkwatch/config.py",
+      "line": 37,
+      "api": "toml.load",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/config.py",
+        "line": 37
+      }
+    },
+    {
+      "dependency": "python-dateutil",
+      "module": "dateutil",
+      "file": "linkwatch/dates.py",
+      "line": 1,
+      "api": "dateutil.parser",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/dates.py",
+        "line": 1
+      }
+    },
+    {
+      "dependency": "python-dateutil",
+      "module": "dateutil",
+      "file": "linkwatch/dates.py",
+      "line": 8,
+      "api": "dateutil.parser.parse",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/dates.py",
+        "line": 8
+      }
+    },
+    {
+      "dependency": "chardet",
+      "module": "chardet",
+      "file": "linkwatch/encoding.py",
+      "line": 4,
+      "api": "chardet",
+      "kind": "import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/encoding.py",
+        "line": 4
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/encoding.py",
+      "line": 5,
+      "api": "requests.utils._parse_content_type_header",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": true,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/encoding.py",
+        "line": 5
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/encoding.py",
+      "line": 11,
+      "api": "requests.utils._parse_content_type_header",
+      "kind": "call",
+      "in_tests": false,
+      "private": true,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/encoding.py",
+        "line": 11
+      }
+    },
+    {
+      "dependency": "chardet",
+      "module": "chardet",
+      "file": "linkwatch/encoding.py",
+      "line": 15,
+      "api": "chardet.detect",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/encoding.py",
+        "line": 15
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/http_patch.py",
+      "line": 1,
+      "api": "requests",
+      "kind": "import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/http_patch.py",
+        "line": 1
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/http_patch.py",
+      "line": 14,
+      "api": "requests.Session.request",
+      "kind": "monkeypatch",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/http_patch.py",
+        "line": 14
+      }
+    },
+    {
+      "dependency": "requests",
+      "module": "requests",
+      "file": "linkwatch/http_patch.py",
+      "line": 5,
+      "api": "requests.Session.request",
+      "kind": "attribute",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/http_patch.py",
+        "line": 5
+      }
+    },
+    {
+      "dependency": "jinja2",
+      "module": "jinja2",
+      "file": "linkwatch/report.py",
+      "line": 3,
+      "api": "jinja2.Environment",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/report.py",
+        "line": 3
+      }
+    },
+    {
+      "dependency": "jinja2",
+      "module": "jinja2",
+      "file": "linkwatch/report.py",
+      "line": 3,
+      "api": "jinja2.FileSystemLoader",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/report.py",
+        "line": 3
+      }
+    },
+    {
+      "dependency": "jinja2",
+      "module": "jinja2",
+      "file": "linkwatch/report.py",
+      "line": 3,
+      "api": "jinja2.select_autoescape",
+      "kind": "from_import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/report.py",
+        "line": 3
+      }
+    },
+    {
+      "dependency": "jinja2",
+      "module": "jinja2",
+      "file": "linkwatch/report.py",
+      "line": 9,
+      "api": "jinja2.Environment",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/report.py",
+        "line": 9
+      }
+    },
+    {
+      "dependency": "jinja2",
+      "module": "jinja2",
+      "file": "linkwatch/report.py",
+      "line": 10,
+      "api": "jinja2.FileSystemLoader",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/report.py",
+        "line": 10
+      }
+    },
+    {
+      "dependency": "jinja2",
+      "module": "jinja2",
+      "file": "linkwatch/report.py",
+      "line": 11,
+      "api": "jinja2.select_autoescape",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/report.py",
+        "line": 11
+      }
+    },
+    {
+      "dependency": "setuptools",
+      "module": "pkg_resources",
+      "file": "linkwatch/resources.py",
+      "line": 1,
+      "api": "pkg_resources",
+      "kind": "import",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/resources.py",
+        "line": 1
+      }
+    },
+    {
+      "dependency": "setuptools",
+      "module": "pkg_resources",
+      "file": "linkwatch/resources.py",
+      "line": 7,
+      "api": "pkg_resources.resource_filename",
+      "kind": "call",
+      "in_tests": false,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "linkwatch/resources.py",
+        "line": 7
+      }
+    },
+    {
+      "dependency": "pytest",
+      "module": "pytest",
+      "file": "tests/conftest.py",
+      "line": 6,
+      "api": "pytest",
+      "kind": "import",
+      "in_tests": true,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "tests/conftest.py",
+        "line": 6
+      }
+    },
+    {
+      "dependency": "pytest",
+      "module": "pytest",
+      "file": "tests/conftest.py",
+      "line": 60,
+      "api": "pytest.fixture",
+      "kind": "call",
+      "in_tests": true,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "tests/conftest.py",
+        "line": 60
+      }
+    },
+    {
+      "dependency": "pytest",
+      "module": "pytest",
+      "file": "tests/conftest.py",
+      "line": 70,
+      "api": "pytest.fixture",
+      "kind": "attribute",
+      "in_tests": true,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "tests/conftest.py",
+        "line": 70
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "tests/test_report.py",
+      "line": 1,
+      "api": "click.testing.CliRunner",
+      "kind": "from_import",
+      "in_tests": true,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "tests/test_report.py",
+        "line": 1
+      }
+    },
+    {
+      "dependency": "click",
+      "module": "click",
+      "file": "tests/test_report.py",
+      "line": 20,
+      "api": "click.testing.CliRunner",
+      "kind": "call",
+      "in_tests": true,
+      "private": false,
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "tests/test_report.py",
+        "line": 20
+      }
+    }
+  ],
+  "risk_indicators": [
+    {
+      "dependency": "appdirs",
+      "indicator": "no_newer_version",
+      "detail": "Pinned 1.4.4 is already the latest release",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/appdirs/json",
+        "fetched_at": "2026-10-15T07:12:09+00:00"
+      }
+    },
+    {
+      "dependency": "appdirs",
+      "indicator": "frozen",
+      "detail": "no release for 6.43 years (last 2020-05-11)",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/appdirs/json",
+        "fetched_at": "2026-10-15T07:12:09+00:00"
+      }
+    },
+    {
+      "dependency": "chardet",
+      "indicator": "outdated_pin",
+      "detail": "Pinned 5.2.0, latest 7.6.0 (2 major versions behind)",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/chardet/json",
+        "fetched_at": "2026-10-15T07:12:09+00:00"
+      }
+    },
+    {
+      "dependency": "click",
+      "indicator": "unpinned",
+      "detail": "Spec >=7 - resolved version decided at install time",
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "requirements.txt",
+        "line": 6
+      }
+    },
+    {
+      "dependency": "idna",
+      "indicator": "outdated_pin",
+      "detail": "Pinned 2.7, latest 3.20 (1 major versions behind)",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/idna/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "dependency": "idna",
+      "indicator": "unused",
+      "detail": "Declared but never imported",
+      "provenance": "observed",
+      "source": {
+        "files_scanned": 15
+      }
+    },
+    {
+      "dependency": "jinja2",
+      "indicator": "outdated_pin",
+      "detail": "Pinned 2.11.3, latest 3.1.6 (1 major versions behind)",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/jinja2/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "dependency": "nose",
+      "indicator": "no_newer_version",
+      "detail": "Pinned 1.3.7 is already the latest release",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/nose/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "dependency": "nose",
+      "indicator": "frozen",
+      "detail": "no release for 11.37 years (last 2015-06-02)",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/nose/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "dependency": "pydantic",
+      "indicator": "outdated_pin",
+      "detail": "Pinned 1.10.13, latest 2.14.1 (1 major versions behind)",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/pydantic/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "dependency": "pytest",
+      "indicator": "unpinned",
+      "detail": "Spec (any) - resolved version decided at install time",
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "requirements-dev.txt",
+        "line": 1
+      }
+    },
+    {
+      "dependency": "python-dateutil",
+      "indicator": "stale",
+      "detail": "Last release 2.62 years ago",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/python-dateutil/json",
+        "fetched_at": "2026-10-15T07:12:10+00:00"
+      }
+    },
+    {
+      "dependency": "python-dateutil",
+      "indicator": "unpinned",
+      "detail": "Spec (any) - resolved version decided at install time",
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "requirements.txt",
+        "line": 11
+      }
+    },
+    {
+      "dependency": "requests",
+      "indicator": "outdated_pin",
+      "detail": "Pinned 2.31.0, latest 2.34.2",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/requests/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "dependency": "requests",
+      "indicator": "private_api_use",
+      "detail": "Uses private API: requests.utils._parse_content_type_header",
+      "provenance": "observed",
+      "source": [
+        {
+          "kind": "file",
+          "path": "linkwatch/encoding.py",
+          "line": 5
+        },
+        {
+          "kind": "file",
+          "path": "linkwatch/encoding.py",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "dependency": "requests",
+      "indicator": "monkeypatch",
+      "detail": "Assigns to attributes of this package at runtime: requests.Session.request",
+      "provenance": "observed",
+      "source": [
+        {
+          "kind": "file",
+          "path": "linkwatch/http_patch.py",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "dependency": "requests",
+      "indicator": "wide_usage",
+      "detail": "Used in 3 source files",
+      "provenance": "observed"
+    },
+    {
+      "dependency": "rich",
+      "indicator": "unpinned",
+      "detail": "Spec (any) - resolved version decided at install time",
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "requirements.txt",
+        "line": 12
+      }
+    },
+    {
+      "dependency": "setuptools",
+      "indicator": "outdated_pin",
+      "detail": "Pinned 75.8.0, latest 84.0.0 (9 major versions behind)",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/setuptools/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "dependency": "six",
+      "indicator": "unpinned",
+      "detail": "Spec (any) - resolved version decided at install time",
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "requirements.txt",
+        "line": 7
+      }
+    },
+    {
+      "dependency": "six",
+      "indicator": "unused",
+      "detail": "Declared but never imported",
+      "provenance": "observed",
+      "source": {
+        "files_scanned": 15
+      }
+    },
+    {
+      "dependency": "toml",
+      "indicator": "no_newer_version",
+      "detail": "Pinned 0.10.2 is already the latest release",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/toml/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "dependency": "toml",
+      "indicator": "frozen",
+      "detail": "no release for 5.95 years (last 2020-11-01)",
+      "provenance": "observed",
+      "source": {
+        "url": "https://pypi.org/pypi/toml/json",
+        "fetched_at": "2026-10-15T07:12:11+00:00"
+      }
+    },
+    {
+      "dependency": "certifi",
+      "indicator": "undeclared",
+      "detail": "Imported as `certifi` but not declared in any manifest (distribution found via pypi_name_match)",
+      "provenance": "observed",
+      "source": [
+        {
+          "kind": "file",
+          "path": "linkwatch/checker.py",
+          "line": 4
+        },
+        {
+          "kind": "file",
+          "path": "linkwatch/checker.py",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "dependency": "pydantic",
+      "indicator": "manifest_drift",
+      "detail": "Conflicting specs - pyproject.toml: >=2; requirements.txt: ==1.10.13",
+      "provenance": "observed",
+      "source": {
+        "kind": "manifests",
+        "files": [
+          "requirements-dev.txt",
+          "requirements.txt",
+          "pyproject.toml",
+          "Makefile",
+          "Dockerfile"
+        ]
+      }
+    },
+    {
+      "dependency": "(project)",
+      "indicator": "manifest_drift",
+      "detail": "pyproject.toml requires-python >=3.10 claims support beyond tested targets",
+      "provenance": "observed",
+      "source": {
+        "kind": "manifests",
+        "files": [
+          "requirements-dev.txt",
+          "requirements.txt",
+          "pyproject.toml",
+          "Makefile",
+          "Dockerfile"
+        ]
+      }
+    },
+    {
+      "dependency": "pyyaml",
+      "indicator": "manifest_drift",
+      "detail": "Commented-out requirement 'PyYAML==5.1'",
+      "provenance": "observed",
+      "source": {
+        "kind": "file",
+        "path": "requirements.txt",
+        "line": 13
+      }
+    }
+  ],
+  "fetch_errors": [],
+  "scan": {
+    "files_scanned": [
+      "linkwatch/__init__.py",
+      "linkwatch/cache.py",
+      "linkwatch/checker.py",
+      "linkwatch/cli.py",
+      "linkwatch/config.py",
+      "linkwatch/dates.py",
+      "linkwatch/encoding.py",
+      "linkwatch/http_patch.py",
+      "linkwatch/report.py",
+      "linkwatch/resources.py",
+      "tests/conftest.py",
+      "tests/test_cache.py",
+      "tests/test_checker.py",
+      "tests/test_config.py",
+      "tests/test_report.py"
+    ],
+    "local_modules": [
+      "linkwatch",
+      "tests"
+    ],
+    "parse_errors": []
+  }
+}

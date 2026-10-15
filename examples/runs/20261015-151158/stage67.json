@@ -1,0 +1,3262 @@
+{
+  "diagnoses": [
+    {
+      "cell": "replace:appdirs",
+      "observed_results": {
+        "3.12": "import-fail",
+        "3.13": "import-fail"
+      },
+      "root_cause": "env_issue",
+      "explanation": "The repository was updated to replace the 'appdirs' package with 'platformdirs', but the source code still attempts to import from 'appdirs'. Since 'appdirs' was removed from the dependencies, the code fails with a ModuleNotFoundError.",
+      "evidence": [
+        "removed: ['appdirs']",
+        "added: ['platformdirs']",
+        "ModuleNotFoundError: No module named 'appdirs'"
+      ],
+      "affected_locations": [
+        "linkwatch/cache.py:4"
+      ],
+      "code_fixable": true,
+      "fix_strategy": "Update the import statement in linkwatch/cache.py to use 'platformdirs' instead of 'appdirs' and update the call to use the corresponding function in the new library.",
+      "co_upgrade_needed": [],
+      "confidence": 1,
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma4:12b-it-qat",
+        "backend": {
+          "role": "fallback",
+          "model": "gemma4:12b-it-qat",
+          "endpoint": "http://localhost:11434/v1",
+          "api": "ollama"
+        },
+        "fallback_used": true,
+        "attempt": 1,
+        "prompt_sha256": "c836d3579acc2911fb184abdc0c199449bcaaed0cf853c23ced03dbf36df96ce",
+        "response_sha256": "a0a81ada7219fcc982323491a49454e53062527c8da08a6e48419d61b973bf9b",
+        "duration_s": 14.3,
+        "at": "2026-10-15T10:19:47+00:00",
+        "earlier_errors": [],
+        "cached": false,
+        "schema_retry": false
+      }
+    },
+    {
+      "cell": "upgrade:chardet@7.6.0",
+      "observed_results": {
+        "3.12": "warn",
+        "3.13": "warn"
+      },
+      "root_cause": "transitive_break",
+      "explanation": "The upgrade of chardet to 7.6.0 triggered a RequestsDependencyWarning because the version of chardet installed is incompatible with the version of urllib3 (2.0.2) currently in the environment. This is a dependency conflict between the library's requirements and the environment's state, rather than a breaking change in the chardet API itself.",
+      "evidence": [
+        "new RequestsDependencyWarning: urllib3 (2.0.2) or chardet (7.6.0)/charset_normalizer (3.1.0) doesn't match a supported version!"
+      ],
+      "affected_locations": [
+        "linkwatch/encoding.py:4",
+        "linkwatch/encoding.py:15"
+      ],
+      "code_fixable": false,
+      "fix_strategy": "No source code change can fix this; the issue must be resolved by adjusting the dependency pins in the manifest to ensure compatible versions of urllib3 and chardet are installed together.",
+      "co_upgrade_needed": [
+        "urllib3"
+      ],
+      "confidence": 1.0,
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma4:12b-it-qat",
+        "backend": {
+          "role": "fallback",
+          "model": "gemma4:12b-it-qat",
+          "endpoint": "http://localhost:11434/v1",
+          "api": "ollama"
+        },
+        "fallback_used": true,
+        "attempt": 1,
+        "prompt_sha256": "3af8e1a49ffc985b5427b737000fc8ede63d4084f02e4935d46e03a582e999dd",
+        "response_sha256": "69bf09252d1a68cfa2f9c4106abab874f22cb159bc0fe557b43f309e57e9bae9",
+        "duration_s": 22.12,
+        "at": "2026-10-15T10:20:09+00:00",
+        "earlier_errors": [],
+        "cached": false,
+        "schema_retry": false
+      }
+    },
+    {
+      "cell": "upgrade:pydantic@2.14.1",
+      "observed_results": {
+        "3.12": "warn",
+        "3.13": "warn"
+      },
+      "root_cause": "api_changed",
+      "explanation": "The upgrade from Pydantic V1 to V2 introduced a breaking change where the `@validator` decorator is deprecated in favor of `@field_validator`. Additionally, the configuration key `anystr_strip_whitespace` has been renamed to `str_strip_whitespace`.",
+      "evidence": [
+        "Pydantic V1 style @validator validators are deprecated. You should migrate to Pydantic V2 style @field_validator validators",
+        "Valid config keys have changed in V2: * 'anystr_strip_whitespace' has been renamed to 'str_strip_whitespace'"
+      ],
+      "affected_locations": [
+        "linkwatch/config.py:4",
+        "linkwatch/config.py:14",
+        "linkwatch/config.py:20"
+      ],
+      "code_fixable": true,
+      "fix_strategy": "Replace `@validator` decorators with `@field_validator` and rename the `anystr_strip_whitespace` configuration key to `str_strip_whitespace`.",
+      "co_upgrade_needed": [
+        "annotated-types",
+        "pydantic-core",
+        "typing-extensions",
+        "typing-inspection"
+      ],
+      "confidence": 1,
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma4:12b-it-qat",
+        "backend": {
+          "role": "fallback",
+          "model": "gemma4:12b-it-qat",
+          "endpoint": "http://localhost:11434/v1",
+          "api": "ollama"
+        },
+        "fallback_used": true,
+        "attempt": 1,
+        "prompt_sha256": "62dc2368cb4defb32c8ec42e2ec71b7345fb70b7935d6a3dac4f7545fddf6ce7",
+        "response_sha256": "cc84a547397406a130b8a3cb35537cb4f8d37f3868c800cc894987d016428cc9",
+        "duration_s": 20.39,
+        "at": "2026-10-15T10:20:30+00:00",
+        "earlier_errors": [],
+        "cached": false,
+        "schema_retry": false
+      }
+    },
+    {
+      "cell": "upgrade:setuptools@84.0.0",
+      "observed_results": {
+        "3.12": "import-fail",
+        "3.13": "import-fail"
+      },
+      "root_cause": "api_removed",
+      "explanation": "The repository relies on `pkg_resources`, which is part of the `setuptools` package. In recent versions of `setuptools` (specifically moving towards 84.0.0), `pkg_resources` is being phased out and is no longer automatically available or bundled in the same way as it was in older versions. The `ModuleNotFoundError: No module named 'pkg_resources'` indicates that the dependency is no longer being provided by the upgraded `setuptools` package.",
+      "evidence": [
+        "ModuleNotFoundError: No module named 'pkg_resources'",
+        "import pkg_resources",
+        "pkg_resources.resource_filename(\"linkwatch\", \"templates\")"
+      ],
+      "affected_locations": [
+        "linkwatch/resources.py:1"
+      ],
+      "code_fixable": true,
+      "fix_strategy": "Replace `pkg_resources` with `importlib.resources` (the standard library replacement) or `importlib.metadata` to access the package's resources.",
+      "co_upgrade_needed": [],
+      "confidence": 1.0,
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma4:12b-it-qat",
+        "backend": {
+          "role": "fallback",
+          "model": "gemma4:12b-it-qat",
+          "endpoint": "http://localhost:11434/v1",
+          "api": "ollama"
+        },
+        "fallback_used": true,
+        "attempt": 1,
+        "prompt_sha256": "50fbcbfeedf2bfdbec7c2593c59e7372ac2e29e2ebf3a7940e647cc3179aa684",
+        "response_sha256": "16cad5235dea320764533634b3ad7c865d478c7e21ae352e2f52734ff5377cf8",
+        "duration_s": 17.24,
+        "at": "2026-10-15T10:20:47+00:00",
+        "earlier_errors": [],
+        "cached": false,
+        "schema_retry": false
+      }
+    },
+    {
+      "cell": "all-latest",
+      "observed_results": {
+        "3.12": "import-fail",
+        "3.13": "import-fail"
+      },
+      "root_cause": "env_issue",
+      "explanation": "The test suite failed to load because 'pkg_resources' is missing from the environment. This is a common issue in modern Python environments (like Python 3.12+) where 'setuptools' is no longer automatically installed or populated in the global/virtual environment, and 'pkg_resources' is a part of 'setuptools'.",
+      "evidence": [
+        "ModuleNotFoundError: No module named 'pkg_resources'",
+        "suite could not load: ImportError while loading conftest"
+      ],
+      "affected_locations": [
+        "C:\\istehack\\runs\\20261015-151158\\work\\target\\tests\\conftest.py"
+      ],
+      "code_fixable": false,
+      "fix_strategy": "The issue is an environment/installation problem. The environment needs 'setuptools' installed or the test runner needs to be updated to use 'importlib.metadata' instead of 'pkg_resources'.",
+      "co_upgrade_needed": [
+        "setuptools"
+      ],
+      "confidence": 1.0,
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma4:12b-it-qat",
+        "backend": {
+          "role": "fallback",
+          "model": "gemma4:12b-it-qat",
+          "endpoint": "http://localhost:11434/v1",
+          "api": "ollama"
+        },
+        "fallback_used": true,
+        "attempt": 1,
+        "prompt_sha256": "2d991637c4b5fb76f66b3017670a3bfbd55ac23b21a7676285072ac911e04473",
+        "response_sha256": "41d0bff23912af3fc3410e114c25c11edc4b195f67ca5bf1e6efb43415bb8ae9",
+        "duration_s": 21.16,
+        "at": "2026-10-15T10:21:22+00:00",
+        "earlier_errors": [],
+        "cached": false,
+        "schema_retry": false
+      }
+    },
+    {
+      "cell": "replace:toml",
+      "observed_results": {
+        "3.12": "import-fail",
+        "3.13": "import-fail"
+      },
+      "root_cause": "env_issue",
+      "explanation": "The dependency 'toml' was removed from the environment as part of a migration to the standard library 'tomllib'. Because 'toml' is no longer installed, the code fails with a ModuleNotFoundError when it attempts to import it.",
+      "evidence": [
+        "ModuleNotFoundError: No module named 'toml'",
+        "removed: ['toml']",
+        "INTENDED MIGRATION: toml is being replaced by `tomllib`, which is a Python standard-library module (nothing to install)."
+      ],
+      "affected_locations": [
+        "linkwatch/config.py:3"
+      ],
+      "code_fixable": true,
+      "fix_strategy": "Replace 'import toml' with 'import tomllib' and update 'toml.load(path)' to 'tomllib.loads(path.read_text())' (or similar, depending on how the file is read).",
+      "co_upgrade_needed": [],
+      "confidence": 1,
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma4:12b-it-qat",
+        "backend": {
+          "role": "fallback",
+          "model": "gemma4:12b-it-qat",
+          "endpoint": "http://localhost:11434/v1",
+          "api": "ollama"
+        },
+        "fallback_used": true,
+        "attempt": 1,
+        "prompt_sha256": "77dfff84e780db2a5ffdb2c5b2667506329518d28e0afcd2a1a8d145a1b6cd39",
+        "response_sha256": "3298b9ec6716d8615ed44263f638a88b501366421e4e6e07741186ea23d3ae36",
+        "duration_s": 16.81,
+        "at": "2026-10-15T10:29:49+00:00",
+        "earlier_errors": [],
+        "cached": true,
+        "cache_file": "C:\\istehack\\.bf-cache\\llm\\3c77f88fc60787b534728f8d0c4fef5b8ec21da5.json",
+        "schema_retry": false
+      }
+    }
+  ],
+  "repairs": [
+    {
+      "cell": "replace:appdirs",
+      "files_offered": [
+        "linkwatch/cache.py"
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "395aaa5460bbac6a235eb6436c81dd21c0cd607f52850d186f99672dab6e20d1",
+            "response_sha256": "eeccadbc1bab20133af03aabd81791352f619db6071c34cc71673fbaf49fbde1",
+            "duration_s": 10.23,
+            "at": "2026-10-15T10:21:32+00:00",
+            "earlier_errors": [],
+            "cached": false,
+            "schema_retry": false
+          },
+          "summary": "Replace 'appdirs' with 'platformdirs' and update the call to 'user_cache_dir' to use 'user_cache_dir' from 'platformdirs'.",
+          "edits": [
+            {
+              "file": "linkwatch/cache.py",
+              "search": "from appdirs import user_cache_dir",
+              "replace": "from platformdirs import user_cache_dir"
+            }
+          ],
+          "diff": "--- a/linkwatch/cache.py\n+++ b/linkwatch/cache.py\n@@ -1,7 +1,7 @@\n import json\n import os\n \n-from appdirs import user_cache_dir\n+from platformdirs import user_cache_dir\n \n RESULTS_FILE = \"results.json\"\n \n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "pass",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-appdirs-a1-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-appdirs-a1\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-appdirs-a1-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "appdirs"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "appdirs",
+                    "ran": true,
+                    "divergences": []
+                  }
+                ],
+                "divergences": 0
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result pass"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-appdirs-a1\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "no pinned target"
+                },
+                "behaviour_preserved": {
+                  "ok": true,
+                  "detail": "probes run: generic, appdirs"
+                }
+              }
+            },
+            "3.13": {
+              "result": "pass",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "location": "typing.py:400"
+                  },
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-appdirs-a1-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-appdirs-a1\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-appdirs-a1-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "appdirs"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "appdirs",
+                    "ran": true,
+                    "divergences": []
+                  }
+                ],
+                "divergences": 0
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result pass"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-appdirs-a1\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15."
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "no pinned target"
+                },
+                "behaviour_preserved": {
+                  "ok": true,
+                  "detail": "probes run: generic, appdirs"
+                }
+              }
+            }
+          },
+          "verdict": "verified",
+          "failed_rules": []
+        }
+      ],
+      "verdict": "verified",
+      "verified_attempt": 1,
+      "probes": "run"
+    },
+    {
+      "cell": "upgrade:pydantic@2.14.1",
+      "files_offered": [
+        "linkwatch/config.py"
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "cdb18945a0a8140f4c0f8436c3fed07caf8c9aa017be33aefa39adfc1f90e225",
+            "response_sha256": "ec8516294eb7077da141f4c536ba3108a4fbe80938d5b36b1be01e88212f5979",
+            "duration_s": 20.94,
+            "at": "2026-10-15T10:22:25+00:00",
+            "earlier_errors": [],
+            "cached": false,
+            "schema_retry": false
+          },
+          "summary": "Migrate Pydantic V1 `@validator` to `@field_validator` and rename `anystr_strip_whitespace` to `str_strip_whitespace`.",
+          "edits": [
+            {
+              "file": "linkwatch/config.py",
+              "search": "from pydantic import BaseModel, validator",
+              "replace": "from pydantic import BaseModel, field_validator"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    class Config:\n        anystr_strip_whitespace = True",
+              "replace": "    class Config:\n        str_strip_whitespace = True"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    @validator(\"name\")\n    def name_not_empty(cls, value):",
+              "replace": "    @field_validator(\"name\")\n    @classmethod\n    def name_not_empty(cls, value):"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    @validator(\"url\")\n    def url_has_scheme(cls, value):",
+              "replace": "    @field_validator(\"url\")\n    @classmethod\n    def url_has_scheme(cls, value):"
+            }
+          ],
+          "diff": "--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -1,7 +1,7 @@\n from typing import List\n \n import toml\n-from pydantic import BaseModel, validator\n+from pydantic import BaseModel, field_validator\n \n \n class Site(BaseModel):\n@@ -9,15 +9,17 @@\n     url: str\n \n     class Config:\n-        anystr_strip_whitespace = True\n+        str_strip_whitespace = True\n \n-    @validator(\"name\")\n+    @field_validator(\"name\")\n+    @classmethod\n     def name_not_empty(cls, value):\n         if not value:\n             raise ValueError(\"site name can not be empty\")\n         return value\n \n-    @validator(\"url\")\n+    @field_validator(\"url\")\n+    @classmethod\n     def url_has_scheme(cls, value):\n         if not value.startswith((\"http://\", \"https://\")):\n             raise ValueError(\"url must start with http:// or https://\")\n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a1-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a1\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a1-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "pydantic"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "pydantic",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "settings_extra_forbidden",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  extra fields not permitted (type=value_error.extra)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+                        }
+                      },
+                      {
+                        "case": "settings_invalid_site_in_list",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_empty",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_whitespace_only",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_url_invalid_scheme",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  url must start with http:// or https:// (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://example.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 5
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a1\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'pydantic': '2.14.1'}, installed {'pydantic': '2.14.1'}"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "pydantic::settings_extra_forbidden: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  extra fields not permitted (type=value_error.extra)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=; pydantic::settings_invalid_site_in_list: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> name\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.name\\n  Value error, site name can not be empty [type=value_error, input_value='', input_ty; pydantic::site_name_empty: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\\n   ; pydantic::site_name_whitespace_only: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\\n; pydantic::site_url_invalid_scheme: reference={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  url must start with http:// or https:// (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://examp"
+                }
+              }
+            },
+            "3.13": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a1-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a1\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a1-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "pydantic"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "pydantic",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "settings_extra_forbidden",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  extra fields not permitted (type=value_error.extra)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+                        }
+                      },
+                      {
+                        "case": "settings_invalid_site_in_list",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_empty",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_whitespace_only",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_url_invalid_scheme",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  url must start with http:// or https:// (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://example.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 5
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a1\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'pydantic': '2.14.1'}, installed {'pydantic': '2.14.1'}"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "pydantic::settings_extra_forbidden: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  extra fields not permitted (type=value_error.extra)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=; pydantic::settings_invalid_site_in_list: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> name\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.name\\n  Value error, site name can not be empty [type=value_error, input_value='', input_ty; pydantic::site_name_empty: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\\n   ; pydantic::site_name_whitespace_only: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\\n; pydantic::site_url_invalid_scheme: reference={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  url must start with http:// or https:// (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://examp"
+                }
+              }
+            }
+          },
+          "verdict": "verified_tests",
+          "failed_rules": [
+            "behaviour_preserved"
+          ]
+        },
+        {
+          "attempt": 2,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "774a09a0dc8d183fcb25d0c26028dd00883674072e36210c2a277a506fed343d",
+            "response_sha256": "c4283dfa1baacfe9f22fb217e2178b3c2a9da32657f6ea62a82877af4b35e6eb",
+            "duration_s": 28.31,
+            "at": "2026-10-15T10:23:26+00:00",
+            "earlier_errors": [],
+            "cached": false,
+            "schema_retry": false
+          },
+          "summary": "Migrate Pydantic V1 `@validator` to `@field_validator` and rename `anystr_strip_whitespace` to `str_strip_whitespace`.",
+          "edits": [
+            {
+              "file": "linkwatch/config.py",
+              "search": "from pydantic import BaseModel, validator",
+              "replace": "from pydantic import BaseModel, field_validator"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    class Config:\n        anystr_strip_whitespace = True",
+              "replace": "    class Config:\n        str_strip_whitespace = True"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    @validator(\"name\")\n    def name_not_empty(cls, value):\n        if not value:\n            raise ValueError(\"site name can not be empty\")\n        return value",
+              "replace": "    @field_validator(\"name\")\n    @classmethod\n    def name_not_empty(cls, value):\n        if not value:\n            raise ValueError(\"site name can not be empty\")\n        return value"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    @validator(\"url\")\n    def url_has_scheme(cls, value):\n        if not value.startswith((\"http://\", \"https://\")):\n            raise ValueError(\"url must start with http:// or https://\")\n        return value",
+              "replace": "    @field_validator(\"url\")\n    @classmethod\n    def url_has_scheme(cls, value):\n        if not value.startswith((\"http://\", \"https://\")):\n            raise ValueError(\"url must start with http:// or https://\")\n        return value"
+            }
+          ],
+          "diff": "--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -1,7 +1,7 @@\n from typing import List\n \n import toml\n-from pydantic import BaseModel, validator\n+from pydantic import BaseModel, field_validator\n \n \n class Site(BaseModel):\n@@ -9,15 +9,17 @@\n     url: str\n \n     class Config:\n-        anystr_strip_whitespace = True\n+        str_strip_whitespace = True\n \n-    @validator(\"name\")\n+    @field_validator(\"name\")\n+    @classmethod\n     def name_not_empty(cls, value):\n         if not value:\n             raise ValueError(\"site name can not be empty\")\n         return value\n \n-    @validator(\"url\")\n+    @field_validator(\"url\")\n+    @classmethod\n     def url_has_scheme(cls, value):\n         if not value.startswith((\"http://\", \"https://\")):\n             raise ValueError(\"url must start with http:// or https://\")\n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a2-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a2\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a2-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "pydantic"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "pydantic",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "settings_extra_forbidden",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  extra fields not permitted (type=value_error.extra)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+                        }
+                      },
+                      {
+                        "case": "settings_invalid_site_in_list",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_empty",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_whitespace_only",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_url_invalid_scheme",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  url must start with http:// or https:// (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://example.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 5
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a2\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'pydantic': '2.14.1'}, installed {'pydantic': '2.14.1'}"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "pydantic::settings_extra_forbidden: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  extra fields not permitted (type=value_error.extra)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=; pydantic::settings_invalid_site_in_list: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> name\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.name\\n  Value error, site name can not be empty [type=value_error, input_value='', input_ty; pydantic::site_name_empty: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\\n   ; pydantic::site_name_whitespace_only: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\\n; pydantic::site_url_invalid_scheme: reference={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  url must start with http:// or https:// (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://examp"
+                }
+              }
+            },
+            "3.13": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a2-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a2\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a2-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "pydantic"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "pydantic",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "settings_extra_forbidden",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  extra fields not permitted (type=value_error.extra)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+                        }
+                      },
+                      {
+                        "case": "settings_invalid_site_in_list",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_empty",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_whitespace_only",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_url_invalid_scheme",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  url must start with http:// or https:// (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://example.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 5
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a2\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'pydantic': '2.14.1'}, installed {'pydantic': '2.14.1'}"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "pydantic::settings_extra_forbidden: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  extra fields not permitted (type=value_error.extra)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=; pydantic::settings_invalid_site_in_list: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> name\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.name\\n  Value error, site name can not be empty [type=value_error, input_value='', input_ty; pydantic::site_name_empty: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\\n   ; pydantic::site_name_whitespace_only: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\\n; pydantic::site_url_invalid_scheme: reference={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  url must start with http:// or https:// (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://examp"
+                }
+              }
+            }
+          },
+          "verdict": "verified_tests",
+          "failed_rules": [
+            "behaviour_preserved"
+          ]
+        },
+        {
+          "attempt": 3,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "774a09a0dc8d183fcb25d0c26028dd00883674072e36210c2a277a506fed343d",
+            "response_sha256": "c4283dfa1baacfe9f22fb217e2178b3c2a9da32657f6ea62a82877af4b35e6eb",
+            "duration_s": 28.31,
+            "at": "2026-10-15T10:23:26+00:00",
+            "earlier_errors": [],
+            "cached": true,
+            "cache_file": "C:\\istehack\\.bf-cache\\llm\\9eebcf8f4400e1f9f801270674cfb8cb63e1eaa7.json",
+            "schema_retry": false
+          },
+          "summary": "Migrate Pydantic V1 `@validator` to `@field_validator` and rename `anystr_strip_whitespace` to `str_strip_whitespace`.",
+          "edits": [
+            {
+              "file": "linkwatch/config.py",
+              "search": "from pydantic import BaseModel, validator",
+              "replace": "from pydantic import BaseModel, field_validator"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    class Config:\n        anystr_strip_whitespace = True",
+              "replace": "    class Config:\n        str_strip_whitespace = True"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    @validator(\"name\")\n    def name_not_empty(cls, value):\n        if not value:\n            raise ValueError(\"site name can not be empty\")\n        return value",
+              "replace": "    @field_validator(\"name\")\n    @classmethod\n    def name_not_empty(cls, value):\n        if not value:\n            raise ValueError(\"site name can not be empty\")\n        return value"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "    @validator(\"url\")\n    def url_has_scheme(cls, value):\n        if not value.startswith((\"http://\", \"https://\")):\n            raise ValueError(\"url must start with http:// or https://\")\n        return value",
+              "replace": "    @field_validator(\"url\")\n    @classmethod\n    def url_has_scheme(cls, value):\n        if not value.startswith((\"http://\", \"https://\")):\n            raise ValueError(\"url must start with http:// or https://\")\n        return value"
+            }
+          ],
+          "diff": "--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -1,7 +1,7 @@\n from typing import List\n \n import toml\n-from pydantic import BaseModel, validator\n+from pydantic import BaseModel, field_validator\n \n \n class Site(BaseModel):\n@@ -9,15 +9,17 @@\n     url: str\n \n     class Config:\n-        anystr_strip_whitespace = True\n+        str_strip_whitespace = True\n \n-    @validator(\"name\")\n+    @field_validator(\"name\")\n+    @classmethod\n     def name_not_empty(cls, value):\n         if not value:\n             raise ValueError(\"site name can not be empty\")\n         return value\n \n-    @validator(\"url\")\n+    @field_validator(\"url\")\n+    @classmethod\n     def url_has_scheme(cls, value):\n         if not value.startswith((\"http://\", \"https://\")):\n             raise ValueError(\"url must start with http:// or https://\")\n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a3-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a3\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a3-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "pydantic"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "pydantic",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "settings_extra_forbidden",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  extra fields not permitted (type=value_error.extra)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+                        }
+                      },
+                      {
+                        "case": "settings_invalid_site_in_list",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_empty",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_whitespace_only",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_url_invalid_scheme",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  url must start with http:// or https:// (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://example.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 5
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a3\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'pydantic': '2.14.1'}, installed {'pydantic': '2.14.1'}"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "pydantic::settings_extra_forbidden: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  extra fields not permitted (type=value_error.extra)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=; pydantic::settings_invalid_site_in_list: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> name\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.name\\n  Value error, site name can not be empty [type=value_error, input_value='', input_ty; pydantic::site_name_empty: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\\n   ; pydantic::site_name_whitespace_only: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\\n; pydantic::site_url_invalid_scheme: reference={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  url must start with http:// or https:// (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://examp"
+                }
+              }
+            },
+            "3.13": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a3-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a3\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-pydantic-2.14.1-a3-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "pydantic"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "pydantic",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "settings_extra_forbidden",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  extra fields not permitted (type=value_error.extra)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nextra_field\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden"
+                        }
+                      },
+                      {
+                        "case": "settings_invalid_site_in_list",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_empty",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_name_whitespace_only",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  site name can not be empty (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nname\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      },
+                      {
+                        "case": "site_url_invalid_scheme",
+                        "reference": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  url must start with http:// or https:// (type=value_error)"
+                        },
+                        "candidate": {
+                          "error": "ValidationError: 1 validation error for Site\nurl\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://example.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 5
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-pydantic-2.14.1-a3\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'pydantic': '2.14.1'}, installed {'pydantic': '2.14.1'}"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "pydantic::settings_extra_forbidden: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  extra fields not permitted (type=value_error.extra)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nextra_field\\n  Extra inputs are not permitted [type=extra_forbidden, input_value='bad', input_type=; pydantic::settings_invalid_site_in_list: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> name\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.name\\n  Value error, site name can not be empty [type=value_error, input_value='', input_ty; pydantic::site_name_empty: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\\n   ; pydantic::site_name_whitespace_only: reference={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  site name can not be empty (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nname\\n  Value error, site name can not be empty [type=value_error, input_value='   ', input_type=str]\\n; pydantic::site_url_invalid_scheme: reference={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  url must start with http:// or https:// (type=value_error)\"} patched={\"error\": \"ValidationError: 1 validation error for Site\\nurl\\n  Value error, url must start with http:// or https:// [type=value_error, input_value='ftp://examp"
+                }
+              }
+            }
+          },
+          "verdict": "verified_tests",
+          "failed_rules": [
+            "behaviour_preserved"
+          ]
+        }
+      ],
+      "verdict": "verified_tests",
+      "verified_attempt": 1,
+      "probes": "run"
+    },
+    {
+      "cell": "upgrade:setuptools@84.0.0",
+      "files_offered": [
+        "linkwatch/resources.py"
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "a805ac9548020f2dc8aa5d912a09286c9ba6b6750302691ad6851141b3959e95",
+            "response_sha256": "a1dd7a440d7514e45a6d1a06178ccb65c6d341367ecf0a9c6b303cfb0d586447",
+            "duration_s": 21.22,
+            "at": "2026-10-15T10:26:52+00:00",
+            "earlier_errors": [],
+            "cached": false,
+            "schema_retry": true
+          },
+          "summary": "Replace pkg_resources.resource_filename with importlib.resources.files_with_path to resolve the ModuleNotFoundError.",
+          "edits": [
+            {
+              "file": "linkwatch/resources.py",
+              "search": "import pkg_resources\n\nTEMPLATE_NAME = \"status.html.j2\"\n\n\ndef template_dir():\n    return pkg_resources.resource_filename(\"linkwatch\", \"templates\")",
+              "replace": "import importlib.resources\n\nTEMPLATE_NAME = \"status.html.j2\"\n\n\ndef template_dir():\n    return str(importlib.resources.files(\"linkwatch.templates\").with_suffix(\".html\").as_file().parents[0])\n\n# Note: Since resource_filename returns the directory path of the resource,\n# and we want the directory of 'templates', we use the parent of the file.\n# However, to match the exact behavior of resource_filename(\"linkwatch\", \"templates\"),\n# we should return the path to the 'templates' directory.\n\ndef template_dir():\n    return str(importlib.resources.files(\"linkwatch\").joinpath(\"templates\").parent)"
+            }
+          ],
+          "diff": "--- a/linkwatch/resources.py\n+++ b/linkwatch/resources.py\n@@ -1,7 +1,15 @@\n-import pkg_resources\n+import importlib.resources\n \n TEMPLATE_NAME = \"status.html.j2\"\n \n \n def template_dir():\n-    return pkg_resources.resource_filename(\"linkwatch\", \"templates\")\n+    return str(importlib.resources.files(\"linkwatch.templates\").with_suffix(\".html\").as_file().parents[0])\n+\n+# Note: Since resource_filename returns the directory path of the resource,\n+# and we want the directory of 'templates', we use the parent of the file.\n+# However, to match the exact behavior of resource_filename(\"linkwatch\", \"templates\"),\n+# we should return the path to the 'templates' directory.\n+\n+def template_dir():\n+    return str(importlib.resources.files(\"linkwatch\").joinpath(\"templates\").parent)\n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "fail",
+              "normal": {
+                "outcome": "fail",
+                "counts": {
+                  "passed": 9,
+                  "failed": 1,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-setuptools-84.0.0-a1-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "fail",
+                "counts": {
+                  "passed": 9,
+                  "failed": 1,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-setuptools-84.0.0-a1-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [
+                "tests/test_report.py::test_report_renders_all_sites"
+              ],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "setuptools"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "setuptools",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "standard_lookup",
+                        "reference": "<repo>\\linkwatch\\templates",
+                        "candidate": "<repo>\\linkwatch"
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 1
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": false,
+                  "detail": "tests/test_report.py::test_report_renders_all_sites"
+                },
+                "target_fixed": {
+                  "ok": false,
+                  "detail": "result fail"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'setuptools': '84.0.0'}, installed {'setuptools': '84.0.0'}"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "setuptools::standard_lookup: reference=\"<repo>\\\\linkwatch\\\\templates\" patched=\"<repo>\\\\linkwatch\""
+                }
+              }
+            },
+            "3.13": {
+              "result": "fail",
+              "normal": {
+                "outcome": "fail",
+                "counts": {
+                  "passed": 9,
+                  "failed": 1,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "location": "typing.py:400"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-setuptools-84.0.0-a1-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-setuptools-84.0.0-a1\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-setuptools-84.0.0-a1-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [
+                "tests/test_report.py::test_report_renders_all_sites"
+              ],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "setuptools"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "setuptools",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "standard_lookup",
+                        "reference": "<repo>\\linkwatch\\templates",
+                        "candidate": "<repo>\\linkwatch"
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 1
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": false,
+                  "detail": "tests/test_report.py::test_report_renders_all_sites"
+                },
+                "target_fixed": {
+                  "ok": false,
+                  "detail": "result fail"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-setuptools-84.0.0-a1\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15."
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'setuptools': '84.0.0'}, installed {'setuptools': '84.0.0'}"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "setuptools::standard_lookup: reference=\"<repo>\\\\linkwatch\\\\templates\" patched=\"<repo>\\\\linkwatch\""
+                }
+              }
+            }
+          },
+          "verdict": "rejected",
+          "failed_rules": [
+            "behaviour_preserved",
+            "no_regressions",
+            "target_fixed"
+          ]
+        },
+        {
+          "attempt": 2,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "f2098837bd6f9647422f8f6bd0551c6d1aa9b714dfd11652689b9d4f3faacf2c",
+            "response_sha256": "d9354c3c68c8f6d688f85ed45fc4abb6efcd9eddafe0518477c2978bd7b315fd",
+            "duration_s": 13.06,
+            "at": "2026-10-15T10:27:47+00:00",
+            "earlier_errors": [],
+            "cached": false,
+            "schema_retry": false
+          },
+          "summary": "Replace pkg_resources.resource_filename with importlib.resources.files to resolve ModuleNotFoundError in setuptools 84.0.0.",
+          "edits": [
+            {
+              "file": "linkwatch/resources.py",
+              "search": "import pkg_resources\n\nTEMPLATE_NAME = \"status.html.j2\"\n\n\ndef template_dir():\n    return pkg_resources.resource_filename(\"linkwatch\", \"templates\")",
+              "replace": "import importlib.resources\n\nTEMPLATE_NAME = \"status.html.j2\"\n\n\ndef template_dir():\n    return str(importlib.resources.files(\"linkwatch\").joinpath(\"templates\"))"
+            }
+          ],
+          "diff": "--- a/linkwatch/resources.py\n+++ b/linkwatch/resources.py\n@@ -1,7 +1,7 @@\n-import pkg_resources\n+import importlib.resources\n \n TEMPLATE_NAME = \"status.html.j2\"\n \n \n def template_dir():\n-    return pkg_resources.resource_filename(\"linkwatch\", \"templates\")\n+    return str(importlib.resources.files(\"linkwatch\").joinpath(\"templates\"))\n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "pass",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-setuptools-84.0.0-a2-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-setuptools-84.0.0-a2-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "setuptools"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "setuptools",
+                    "ran": true,
+                    "divergences": []
+                  }
+                ],
+                "divergences": 0
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result pass"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'setuptools': '84.0.0'}, installed {'setuptools': '84.0.0'}"
+                },
+                "behaviour_preserved": {
+                  "ok": true,
+                  "detail": "probes run: generic, setuptools"
+                }
+              }
+            },
+            "3.13": {
+              "result": "pass",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "location": "typing.py:400"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-setuptools-84.0.0-a2-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-setuptools-84.0.0-a2\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-upgrade-setuptools-84.0.0-a2-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "setuptools"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "setuptools",
+                    "ran": true,
+                    "divergences": []
+                  }
+                ],
+                "divergences": 0
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result pass"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\upgrade-setuptools-84.0.0-a2\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15."
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "wanted {'setuptools': '84.0.0'}, installed {'setuptools': '84.0.0'}"
+                },
+                "behaviour_preserved": {
+                  "ok": true,
+                  "detail": "probes run: generic, setuptools"
+                }
+              }
+            }
+          },
+          "verdict": "verified",
+          "failed_rules": []
+        }
+      ],
+      "verdict": "verified",
+      "verified_attempt": 2,
+      "probes": "run"
+    },
+    {
+      "cell": "replace:toml",
+      "files_offered": [
+        "linkwatch/config.py"
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "507f07e9d42e3d228891b399079f9c5e3f08b49ee26471043c934aa3ff569d0c",
+            "response_sha256": "ac7c9f0ebc8a2a3dc67dc98f6b6865ebc6ad84ed20b618375872acd22bcf002f",
+            "duration_s": 14.99,
+            "at": "2026-10-15T10:30:04+00:00",
+            "earlier_errors": [],
+            "cached": true,
+            "cache_file": "C:\\istehack\\.bf-cache\\llm\\46ca6a3b5a9b9d0073c445edf7e19b61bebe7b06.json",
+            "schema_retry": false
+          },
+          "summary": "Replace 'toml' with 'tomllib' and update the loading logic to use 'tomllib.loads' with 'pathlib.Path.read_text()'.",
+          "edits": [
+            {
+              "file": "linkwatch/config.py",
+              "search": "import toml\nfrom pydantic import BaseModel, validator",
+              "replace": "import tomllib\nfrom pathlib import Path\nfrom pydantic import BaseModel, validator"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "def load_settings(path=\"sites.toml\"):\n    data = toml.load(path)\n    return Settings(**data)",
+              "replace": "def load_settings(path=\"sites.toml\"):\n    data = tomllib.loads(Path(path).read_text())\n    return Settings(**data)"
+            }
+          ],
+          "diff": "--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -1,6 +1,7 @@\n from typing import List\n \n-import toml\n+import tomllib\n+from pathlib import Path\n from pydantic import BaseModel, validator\n \n \n@@ -34,5 +35,5 @@\n \n \n def load_settings(path=\"sites.toml\"):\n-    data = toml.load(path)\n+    data = tomllib.loads(Path(path).read_text())\n     return Settings(**data)\n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a1-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a1\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a1-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "toml"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "toml",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "malformed_toml",
+                        "reference": {
+                          "error": "TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)",
+                          "status": "error"
+                        },
+                        "candidate": {
+                          "error": "TOMLDecodeError: Unterminated string (at end of document)",
+                          "status": "error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 1
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result warn"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a1\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "no pinned target"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "toml::malformed_toml: reference={\"error\": \"TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)\", \"status\": \"error\"} patched={\"error\": \"TOMLDecodeError: Unterminated string (at end of document)\", \"status\": \"error\"}"
+                }
+              }
+            },
+            "3.13": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "location": "typing.py:400"
+                  },
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a1-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a1\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a1-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "toml"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "toml",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "malformed_toml",
+                        "reference": {
+                          "error": "TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)",
+                          "status": "error"
+                        },
+                        "candidate": {
+                          "error": "TOMLDecodeError: Unterminated string (at end of document)",
+                          "status": "error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 1
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result warn"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a1\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15."
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "no pinned target"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "toml::malformed_toml: reference={\"error\": \"TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)\", \"status\": \"error\"} patched={\"error\": \"TOMLDecodeError: Unterminated string (at end of document)\", \"status\": \"error\"}"
+                }
+              }
+            }
+          },
+          "verdict": "verified_tests",
+          "failed_rules": [
+            "behaviour_preserved"
+          ]
+        },
+        {
+          "attempt": 2,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "45f14d8c91cd1a911b934b3c2256b9182239653c0550e2fe18abe6e8bde6019b",
+            "response_sha256": "ac7c9f0ebc8a2a3dc67dc98f6b6865ebc6ad84ed20b618375872acd22bcf002f",
+            "duration_s": 15.11,
+            "at": "2026-10-15T10:30:52+00:00",
+            "earlier_errors": [],
+            "cached": true,
+            "cache_file": "C:\\istehack\\.bf-cache\\llm\\a45a31d969b44d7abc7147a1314fb322a2a07977.json",
+            "schema_retry": false
+          },
+          "summary": "Replace 'toml' with 'tomllib' and update the loading logic to use 'tomllib.loads' with 'pathlib.Path.read_text()'.",
+          "edits": [
+            {
+              "file": "linkwatch/config.py",
+              "search": "import toml\nfrom pydantic import BaseModel, validator",
+              "replace": "import tomllib\nfrom pathlib import Path\nfrom pydantic import BaseModel, validator"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "def load_settings(path=\"sites.toml\"):\n    data = toml.load(path)\n    return Settings(**data)",
+              "replace": "def load_settings(path=\"sites.toml\"):\n    data = tomllib.loads(Path(path).read_text())\n    return Settings(**data)"
+            }
+          ],
+          "diff": "--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -1,6 +1,7 @@\n from typing import List\n \n-import toml\n+import tomllib\n+from pathlib import Path\n from pydantic import BaseModel, validator\n \n \n@@ -34,5 +35,5 @@\n \n \n def load_settings(path=\"sites.toml\"):\n-    data = toml.load(path)\n+    data = tomllib.loads(Path(path).read_text())\n     return Settings(**data)\n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a2-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a2\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a2-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "toml"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "toml",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "malformed_toml",
+                        "reference": {
+                          "error": "TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)",
+                          "status": "error"
+                        },
+                        "candidate": {
+                          "error": "TOMLDecodeError: Unterminated string (at end of document)",
+                          "status": "error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 1
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result warn"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a2\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "no pinned target"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "toml::malformed_toml: reference={\"error\": \"TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)\", \"status\": \"error\"} patched={\"error\": \"TOMLDecodeError: Unterminated string (at end of document)\", \"status\": \"error\"}"
+                }
+              }
+            },
+            "3.13": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "location": "typing.py:400"
+                  },
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a2-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a2\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a2-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "toml"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "toml",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "malformed_toml",
+                        "reference": {
+                          "error": "TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)",
+                          "status": "error"
+                        },
+                        "candidate": {
+                          "error": "TOMLDecodeError: Unterminated string (at end of document)",
+                          "status": "error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 1
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result warn"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a2\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15."
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "no pinned target"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "toml::malformed_toml: reference={\"error\": \"TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)\", \"status\": \"error\"} patched={\"error\": \"TOMLDecodeError: Unterminated string (at end of document)\", \"status\": \"error\"}"
+                }
+              }
+            }
+          },
+          "verdict": "verified_tests",
+          "failed_rules": [
+            "behaviour_preserved"
+          ]
+        },
+        {
+          "attempt": 3,
+          "model": {
+            "model_used": "gemma4:12b-it-qat",
+            "backend": {
+              "role": "fallback",
+              "model": "gemma4:12b-it-qat",
+              "endpoint": "http://localhost:11434/v1",
+              "api": "ollama"
+            },
+            "fallback_used": true,
+            "attempt": 1,
+            "prompt_sha256": "45f14d8c91cd1a911b934b3c2256b9182239653c0550e2fe18abe6e8bde6019b",
+            "response_sha256": "ac7c9f0ebc8a2a3dc67dc98f6b6865ebc6ad84ed20b618375872acd22bcf002f",
+            "duration_s": 15.11,
+            "at": "2026-10-15T10:30:52+00:00",
+            "earlier_errors": [],
+            "cached": true,
+            "cache_file": "C:\\istehack\\.bf-cache\\llm\\a45a31d969b44d7abc7147a1314fb322a2a07977.json",
+            "schema_retry": false
+          },
+          "summary": "Replace 'toml' with 'tomllib' and update the loading logic to use 'tomllib.loads' with 'pathlib.Path.read_text()'.",
+          "edits": [
+            {
+              "file": "linkwatch/config.py",
+              "search": "import toml\nfrom pydantic import BaseModel, validator",
+              "replace": "import tomllib\nfrom pathlib import Path\nfrom pydantic import BaseModel, validator"
+            },
+            {
+              "file": "linkwatch/config.py",
+              "search": "def load_settings(path=\"sites.toml\"):\n    data = toml.load(path)\n    return Settings(**data)",
+              "replace": "def load_settings(path=\"sites.toml\"):\n    data = tomllib.loads(Path(path).read_text())\n    return Settings(**data)"
+            }
+          ],
+          "diff": "--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -1,6 +1,7 @@\n from typing import List\n \n-import toml\n+import tomllib\n+from pathlib import Path\n from pydantic import BaseModel, validator\n \n \n@@ -34,5 +35,5 @@\n \n \n def load_settings(path=\"sites.toml\"):\n-    data = toml.load(path)\n+    data = tomllib.loads(Path(path).read_text())\n     return Settings(**data)\n",
+          "static": {
+            "allowlisted_paths": {
+              "ok": true,
+              "detail": ""
+            },
+            "applies_cleanly": {
+              "ok": true,
+              "detail": ""
+            },
+            "syntax_ok": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_tamper_patterns": {
+              "ok": true,
+              "detail": ""
+            },
+            "no_broad_except_added": {
+              "ok": true,
+              "detail": ""
+            },
+            "test_tree_unchanged": {
+              "ok": true,
+              "detail": ""
+            }
+          },
+          "executed": {
+            "3.12": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a3-3.12-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a3\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a3-3.12-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "toml"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "toml",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "malformed_toml",
+                        "reference": {
+                          "error": "TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)",
+                          "status": "error"
+                        },
+                        "candidate": {
+                          "error": "TOMLDecodeError: Unterminated string (at end of document)",
+                          "status": "error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 1
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result warn"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a3\\tests\\conftest.py'. | DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html"
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "no pinned target"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "toml::malformed_toml: reference={\"error\": \"TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)\", \"status\": \"error\"} patched={\"error\": \"TOMLDecodeError: Unterminated string (at end of document)\", \"status\": \"error\"}"
+                }
+              }
+            },
+            "3.13": {
+              "result": "warn",
+              "normal": {
+                "outcome": "pass",
+                "counts": {
+                  "passed": 10,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": null,
+                "warnings": [
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "head": "Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                    "location": "typing.py:400"
+                  },
+                  {
+                    "category": "DeprecationWarning",
+                    "message": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "head": "pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+                    "location": "resources.py:1"
+                  }
+                ],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a3-3.13-normal.log"
+              },
+              "strict": {
+                "outcome": "import-fail",
+                "counts": {
+                  "passed": 0,
+                  "failed": 0,
+                  "error": 0,
+                  "skipped": 0
+                },
+                "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a3\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15.",
+                "warnings": [],
+                "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-replace-toml-a3-3.13-strict.log"
+              },
+              "new_warnings": [],
+              "confirmed_failing": [],
+              "probes": {
+                "probes_run": [
+                  "generic",
+                  "toml"
+                ],
+                "results": [
+                  {
+                    "probe": "generic",
+                    "ran": true,
+                    "divergences": []
+                  },
+                  {
+                    "probe": "toml",
+                    "ran": true,
+                    "divergences": [
+                      {
+                        "case": "malformed_toml",
+                        "reference": {
+                          "error": "TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)",
+                          "status": "error"
+                        },
+                        "candidate": {
+                          "error": "TOMLDecodeError: Unterminated string (at end of document)",
+                          "status": "error"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "divergences": 1
+              },
+              "rules": {
+                "no_regressions": {
+                  "ok": true,
+                  "detail": ""
+                },
+                "target_fixed": {
+                  "ok": true,
+                  "detail": "result warn"
+                },
+                "strict_not_worse": {
+                  "ok": true,
+                  "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\replace-toml-a3\\tests\\conftest.py'. | DeprecationWarning: Failing to pass a value to the 'type_params' parameter of 'typing._eval_type' is deprecated, as it leads to incorrect behaviour when calling typing._eval_type on a stringified annotation that references a PEP 695 type parameter. It will be disallowed in Python 3.15."
+                },
+                "target_installed": {
+                  "ok": true,
+                  "detail": "no pinned target"
+                },
+                "behaviour_preserved": {
+                  "ok": false,
+                  "detail": "toml::malformed_toml: reference={\"error\": \"TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)\", \"status\": \"error\"} patched={\"error\": \"TOMLDecodeError: Unterminated string (at end of document)\", \"status\": \"error\"}"
+                }
+              }
+            }
+          },
+          "verdict": "verified_tests",
+          "failed_rules": [
+            "behaviour_preserved"
+          ]
+        }
+      ],
+      "verdict": "verified_tests",
+      "verified_attempt": 1,
+      "probes": "run"
+    }
+  ],
+  "combined": {
+    "cell": "exit-plan",
+    "combined_from": [
+      "replace:appdirs",
+      "upgrade:setuptools@84.0.0",
+      "replace:toml",
+      "upgrade:pydantic@2.14.1"
+    ],
+    "orders_tried": 4,
+    "diff": "--- a/linkwatch/cache.py\n+++ b/linkwatch/cache.py\n@@ -1,7 +1,7 @@\n import json\n import os\n \n-from appdirs import user_cache_dir\n+from platformdirs import user_cache_dir\n \n RESULTS_FILE = \"results.json\"\n \n--- a/linkwatch/config.py\n+++ b/linkwatch/config.py\n@@ -1,7 +1,8 @@\n from typing import List\n \n-import toml\n-from pydantic import BaseModel, validator\n+import tomllib\n+from pathlib import Path\n+from pydantic import BaseModel, field_validator\n \n \n class Site(BaseModel):\n@@ -9,15 +10,17 @@\n     url: str\n \n     class Config:\n-        anystr_strip_whitespace = True\n+        str_strip_whitespace = True\n \n-    @validator(\"name\")\n+    @field_validator(\"name\")\n+    @classmethod\n     def name_not_empty(cls, value):\n         if not value:\n             raise ValueError(\"site name can not be empty\")\n         return value\n \n-    @validator(\"url\")\n+    @field_validator(\"url\")\n+    @classmethod\n     def url_has_scheme(cls, value):\n         if not value.startswith((\"http://\", \"https://\")):\n             raise ValueError(\"url must start with http:// or https://\")\n@@ -34,5 +37,5 @@\n \n \n def load_settings(path=\"sites.toml\"):\n-    data = toml.load(path)\n+    data = tomllib.loads(Path(path).read_text())\n     return Settings(**data)\n--- a/linkwatch/resources.py\n+++ b/linkwatch/resources.py\n@@ -1,7 +1,7 @@\n-import pkg_resources\n+import importlib.resources\n \n TEMPLATE_NAME = \"status.html.j2\"\n \n \n def template_dir():\n-    return pkg_resources.resource_filename(\"linkwatch\", \"templates\")\n+    return str(importlib.resources.files(\"linkwatch\").joinpath(\"templates\"))\n",
+    "static": {
+      "allowlisted_paths": {
+        "ok": true,
+        "detail": ""
+      },
+      "applies_cleanly": {
+        "ok": true,
+        "detail": ""
+      },
+      "syntax_ok": {
+        "ok": true,
+        "detail": ""
+      },
+      "no_tamper_patterns": {
+        "ok": true,
+        "detail": ""
+      },
+      "no_broad_except_added": {
+        "ok": true,
+        "detail": ""
+      },
+      "test_tree_unchanged": {
+        "ok": true,
+        "detail": ""
+      }
+    },
+    "executed": {
+      "3.12": {
+        "result": "warn",
+        "normal": {
+          "outcome": "pass",
+          "counts": {
+            "passed": 10,
+            "failed": 0,
+            "error": 0,
+            "skipped": 0
+          },
+          "error_excerpt": null,
+          "warnings": [],
+          "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-exit-plan-combined-3.12-normal.log"
+        },
+        "strict": {
+          "outcome": "import-fail",
+          "counts": {
+            "passed": 0,
+            "failed": 0,
+            "error": 0,
+            "skipped": 0
+          },
+          "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\exit-plan-combined\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+          "warnings": [],
+          "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-exit-plan-combined-3.12-strict.log"
+        },
+        "new_warnings": [],
+        "probes": {
+          "probes_run": [
+            "generic",
+            "appdirs",
+            "certifi",
+            "chardet",
+            "pydantic",
+            "setuptools",
+            "toml"
+          ],
+          "results": [
+            {
+              "probe": "generic",
+              "ran": true,
+              "divergences": []
+            },
+            {
+              "probe": "appdirs",
+              "ran": true,
+              "divergences": []
+            },
+            {
+              "probe": "certifi",
+              "ran": true,
+              "divergences": []
+            },
+            {
+              "probe": "chardet",
+              "ran": true,
+              "divergences": [
+                {
+                  "case": "detect_encoding_auto_latin1",
+                  "reference": "ISO-8859-1",
+                  "candidate": "Windows-1250"
+                },
+                {
+                  "case": "detect_encoding_auto_utf8",
+                  "reference": "Windows-1252",
+                  "candidate": "utf-8"
+                }
+              ]
+            },
+            {
+              "probe": "pydantic",
+              "ran": false,
+              "error": "Traceback (most recent call last):\n  File \"C:\\Users\\moham\\AppData\\Local\\Temp\\bf-probe-0pgm07l3\\probe.py\", line 4, in <module>\n    import toml\nModuleNotFoundError: No module named 'toml'\n",
+              "divergences": [
+                {
+                  "case": "(probe crashed)",
+                  "reference": "ran",
+                  "candidate": "Traceback (most recent call last):\n  File \"C:\\Users\\moham\\AppData\\Local\\Temp\\bf-probe-0pgm07l3\\probe.py\", line 4, in <module>\n    import toml\nModuleNotFoundError: No module named 'toml'\n"
+                }
+              ]
+            },
+            {
+              "probe": "setuptools",
+              "ran": true,
+              "divergences": []
+            },
+            {
+              "probe": "toml",
+              "ran": true,
+              "divergences": [
+                {
+                  "case": "empty_name",
+                  "reference": {
+                    "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "extra_fields",
+                  "reference": {
+                    "error": "ValidationError: 1 validation error for Settings\nunknown_key\n  extra fields not permitted (type=value_error.extra)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\nunknown_key\n  Extra inputs are not permitted [type=extra_forbidden, input_value=123, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "malformed_toml",
+                  "reference": {
+                    "error": "TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "TOMLDecodeError: Unterminated string (at end of document)",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "nested_table_ignored",
+                  "reference": {
+                    "error": "ValidationError: 1 validation error for Settings\nignored\n  extra fields not permitted (type=value_error.extra)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\nignored\n  Extra inputs are not permitted [type=extra_forbidden, input_value={'key': 1}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "no_scheme",
+                  "reference": {
+                    "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> url\n  url must start with http:// or https:// (type=value_error)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\nsites.0.url\n  Value error, url must start with http:// or https:// [type=value_error, input_value='s1.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "numeric_title",
+                  "reference": {
+                    "data": {
+                      "output": "out.html",
+                      "sites": [],
+                      "title": "123"
+                    },
+                    "status": "success"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\ntitle\n  Input should be a valid string [type=string_type, input_value=123, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_type",
+                    "status": "error"
+                  }
+                }
+              ]
+            }
+          ],
+          "divergences": 9
+        },
+        "rules": {
+          "no_regressions": {
+            "ok": true,
+            "detail": ""
+          },
+          "target_fixed": {
+            "ok": true,
+            "detail": "result warn"
+          },
+          "strict_not_worse": {
+            "ok": true,
+            "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\exit-plan-combined\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/"
+          },
+          "target_installed": {
+            "ok": true,
+            "detail": "wanted {'certifi': '2023.5.7', 'chardet': '7.6.0', 'jinja2': '3.1.6', 'pydantic': '2.14.1', 'requests': '2.34.2', 'setuptools': '84.0.0'}, installed {'certifi': '2023.5.7', 'chardet': '7.6.0', 'jinja2': '3.1.6', 'pydantic': '2.14.1', 'requests': '2.34.2', 'setuptools': '84.0.0'}"
+          },
+          "behaviour_preserved": {
+            "ok": false,
+            "detail": "chardet::detect_encoding_auto_latin1: reference=\"ISO-8859-1\" patched=\"Windows-1250\"; chardet::detect_encoding_auto_utf8: reference=\"Windows-1252\" patched=\"utf-8\"; pydantic::(probe crashed): reference=\"ran\" patched=\"Traceback (most recent call last):\\n  File \\\"C:\\\\Users\\\\moham\\\\AppData\\\\Local\\\\Temp\\\\bf-probe-0pgm07l3\\\\probe.py\\\", line 4, in <module>\\n    import toml\\nModul; toml::empty_name: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> name\\n  site name can not be empty (type=value_error)\", \"status\": \"error\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.name\\n  Value error, site name can not be empty [type=value_error, input_value='', input_ty; toml::extra_fields: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nunknown_key\\n  extra fields not permitted (type=value_error.extra)\", \"status\": \"error\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nunknown_key\\n  Extra inputs are not permitted [type=extra_forbidden, input_value=123, input_type=in; toml::malformed_toml: reference={\"error\": \"TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)\", \"status\": \"error\"} patched={\"error\": \"TOMLDecodeError: Unterminated string (at end of document)\", \"status\": \"error\"}; toml::nested_table_ignored: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nignored\\n  extra fields not permitted (type=value_error.extra)\", \"status\": \"error\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nignored\\n  Extra inputs are not permitted [type=extra_forbidden, input_value={'key': 1}, input_type; toml::no_scheme: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> url\\n  url must start with http:// or https:// (type=value_error)\", \"status\": \"error\" patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.url\\n  Value error, url must start with http:// or https:// [type=value_error, input_value="
+          }
+        }
+      },
+      "3.13": {
+        "result": "warn",
+        "normal": {
+          "outcome": "pass",
+          "counts": {
+            "passed": 10,
+            "failed": 0,
+            "error": 0,
+            "skipped": 0
+          },
+          "error_excerpt": null,
+          "warnings": [],
+          "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-exit-plan-combined-3.13-normal.log"
+        },
+        "strict": {
+          "outcome": "import-fail",
+          "counts": {
+            "passed": 0,
+            "failed": 0,
+            "error": 0,
+            "skipped": 0
+          },
+          "error_excerpt": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\exit-plan-combined\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/",
+          "warnings": [],
+          "log": "C:\\istehack\\runs\\20261015-151158\\logs\\patches\\patch-exit-plan-combined-3.13-strict.log"
+        },
+        "new_warnings": [],
+        "probes": {
+          "probes_run": [
+            "generic",
+            "appdirs",
+            "certifi",
+            "chardet",
+            "pydantic",
+            "setuptools",
+            "toml"
+          ],
+          "results": [
+            {
+              "probe": "generic",
+              "ran": true,
+              "divergences": []
+            },
+            {
+              "probe": "appdirs",
+              "ran": true,
+              "divergences": []
+            },
+            {
+              "probe": "certifi",
+              "ran": true,
+              "divergences": []
+            },
+            {
+              "probe": "chardet",
+              "ran": true,
+              "divergences": [
+                {
+                  "case": "detect_encoding_auto_latin1",
+                  "reference": "ISO-8859-1",
+                  "candidate": "Windows-1250"
+                },
+                {
+                  "case": "detect_encoding_auto_utf8",
+                  "reference": "Windows-1252",
+                  "candidate": "utf-8"
+                }
+              ]
+            },
+            {
+              "probe": "pydantic",
+              "ran": false,
+              "error": "Traceback (most recent call last):\n  File \"C:\\Users\\moham\\AppData\\Local\\Temp\\bf-probe-_vjnfjye\\probe.py\", line 4, in <module>\n    import toml\nModuleNotFoundError: No module named 'toml'\n",
+              "divergences": [
+                {
+                  "case": "(probe crashed)",
+                  "reference": "ran",
+                  "candidate": "Traceback (most recent call last):\n  File \"C:\\Users\\moham\\AppData\\Local\\Temp\\bf-probe-_vjnfjye\\probe.py\", line 4, in <module>\n    import toml\nModuleNotFoundError: No module named 'toml'\n"
+                }
+              ]
+            },
+            {
+              "probe": "setuptools",
+              "ran": true,
+              "divergences": []
+            },
+            {
+              "probe": "toml",
+              "ran": true,
+              "divergences": [
+                {
+                  "case": "empty_name",
+                  "reference": {
+                    "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> name\n  site name can not be empty (type=value_error)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\nsites.0.name\n  Value error, site name can not be empty [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "extra_fields",
+                  "reference": {
+                    "error": "ValidationError: 1 validation error for Settings\nunknown_key\n  extra fields not permitted (type=value_error.extra)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\nunknown_key\n  Extra inputs are not permitted [type=extra_forbidden, input_value=123, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "malformed_toml",
+                  "reference": {
+                    "error": "TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "TOMLDecodeError: Unterminated string (at end of document)",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "nested_table_ignored",
+                  "reference": {
+                    "error": "ValidationError: 1 validation error for Settings\nignored\n  extra fields not permitted (type=value_error.extra)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\nignored\n  Extra inputs are not permitted [type=extra_forbidden, input_value={'key': 1}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "no_scheme",
+                  "reference": {
+                    "error": "ValidationError: 1 validation error for Settings\nsites -> 0 -> url\n  url must start with http:// or https:// (type=value_error)",
+                    "status": "error"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\nsites.0.url\n  Value error, url must start with http:// or https:// [type=value_error, input_value='s1.com', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+                    "status": "error"
+                  }
+                },
+                {
+                  "case": "numeric_title",
+                  "reference": {
+                    "data": {
+                      "output": "out.html",
+                      "sites": [],
+                      "title": "123"
+                    },
+                    "status": "success"
+                  },
+                  "candidate": {
+                    "error": "ValidationError: 1 validation error for Settings\ntitle\n  Input should be a valid string [type=string_type, input_value=123, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_type",
+                    "status": "error"
+                  }
+                }
+              ]
+            }
+          ],
+          "divergences": 9
+        },
+        "rules": {
+          "no_regressions": {
+            "ok": true,
+            "detail": ""
+          },
+          "target_fixed": {
+            "ok": true,
+            "detail": "result warn"
+          },
+          "strict_not_worse": {
+            "ok": true,
+            "detail": "ImportError while loading conftest 'C:\\istehack\\runs\\20261015-151158\\work\\patches\\exit-plan-combined\\tests\\conftest.py'. | pydantic.warnings.PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/"
+          },
+          "target_installed": {
+            "ok": true,
+            "detail": "wanted {'certifi': '2023.5.7', 'chardet': '7.6.0', 'jinja2': '3.1.6', 'pydantic': '2.14.1', 'requests': '2.34.2', 'setuptools': '84.0.0'}, installed {'certifi': '2023.5.7', 'chardet': '7.6.0', 'jinja2': '3.1.6', 'pydantic': '2.14.1', 'requests': '2.34.2', 'setuptools': '84.0.0'}"
+          },
+          "behaviour_preserved": {
+            "ok": false,
+            "detail": "chardet::detect_encoding_auto_latin1: reference=\"ISO-8859-1\" patched=\"Windows-1250\"; chardet::detect_encoding_auto_utf8: reference=\"Windows-1252\" patched=\"utf-8\"; pydantic::(probe crashed): reference=\"ran\" patched=\"Traceback (most recent call last):\\n  File \\\"C:\\\\Users\\\\moham\\\\AppData\\\\Local\\\\Temp\\\\bf-probe-_vjnfjye\\\\probe.py\\\", line 4, in <module>\\n    import toml\\nModul; toml::empty_name: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> name\\n  site name can not be empty (type=value_error)\", \"status\": \"error\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.name\\n  Value error, site name can not be empty [type=value_error, input_value='', input_ty; toml::extra_fields: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nunknown_key\\n  extra fields not permitted (type=value_error.extra)\", \"status\": \"error\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nunknown_key\\n  Extra inputs are not permitted [type=extra_forbidden, input_value=123, input_type=in; toml::malformed_toml: reference={\"error\": \"TomlDecodeError: Unterminated string found. Reached end of file. (line 1 column 24 char 23)\", \"status\": \"error\"} patched={\"error\": \"TOMLDecodeError: Unterminated string (at end of document)\", \"status\": \"error\"}; toml::nested_table_ignored: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nignored\\n  extra fields not permitted (type=value_error.extra)\", \"status\": \"error\"} patched={\"error\": \"ValidationError: 1 validation error for Settings\\nignored\\n  Extra inputs are not permitted [type=extra_forbidden, input_value={'key': 1}, input_type; toml::no_scheme: reference={\"error\": \"ValidationError: 1 validation error for Settings\\nsites -> 0 -> url\\n  url must start with http:// or https:// (type=value_error)\", \"status\": \"error\" patched={\"error\": \"ValidationError: 1 validation error for Settings\\nsites.0.url\\n  Value error, url must start with http:// or https:// [type=value_error, input_value="
+          }
+        }
+      }
+    },
+    "verdict": "verified_tests",
+    "failed_rules": [
+      "behaviour_preserved"
+    ],
+    "exit_plan": {
+      "id": "exit-plan",
+      "type": "combined",
+      "dependency": "*",
+      "reason": "replace:appdirs + remove:idna + remove:six + replace:toml + declare:certifi + all upgrades at latest",
+      "set_pins": {
+        "certifi": "2023.5.7",
+        "chardet": "7.6.0",
+        "jinja2": "3.1.6",
+        "pydantic": "2.14.1",
+        "requests": "2.34.2",
+        "setuptools": "84.0.0"
+      },
+      "remove": [
+        "appdirs",
+        "idna",
+        "six",
+        "toml"
+      ],
+      "add_unpinned": [
+        "platformdirs"
+      ],
+      "from_version": null,
+      "target_version": null,
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    "resolution": {
+      "exit-plan|3.12": {
+        "ok": true,
+        "co_upgrades": {
+          "annotated-types": [
+            null,
+            "0.8.0"
+          ],
+          "charset-normalizer": [
+            "3.1.0",
+            "3.5.2"
+          ],
+          "markupsafe": [
+            "1.1.1",
+            "3.0.4"
+          ],
+          "pydantic-core": [
+            null,
+            "2.50.1"
+          ],
+          "typing-extensions": [
+            "4.8.0",
+            "4.16.0"
+          ],
+          "typing-inspection": [
+            null,
+            "0.4.4"
+          ],
+          "urllib3": [
+            "2.0.2",
+            "2.8.0"
+          ]
+        },
+        "error": null,
+        "resolved": {
+          "annotated-types": "0.8.0",
+          "certifi": "2023.5.7",
+          "chardet": "7.6.0",
+          "charset-normalizer": "3.5.2",
+          "click": "8.5.0",
+          "colorama": "0.4.6",
+          "idna": "3.20",
+          "iniconfig": "2.3.1",
+          "jinja2": "3.1.6",
+          "markdown-it-py": "4.2.0",
+          "markupsafe": "3.0.4",
+          "mdurl": "0.1.2",
+          "nose": "1.3.7",
+          "packaging": "26.3",
+          "platformdirs": "4.13.0",
+          "pluggy": "1.6.0",
+          "pydantic": "2.14.1",
+          "pydantic-core": "2.50.1",
+          "pygments": "2.21.0",
+          "pytest": "9.1.1",
+          "python-dateutil": "2.9.0.post0",
+          "requests": "2.34.2",
+          "rich": "15.0.0",
+          "setuptools": "84.0.0",
+          "six": "1.17.0",
+          "typing-extensions": "4.16.0",
+          "typing-inspection": "0.4.4",
+          "urllib3": "2.8.0"
+        }
+      },
+      "exit-plan|3.13": {
+        "ok": true,
+        "co_upgrades": {
+          "annotated-types": [
+            null,
+            "0.8.0"
+          ],
+          "charset-normalizer": [
+            "3.1.0",
+            "3.5.2"
+          ],
+          "markupsafe": [
+            "1.1.1",
+            "3.0.4"
+          ],
+          "pydantic-core": [
+            null,
+            "2.50.1"
+          ],
+          "typing-extensions": [
+            "4.8.0",
+            "4.16.0"
+          ],
+          "typing-inspection": [
+            null,
+            "0.4.4"
+          ],
+          "urllib3": [
+            "2.0.2",
+            "2.8.0"
+          ]
+        },
+        "error": null,
+        "resolved": {
+          "annotated-types": "0.8.0",
+          "certifi": "2023.5.7",
+          "chardet": "7.6.0",
+          "charset-normalizer": "3.5.2",
+          "click": "8.5.0",
+          "colorama": "0.4.6",
+          "idna": "3.20",
+          "iniconfig": "2.3.1",
+          "jinja2": "3.1.6",
+          "markdown-it-py": "4.2.0",
+          "markupsafe": "3.0.4",
+          "mdurl": "0.1.2",
+          "nose": "1.3.7",
+          "packaging": "26.3",
+          "platformdirs": "4.13.0",
+          "pluggy": "1.6.0",
+          "pydantic": "2.14.1",
+          "pydantic-core": "2.50.1",
+          "pygments": "2.21.0",
+          "pytest": "9.1.1",
+          "python-dateutil": "2.9.0.post0",
+          "requests": "2.34.2",
+          "rich": "15.0.0",
+          "setuptools": "84.0.0",
+          "six": "1.17.0",
+          "typing-extensions": "4.16.0",
+          "typing-inspection": "0.4.4",
+          "urllib3": "2.8.0"
+        }
+      }
+    }
+  }
+}

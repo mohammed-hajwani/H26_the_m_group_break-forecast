@@ -1,0 +1,1541 @@
+{
+  "cells": [
+    {
+      "id": "replace:appdirs",
+      "type": "replace",
+      "dependency": "appdirs",
+      "reason": "frozen: no release for 6.43 years (last 2020-05-11)",
+      "set_pins": {},
+      "remove": [
+        "appdirs"
+      ],
+      "add_unpinned": [
+        "platformdirs"
+      ],
+      "from_version": "1.4.4",
+      "target_version": "platformdirs",
+      "expects_code_change": false,
+      "replacement_ref": "replacement:appdirs",
+      "skipped": null
+    },
+    {
+      "id": "upgrade:chardet@7.6.0",
+      "type": "upgrade",
+      "dependency": "chardet",
+      "reason": "5.2.0 -> 7.6.0",
+      "set_pins": {
+        "chardet": "7.6.0"
+      },
+      "remove": [],
+      "add_unpinned": [],
+      "from_version": "5.2.0",
+      "target_version": "7.6.0",
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    {
+      "id": "remove:idna",
+      "type": "remove",
+      "dependency": "idna",
+      "reason": "declared but never imported",
+      "set_pins": {},
+      "remove": [
+        "idna"
+      ],
+      "add_unpinned": [],
+      "from_version": "2.7",
+      "target_version": null,
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    {
+      "id": "upgrade:jinja2@3.1.6",
+      "type": "upgrade",
+      "dependency": "jinja2",
+      "reason": "2.11.3 -> 3.1.6",
+      "set_pins": {
+        "jinja2": "3.1.6"
+      },
+      "remove": [],
+      "add_unpinned": [],
+      "from_version": "2.11.3",
+      "target_version": "3.1.6",
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    {
+      "id": "replace:nose",
+      "type": "replace",
+      "dependency": "nose",
+      "reason": "frozen: no release for 11.37 years (last 2015-06-02)",
+      "set_pins": {},
+      "remove": [
+        "nose"
+      ],
+      "add_unpinned": [],
+      "from_version": "1.3.7",
+      "target_version": "pytest",
+      "expects_code_change": true,
+      "replacement_ref": "replacement:nose",
+      "skipped": null
+    },
+    {
+      "id": "upgrade:pydantic@2.14.1",
+      "type": "upgrade",
+      "dependency": "pydantic",
+      "reason": "1.10.13 -> 2.14.1",
+      "set_pins": {
+        "pydantic": "2.14.1"
+      },
+      "remove": [],
+      "add_unpinned": [],
+      "from_version": "1.10.13",
+      "target_version": "2.14.1",
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    {
+      "id": "upgrade:requests@2.34.2",
+      "type": "upgrade",
+      "dependency": "requests",
+      "reason": "2.31.0 -> 2.34.2",
+      "set_pins": {
+        "requests": "2.34.2"
+      },
+      "remove": [],
+      "add_unpinned": [],
+      "from_version": "2.31.0",
+      "target_version": "2.34.2",
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    {
+      "id": "upgrade:setuptools@84.0.0",
+      "type": "upgrade",
+      "dependency": "setuptools",
+      "reason": "75.8.0 -> 84.0.0",
+      "set_pins": {
+        "setuptools": "84.0.0"
+      },
+      "remove": [],
+      "add_unpinned": [],
+      "from_version": "75.8.0",
+      "target_version": "84.0.0",
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    {
+      "id": "remove:six",
+      "type": "remove",
+      "dependency": "six",
+      "reason": "declared but never imported",
+      "set_pins": {},
+      "remove": [
+        "six"
+      ],
+      "add_unpinned": [],
+      "from_version": "1.17.0",
+      "target_version": null,
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    {
+      "id": "replace:toml",
+      "type": "replace",
+      "dependency": "toml",
+      "reason": "frozen: no release for 5.95 years (last 2020-11-01)",
+      "set_pins": {},
+      "remove": [
+        "toml"
+      ],
+      "add_unpinned": [],
+      "from_version": "0.10.2",
+      "target_version": "tomllib",
+      "expects_code_change": true,
+      "replacement_ref": "replacement:toml",
+      "skipped": null
+    },
+    {
+      "id": "declare:certifi",
+      "type": "declare",
+      "dependency": "certifi",
+      "reason": "imported as certifi but not declared",
+      "set_pins": {
+        "certifi": "2023.5.7"
+      },
+      "remove": [],
+      "add_unpinned": [],
+      "from_version": null,
+      "target_version": "2023.5.7",
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    },
+    {
+      "id": "all-latest",
+      "type": "all-latest",
+      "dependency": "*",
+      "reason": "every upgradable dependency at its latest release",
+      "set_pins": {
+        "chardet": "7.6.0",
+        "jinja2": "3.1.6",
+        "pydantic": "2.14.1",
+        "requests": "2.34.2",
+        "setuptools": "84.0.0"
+      },
+      "remove": [],
+      "add_unpinned": [],
+      "from_version": null,
+      "target_version": null,
+      "expects_code_change": false,
+      "replacement_ref": null,
+      "skipped": null
+    }
+  ],
+  "replacements": {
+    "appdirs": {
+      "id": "replacement:appdirs",
+      "dependency": "appdirs",
+      "replacement": "platformdirs",
+      "kind": "pypi",
+      "api_compatible": true,
+      "rationale": "platformdirs is the actively maintained successor to appdirs and provides a nearly identical API for retrieving platform-specific directories.",
+      "migration_outline": [
+        "Remove appdirs from dependency files (e.g., requirements.txt, pyproject.toml)",
+        "Add platformdirs to dependency files",
+        "Update import statements from 'import appdirs' to 'import platformdirs'"
+      ],
+      "api_mapping": [
+        {
+          "old": "appdirs.user_cache_dir",
+          "new": "platformdirs.user_cache_dir",
+          "note": "The API signature and behavior are identical."
+        }
+      ],
+      "confidence": 1.0,
+      "verified": true,
+      "verification": {
+        "ok": true,
+        "detail": "exists on PyPI (latest 4.13.0, https://pypi.org/pypi/platformdirs/json)",
+        "provenance": "observed",
+        "source": {
+          "kind": "pypi/stdlib check"
+        }
+      },
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma-4-26b-a4b-it",
+        "backend": {
+          "role": "secondary",
+          "model": "gemma-4-26b-a4b-it",
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta",
+          "api": "gemini"
+        },
+        "fallback_used": true,
+        "attempt": 2,
+        "prompt_sha256": "1efe4f56ac6c221e16477cdc06335becd109d62a8ba6521bbde33b6b9a32d564",
+        "response_sha256": "ae461f7f6bafe30280c2c946d12079cf7244c8aa894f58dede0ee6994798a6a1",
+        "duration_s": 26.67,
+        "at": "2026-10-15T09:04:46+00:00",
+        "earlier_errors": [
+          "primary/gemma-4-31b-it: HTTP 500 Internal error encountered.",
+          "primary/gemma-4-31b-it: HTTP 500 Internal error encountered.",
+          "primary/gemma-4-31b-it: HTTP 503 This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+          "secondary/gemma-4-26b-a4b-it: HTTP 500 Internal error encountered."
+        ],
+        "cached": true,
+        "cache_file": "C:\\istehack\\.bf-cache\\llm\\3ad69c4efdad9448ade7b5f2fb7f2fbb63db0b27.json",
+        "schema_retry": false
+      }
+    },
+    "nose": {
+      "id": "replacement:nose",
+      "dependency": "nose",
+      "replacement": "pytest",
+      "kind": "pypi",
+      "api_compatible": false,
+      "rationale": "pytest is the industry-standard replacement for nose; it is actively maintained and provides excellent support for existing unittest-style test suites.",
+      "migration_outline": [
+        "Install pytest via pip",
+        "Replace 'nosetests' command with 'pytest' in shell scripts, Makefiles, or CI configurations",
+        "Remove 'nose' from requirements.txt or pyproject.toml"
+      ],
+      "api_mapping": [
+        {
+          "old": "nosetests",
+          "new": "pytest",
+          "note": "The CLI command changes, but pytest automatically discovers and runs tests written using the unittest framework."
+        }
+      ],
+      "confidence": 1.0,
+      "verified": true,
+      "verification": {
+        "ok": true,
+        "detail": "exists on PyPI (latest 9.1.1, https://pypi.org/pypi/pytest/json)",
+        "provenance": "observed",
+        "source": {
+          "kind": "pypi/stdlib check"
+        }
+      },
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma-4-26b-a4b-it",
+        "backend": {
+          "role": "secondary",
+          "model": "gemma-4-26b-a4b-it",
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta",
+          "api": "gemini"
+        },
+        "fallback_used": true,
+        "attempt": 1,
+        "prompt_sha256": "ff0a06e01a857b2c72baedcbe88413748c900576d476ae3266e0a8f439936744",
+        "response_sha256": "f1915d0a57c194d3768008bbfd142e90124b8885b4c545cbe8224902741bbf40",
+        "duration_s": 21.88,
+        "at": "2026-10-15T08:04:25+00:00",
+        "earlier_errors": [
+          "primary/gemma-4-31b-it: HTTP 500 Internal error encountered.",
+          "primary/gemma-4-31b-it: HTTP 503 This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+          "primary/gemma-4-31b-it: HTTP 503 This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        ],
+        "cached": true,
+        "cache_file": "C:\\istehack\\.bf-cache\\llm\\234772f01aeb4ebb1deb0b0086688201648c8093.json",
+        "schema_retry": false
+      }
+    },
+    "toml": {
+      "id": "replacement:toml",
+      "dependency": "toml",
+      "replacement": "tomllib",
+      "kind": "stdlib",
+      "api_compatible": false,
+      "rationale": "Python 3.11 introduced tomllib as a standard library module for parsing TOML files, which is the preferred replacement for the unmaintained toml package for read-only operations.",
+      "migration_outline": [
+        "Replace 'import toml' with 'import tomllib' in linkwatch/config.py",
+        "Replace 'toml.load' with 'tomllib.load' in linkwatch/config.py",
+        "Remove 'toml' from the project dependencies"
+      ],
+      "api_mapping": [
+        {
+          "old": "toml.load",
+          "new": "tomllib.load",
+          "note": "tomllib is read-only, but since only loading is used, it is a direct replacement."
+        }
+      ],
+      "confidence": 1.0,
+      "verified": true,
+      "verification": {
+        "ok": true,
+        "detail": "stdlib module exists in Python 3.12",
+        "provenance": "observed",
+        "source": {
+          "kind": "pypi/stdlib check"
+        }
+      },
+      "provenance": "ai_generated",
+      "source": {
+        "kind": "model",
+        "model_used": "gemma-4-31b-it",
+        "backend": {
+          "role": "primary",
+          "model": "gemma-4-31b-it",
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta",
+          "api": "gemini"
+        },
+        "fallback_used": false,
+        "attempt": 3,
+        "prompt_sha256": "5231462cdbca8a62a1f7eabd9e36c2fdb030f37c9ad68f7a6bf06ef9cf951eca",
+        "response_sha256": "a0b6450c82b809e0a8b7660f684f033eedc37dda5b6a2c668e6676a650c3cf0e",
+        "duration_s": 57.5,
+        "at": "2026-10-15T08:06:08+00:00",
+        "earlier_errors": [
+          "primary/gemma-4-31b-it: HTTP 500 Internal error encountered.",
+          "primary/gemma-4-31b-it: HTTP 503 This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+        ],
+        "cached": true,
+        "cache_file": "C:\\istehack\\.bf-cache\\llm\\9660a2342eabc518f00b90175f38dacf3af68979.json",
+        "schema_retry": false
+      }
+    }
+  },
+  "resolutions": {
+    "replace:appdirs|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-appdirs-3.12.lock.txt",
+      "resolved": {
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "platformdirs": "4.13.0",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-appdirs-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "upgrade:chardet@7.6.0|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-chardet-7.6.0-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "7.6.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-chardet-7.6.0-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "remove:idna|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-idna-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "3.20",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-idna-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "upgrade:jinja2@3.1.6|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "3.1.6",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "3.0.4",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.12-L0.in",
+          "ok": false,
+          "error": "error: No solution found when resolving dependencies\n  cause: Because jinja2>=3.1.6 depends on markupsafe>=2.0 and you require jinja2==3.1.6, we can conclude that you require markupsafe>=2.0.\n         And because you require markupsafe==1.1.1, we can conclude that your requirements are unsatisfiable."
+        },
+        {
+          "level": "freed changed package's dependencies",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.12-L1.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {
+        "markupsafe": [
+          "1.1.1",
+          "3.0.4"
+        ]
+      },
+      "freed_direct_pins": []
+    },
+    "replace:nose|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-nose-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-nose-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "upgrade:pydantic@2.14.1|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.12.lock.txt",
+      "resolved": {
+        "annotated-types": "0.8.0",
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "2.14.1",
+        "pydantic-core": "2.50.1",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.16.0",
+        "typing-inspection": "0.4.4",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.12-L0.in",
+          "ok": false,
+          "error": "error: No solution found when resolving dependencies\n  cause: Because pydantic>=2.14.1 depends on typing-extensions>=4.16.0 and you require pydantic==2.14.1, we can conclude that you require typing-extensions>=4.16.0.\n         And because you require typing-extensions==4.8.0, we can conclude that your requirements are unsatisfiable."
+        },
+        {
+          "level": "freed changed package's dependencies",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.12-L1.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {
+        "annotated-types": [
+          null,
+          "0.8.0"
+        ],
+        "pydantic-core": [
+          null,
+          "2.50.1"
+        ],
+        "typing-extensions": [
+          "4.8.0",
+          "4.16.0"
+        ],
+        "typing-inspection": [
+          null,
+          "0.4.4"
+        ]
+      },
+      "freed_direct_pins": []
+    },
+    "upgrade:requests@2.34.2|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-requests-2.34.2-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.34.2",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-requests-2.34.2-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "upgrade:setuptools@84.0.0|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-setuptools-84.0.0-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "84.0.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-setuptools-84.0.0-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "remove:six|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-six-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-six-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "replace:toml|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-toml-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-toml-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "declare:certifi|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\declare-certifi-3.12.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\declare-certifi-3.12-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "all-latest|3.12": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.12.lock.txt",
+      "resolved": {
+        "annotated-types": "0.8.0",
+        "appdirs": "1.4.4",
+        "certifi": "2026.7.22",
+        "chardet": "7.6.0",
+        "charset-normalizer": "3.5.2",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "3.20",
+        "iniconfig": "2.3.1",
+        "jinja2": "3.1.6",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "3.0.4",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "2.14.1",
+        "pydantic-core": "2.50.1",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.34.2",
+        "rich": "15.0.0",
+        "setuptools": "84.0.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.16.0",
+        "typing-inspection": "0.4.4",
+        "urllib3": "2.8.0"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.12-L0.in",
+          "ok": false,
+          "error": "error: No solution found when resolving dependencies\n  cause: Because jinja2>=3.1.6 depends on markupsafe>=2.0 and you require jinja2==3.1.6, we can conclude that you require markupsafe>=2.0.\n         And because you require markupsafe==1.1.1, we can conclude that your requirements are unsatisfiable."
+        },
+        {
+          "level": "freed changed package's dependencies",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.12-L1.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {
+        "annotated-types": [
+          null,
+          "0.8.0"
+        ],
+        "certifi": [
+          "2023.5.7",
+          "2026.7.22"
+        ],
+        "charset-normalizer": [
+          "3.1.0",
+          "3.5.2"
+        ],
+        "idna": [
+          "2.7",
+          "3.20"
+        ],
+        "markupsafe": [
+          "1.1.1",
+          "3.0.4"
+        ],
+        "pydantic-core": [
+          null,
+          "2.50.1"
+        ],
+        "typing-extensions": [
+          "4.8.0",
+          "4.16.0"
+        ],
+        "typing-inspection": [
+          null,
+          "0.4.4"
+        ],
+        "urllib3": [
+          "2.0.2",
+          "2.8.0"
+        ]
+      },
+      "freed_direct_pins": []
+    },
+    "replace:appdirs|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-appdirs-3.13.lock.txt",
+      "resolved": {
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "platformdirs": "4.13.0",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-appdirs-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "upgrade:chardet@7.6.0|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-chardet-7.6.0-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "7.6.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-chardet-7.6.0-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "remove:idna|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-idna-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "3.20",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-idna-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "upgrade:jinja2@3.1.6|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "3.1.6",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "3.0.4",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.13-L0.in",
+          "ok": false,
+          "error": "error: No solution found when resolving dependencies\n  cause: Because jinja2>=3.1.6 depends on markupsafe>=2.0 and you require jinja2==3.1.6, we can conclude that you require markupsafe>=2.0.\n         And because you require markupsafe==1.1.1, we can conclude that your requirements are unsatisfiable."
+        },
+        {
+          "level": "freed changed package's dependencies",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-jinja2-3.1.6-3.13-L1.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {
+        "markupsafe": [
+          "1.1.1",
+          "3.0.4"
+        ]
+      },
+      "freed_direct_pins": []
+    },
+    "replace:nose|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-nose-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-nose-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "upgrade:pydantic@2.14.1|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.13.lock.txt",
+      "resolved": {
+        "annotated-types": "0.8.0",
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "2.14.1",
+        "pydantic-core": "2.50.1",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.16.0",
+        "typing-inspection": "0.4.4",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.13-L0.in",
+          "ok": false,
+          "error": "error: No solution found when resolving dependencies\n  cause: Because pydantic>=2.14.1 depends on typing-extensions>=4.16.0 and you require pydantic==2.14.1, we can conclude that you require typing-extensions>=4.16.0.\n         And because you require typing-extensions==4.8.0, we can conclude that your requirements are unsatisfiable."
+        },
+        {
+          "level": "freed changed package's dependencies",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-pydantic-2.14.1-3.13-L1.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {
+        "annotated-types": [
+          null,
+          "0.8.0"
+        ],
+        "pydantic-core": [
+          null,
+          "2.50.1"
+        ],
+        "typing-extensions": [
+          "4.8.0",
+          "4.16.0"
+        ],
+        "typing-inspection": [
+          null,
+          "0.4.4"
+        ]
+      },
+      "freed_direct_pins": []
+    },
+    "upgrade:requests@2.34.2|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-requests-2.34.2-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.34.2",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-requests-2.34.2-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "upgrade:setuptools@84.0.0|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-setuptools-84.0.0-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "84.0.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\upgrade-setuptools-84.0.0-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "remove:six|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-six-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\remove-six-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "replace:toml|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-toml-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\replace-toml-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "declare:certifi|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\declare-certifi-3.13.lock.txt",
+      "resolved": {
+        "appdirs": "1.4.4",
+        "certifi": "2023.5.7",
+        "chardet": "5.2.0",
+        "charset-normalizer": "3.1.0",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "2.7",
+        "iniconfig": "2.3.1",
+        "jinja2": "2.11.3",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "1.1.1",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "1.10.13",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.31.0",
+        "rich": "15.0.0",
+        "setuptools": "75.8.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.8.0",
+        "urllib3": "2.0.2"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\declare-certifi-3.13-L0.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {},
+      "freed_direct_pins": []
+    },
+    "all-latest|3.13": {
+      "ok": true,
+      "lock_file": "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.13.lock.txt",
+      "resolved": {
+        "annotated-types": "0.8.0",
+        "appdirs": "1.4.4",
+        "certifi": "2026.7.22",
+        "chardet": "7.6.0",
+        "charset-normalizer": "3.5.2",
+        "click": "8.5.0",
+        "colorama": "0.4.6",
+        "idna": "3.20",
+        "iniconfig": "2.3.1",
+        "jinja2": "3.1.6",
+        "markdown-it-py": "4.2.0",
+        "markupsafe": "3.0.4",
+        "mdurl": "0.1.2",
+        "nose": "1.3.7",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "2.14.1",
+        "pydantic-core": "2.50.1",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "requests": "2.34.2",
+        "rich": "15.0.0",
+        "setuptools": "84.0.0",
+        "six": "1.17.0",
+        "toml": "0.10.2",
+        "typing-extensions": "4.16.0",
+        "typing-inspection": "0.4.4",
+        "urllib3": "2.8.0"
+      },
+      "attempts": [
+        {
+          "level": "locked",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.13-L0.in",
+          "ok": false,
+          "error": "error: No solution found when resolving dependencies\n  cause: Because jinja2>=3.1.6 depends on markupsafe>=2.0 and you require jinja2==3.1.6, we can conclude that you require markupsafe>=2.0.\n         And because you require markupsafe==1.1.1, we can conclude that your requirements are unsatisfiable."
+        },
+        {
+          "level": "freed changed package's dependencies",
+          "input": "C:\\istehack\\runs\\20261015-151158\\cells\\all-latest-3.13-L1.in",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "co_upgrades": {
+        "annotated-types": [
+          null,
+          "0.8.0"
+        ],
+        "certifi": [
+          "2023.5.7",
+          "2026.7.22"
+        ],
+        "charset-normalizer": [
+          "3.1.0",
+          "3.5.2"
+        ],
+        "idna": [
+          "2.7",
+          "3.20"
+        ],
+        "markupsafe": [
+          "1.1.1",
+          "3.0.4"
+        ],
+        "pydantic-core": [
+          null,
+          "2.50.1"
+        ],
+        "typing-extensions": [
+          "4.8.0",
+          "4.16.0"
+        ],
+        "typing-inspection": [
+          null,
+          "0.4.4"
+        ],
+        "urllib3": [
+          "2.0.2",
+          "2.8.0"
+        ]
+      },
+      "freed_direct_pins": []
+    }
+  }
+}
